@@ -714,7 +714,7 @@ body .http-error p {
   text-align: center;
 }
 .stat-widget-container .stat-widget {
-  width: 25%;
+  width: 50%;
   float: left;
 }
 .stat-widget-container .stat-widget .stat-button {
