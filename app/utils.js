@@ -17,7 +17,12 @@ $(document).ready(function() {
     });
 
 
+    var consoleError = console.error.bind(console);
 
+    var trackDesc = function (track) {
+        return track.name + " by " + track.artists[0].name +
+            " from " + track.album.name;
+    };
 
 
     var queueAndPlayFirstPlaylist = function () {
@@ -33,7 +38,8 @@ $(document).ready(function() {
             }, consoleError);
         }, consoleError);
     };
-
+    
+    mopidy.on(console.log.bind(console));
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
 
 
