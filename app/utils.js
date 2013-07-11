@@ -76,6 +76,7 @@ function processGetPlaylists(resultArr) {
     };
 
     nrOfPlaylists = resultArr.length;
+    showNrOfPlaylist();
 }
 
 function showNrOfPlaylist(){
