@@ -77,22 +77,21 @@ function processGetPlaylists(resultArr) {
     showNrOfPlaylist(resultArr.length);
 }
 
+/********************************************************
+ * 
+ *********************************************************/
 function showNrOfPlaylist(nrOfElements){
-    var playlists = document.getElementById(nrOfPlaylists);
+    //var playlists = document.getElementById(nrOfPlaylists);
 
-    playlists.value = nrOfElements;
+    //playlists.value = nrOfElements;
+
+    $('p#nrOfPlaylists').text(nrOfElements);
 }
 
+/********************************************************
+ * Adds a playlist to the sidebar
+ *********************************************************/
 function insertPlaylist(myid, position, newListItem) {
-    //var ul = document.getElementById(myid);
-    //var li = document.createElement("li");
-
-    //setAttribute("href", "index.html");
-
-   // li.innerHTML = newListItem;
-
-
-   // ul.insertBefore(li, ul.getElementsByTagName("li")[position]);
 
     $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
 }
