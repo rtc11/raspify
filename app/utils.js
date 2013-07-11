@@ -1,7 +1,7 @@
 /********************************************************
  * Variables
  *********************************************************/
-
+var nrOfPlaylists = 0;
 
 /********************************************************
  * Add row to queue
@@ -72,15 +72,21 @@ function processGetPlaylists(resultArr) {
     var tmp = '';
 
     for (var i = 0; i < resultArr.length; i++) {
-        insertItemToList("error-menu", i+1, resultArr[i].name);
+        insertPlaylist("error-menu", i+1, resultArr[i].name);
     };
 
-    
+    nrOfPlaylists = resultArr.length;
 }
 
-function insertItemToList(myid, position, newListItem) {
+function showNrOfPlaylist(){
+    document.getElementById("nrOfPlaylists").value = nrOfPlaylists;
+}
+
+function insertPlaylist(myid, position, newListItem) {
     var ul = document.getElementById(myid);
     var li = document.createElement("li");
-    li.innerHTML=newListItem;
+
+    li.innerHTML = newListItem;
+
     ul.insertBefore(li, ul.getElementsByTagName("li")[position]);
 }

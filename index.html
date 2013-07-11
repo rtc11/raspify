@@ -36,7 +36,7 @@
             font-weight: bold;
         }
     </style>
-  
+
   </head>
 
   <!--***************************************************
@@ -109,7 +109,7 @@
                 <div class="stat-widget-container">
                   <div class="stat-widget">
                     <div class="stat-button">
-                      <p class="title">57</p>
+                      <p class="title" id="nrOfPlaylists">0</p>
                       <p class="detail">Playlists</p>
                     </div>
                   </div>
@@ -129,6 +129,10 @@
             <div class="block span12">
               <a href="#tablewidget" class="block-heading" data-toggle="collapse">Queue<span class="label label-warning">2</span></a>
               <div id="tablewidget" class="block-body collapse in">
+
+                <button onClick='addRow("LOL","hehe", "3:23", "yeyeye");return false;'>Add Row</button>
+                <button onClick='insertPlaylist("error-menu", 0, "Home"); return false;'>Add Playlist</button>
+              
                 <table class="table">
                   <thead>
                     <tr>
@@ -153,12 +157,6 @@
                     </tr>
                   </tbody>
                 </table>
-
-                <!-- TODO: If there is more than 500? elements in a list -->
-                <button onClick='addRow("LOL","hehe", "3:23", "yeyeye");return false;'>Add Row</button>
-
-                <button onClick='insertItemToList("error-menu", 0, "newListItem");return false;'>Add Playlist</button>
-
 
               </div>
             </div>
