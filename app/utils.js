@@ -119,7 +119,7 @@ function test(){
     var consoleError = console.error.bind(console);
 
     var getFirst = function (list) {
-        return list[0];
+        return list[4];
     };
 
     var extractTracks = function (playlist) {
