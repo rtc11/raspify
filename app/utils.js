@@ -1,6 +1,55 @@
 /********************************************************
  * Variables
  *********************************************************/
+var nrOfTracks = 0;
+
+/********************************************************
+ * Initialize
+ *********************************************************/
+$(document).ready(function() {
+    
+    // Connect to mopidy server
+    mopidy = new Mopidy();
+     mopidy.on("state:online", function() {
+
+        //Fetch the playlists
+        getPlaylists();
+    });
+
+
+
+
+
+    var queueAndPlayFirstPlaylist = function () {
+        mopidy.playlists.getPlaylists().then(function (playlists) {
+            var playlist = playlists[0];
+            console.log("Loading playlist:", playlist.name);
+            mopidy.tracklist.add(playlist.tracks).then(function (tlTracks) {
+                mopidy.playback.play(tlTracks[0]).then(function () {
+                    mopidy.playback.getCurrentTrack().then(function (track) {
+                        console.log("Now playing:", trackDesc(track));
+                    }, consoleError);
+                }, consoleError);
+            }, consoleError);
+        }, consoleError);
+    };
+
+    mopidy.on("state:online", queueAndPlayFirstPlaylist);
+
+
+});
+
+function play(track){
+    mopidy.on("state:online", function () {
+        mopidy.playback.play();
+    });
+}
+
+function next(){
+    mopidy.on("state:online", function () {
+        mopidy.playback.next();
+    });
+}
 
 /********************************************************
  * Add row to queue
@@ -35,28 +84,13 @@ function addRow(track, artist, time, album){
 }
 
 /********************************************************
- * Playlists
+ * Get all the playlists
  *********************************************************/
-
 function getPlaylists() {
     // Get playlists without tracks
     mopidy.playlists.getPlaylists(false)
     .then(processGetPlaylists, console.error);  
 }
-
-/********************************************************
- * Initialize
- *********************************************************/
-$(document).ready(function() {
-    
-    // Connect to server
-    mopidy = new Mopidy();
-
-     mopidy.on("state:online", function() {
-        getPlaylists();
-    });
-
-});
 
 
 /********************************************************
@@ -68,30 +102,31 @@ function processGetPlaylists(resultArr) {
         return;
     }
 
-    var tmp = '';
-
     for (var i = 0; i < resultArr.length; i++) {
         insertPlaylist("error-menu", i+1, resultArr[i].name);
     };
 
+    //Set the number of playlists found
     showNrOfPlaylist(resultArr.length);
 }
 
 /********************************************************
- * 
+ * Shows the number of playlists
  *********************************************************/
-function showNrOfPlaylist(nrOfElements){
-    //var playlists = document.getElementById(nrOfPlaylists);
+function showNrOfPlaylist(nr){
+    $('p#nrOfPlaylists').text(nr);
+}
 
-    //playlists.value = nrOfElements;
-
-    $('p#nrOfPlaylists').text(nrOfElements);
+/********************************************************
+ * Shows the number of tracks
+ *********************************************************/
+function showNrOfTracks(nr){
+    $('p#nrOfTracks').text(nr);
 }
 
 /********************************************************
  * Adds a playlist to the sidebar
  *********************************************************/
-function insertPlaylist(myid, position, newListItem) {
-
+function insertPlaylist(myid, newListItem) {
     $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
 }
