@@ -72,7 +72,7 @@ function processGetPlaylists(resultArr) {
     var tmp = '';
 
     for (var i = 0; i < resultArr.length; i++) {
-        insertItemToList("error-menu", 0, resultArr[i].name);
+        insertItemToList("error-menu", i+1, resultArr[i].name);
     };
 
     
