@@ -31,6 +31,7 @@ function play(track){
 
 function next(){
     mopidy.on("state:online", function () {
+        var mopidy = new Mopidy(); 
         mopidy.playback.next();
     });
 }
