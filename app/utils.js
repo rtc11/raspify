@@ -84,10 +84,15 @@ function showNrOfPlaylist(nrOfElements){
 }
 
 function insertPlaylist(myid, position, newListItem) {
-    var ul = document.getElementById(myid);
-    var li = document.createElement("li");
+    //var ul = document.getElementById(myid);
+    //var li = document.createElement("li");
 
-    li.innerHTML = newListItem;
+    //setAttribute("href", "index.html");
 
-    ul.insertBefore(li, ul.getElementsByTagName("li")[position]);
+   // li.innerHTML = newListItem;
+
+
+   // ul.insertBefore(li, ul.getElementsByTagName("li")[position]);
+
+    $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
 }
