@@ -8,6 +8,10 @@ var nrOfTracks = 0;
  *********************************************************/
 $(document).ready(function() {
     
+    test();
+
+    /**
+
     // Connect to mopidy server
     mopidy = new Mopidy();
      mopidy.on("state:online", function() {
@@ -16,33 +20,7 @@ $(document).ready(function() {
         getPlaylists();
     });
 
-
-    var consoleError = console.error.bind(console);
-
-    var trackDesc = function (track) {
-        return track.name + " by " + track.artists[0].name +
-            " from " + track.album.name;
-    };
-
-
-    var queueAndPlayFirstPlaylist = function () {
-        mopidy.playlists.getPlaylists().then(function (playlists) {
-            var playlist = playlists[0];
-            console.log("Loading playlist:", playlist.name);
-            mopidy.tracklist.add(playlist.tracks).then(function (tlTracks) {
-                mopidy.playback.play(tlTracks[0]).then(function () {
-                    mopidy.playback.getCurrentTrack().then(function (track) {
-                        console.log("Now playing:", trackDesc(track));
-                    }, consoleError);
-                }, consoleError);
-            }, consoleError);
-        }, consoleError);
-    };
-    
-    mopidy.on(console.log.bind(console));
-    mopidy.on("state:online", queueAndPlayFirstPlaylist);
-
-
+     */
 });
 
 function play(track){
@@ -135,4 +113,60 @@ function showNrOfTracks(nr){
  *********************************************************/
 function insertPlaylist(myid, newListItem) {
     $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
+}
+
+function test(){
+    var consoleError = console.error.bind(console);
+
+    var getFirst = function (list) {
+        return list[0];
+    };
+
+    var extractTracks = function (playlist) {
+        return playlist.tracks;
+    };
+
+    var printTypeAndName = function (model) {
+        console.log(model.__model__ + ": " + model.name);
+        // By returning the playlist, this function can be inserted
+        // anywhere a model with a name is piped in the chain.
+        return model;
+    };
+
+    var trackDesc = function (track) {
+        return track.name + " by " + track.artists[0].name +
+            " from " + track.album.name;
+    };
+
+    var printNowPlaying = function () {
+        // By returning any arguments we get, the function can be inserted
+        // anywhere in the chain.
+        var args = arguments;
+        return mopidy.playback.getCurrentTrack().then(function (track) {
+            console.log("Now playing:", trackDesc(track));
+            return args;
+        });
+    };
+
+    var queueAndPlayFirstPlaylist = function () {
+        mopidy.playlists.getPlaylists()
+            // => list of Playlists
+            .then(getFirst, consoleError)
+            // => Playlist
+            .then(printTypeAndName, consoleError)
+            // => Playlist
+            .then(extractTracks, consoleError)
+            // => list of Tracks
+            .then(mopidy.tracklist.add, consoleError)
+            // => list of TlTracks
+            .then(getFirst, consoleError)
+            // => TlTrack
+            .then(mopidy.playback.play, consoleError)
+            // => null
+            .then(printNowPlaying, consoleError);
+    };
+
+    var mopidy = new Mopidy();             // Connect to server
+    mopidy.on(console.log.bind(console));  // Log all events
+    mopidy.on("state:online", queueAndPlayFirstPlaylist);
 }
