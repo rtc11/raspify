@@ -3,6 +3,8 @@
  *********************************************************/
 var nrOfTracks = 0;
 
+var tracklist;
+
 /********************************************************
  * Initialize
  *********************************************************/
@@ -117,7 +119,7 @@ function insertPlaylist(myid, newListItem) {
 function test(playlistNr){
     var consoleError = console.error.bind(console);
 
-    var getFirst = function (list) {
+    var getFirstPlaylist = function (list) {
 
         //All playlists
         getAllPlaylists(list);
@@ -129,24 +131,25 @@ function test(playlistNr){
         return list[playlistNr];
     };
 
-    var getAllPlaylists = function(resultArr){
-        if ((!resultArr) || (resultArr == '')) {
+    var getFirstTrack = function(list) {
+        return list[0];
+    }
+
+    var getAllPlaylists = function(list){
+
+        if ((!list) || (list == '')) {
             return;
         }
 
-        for (var i = 0; i < resultArr.length; i++) {
-            insertPlaylist("error-menu", i+1, resultArr[i].name);
+        for (var i = 0; i < list.length; i++) {
+            insertPlaylist("error-menu", i+1, list[i].name);
         };
 
     }
 
     var extractTracks = function (playlist) {
 
-        var tracks = playlist.tracks;
-
-        for(var i = 0; i<playlist.tracks.lenght; i++){
-            addRow(tracks[i].name, tracks[i].artist, tracks[i].time, tracks[i].album);
-        }
+        tracklist = playlist.tracks;
 
         return playlist.tracks;
     };
@@ -176,7 +179,7 @@ function test(playlistNr){
     var queueAndPlayFirstPlaylist = function () {
         mopidy.playlists.getPlaylists()
             // => list of Playlists
-            .then(getFirst, consoleError)
+            .then(getFirstPlaylist, consoleError)
             // => Playlist
             .then(printTypeAndName, consoleError)
             // => Playlist
@@ -184,7 +187,7 @@ function test(playlistNr){
             // => list of Tracks
             .then(mopidy.tracklist.add, consoleError)
             // => list of TlTracks
-            .then(getFirst, consoleError)
+            .then(getFirstTrack, consoleError)
             // => TlTrack
             .then(mopidy.playback.play, consoleError)
             // => null
