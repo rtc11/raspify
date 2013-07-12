@@ -36,7 +36,7 @@ function getNrOfTracks(){
 
 function addTracksToQueue(list){
     for(var i = 0; i<list.length; i++){
-        addRow(list[i].name, list[i].artists[0].name, list[i].time, list[i].albums.name);
+        addRow(list[i].name, "-", "-", "-");
     }
 }
 
@@ -85,7 +85,7 @@ function fetchFromMopidy(){
     var putPlaylistsOnGUI = function(list){
         if ((!list) || (list == '')) {return;}
         for (var i = 0; i < list.length; i++) {
-               insertPlaylist("error-menu", i+1, list[i].playlist.name);
+               insertPlaylist("error-menu", i+1, list[i].name);
         };
     }
 
