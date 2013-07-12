@@ -39,12 +39,13 @@ function fetchFromMopidy(){
 
     var getFirstPlaylist = function (list) {
         setPlaylists(list);
-        insertAllPlaylists(list);
+        putPlaylistsOnGUI(list);
         showNrOfPlaylists(list.length);
         return list[4];
     };
 
     var getFirstTrack = function(list) {
+        addTracksToQueue(list);
         return list[0];
     }
 

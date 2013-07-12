@@ -55,23 +55,9 @@ function addRow(track, artist, time, album){
 }
 
 /********************************************************
- * process results of list of playlists of the user
- *********************************************************/
-function insertAllPlaylists(resultArr) {
-
-    if ((!resultArr) || (resultArr == '')) {
-        return;
-    }
-
-    for (var i = 0; i < resultArr.length; i++) {
-        insertPlaylist("error-menu", i+1, resultArr[i].name);
-    };
-}
-
-/********************************************************
  * Shows the number of playlists
  *********************************************************/
-function showNrOfPlaylist(nr){
+function showNrOfPlaylists(nr){
     $('p#nrOfPlaylists').text(nr);
 }
 
