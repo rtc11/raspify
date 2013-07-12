@@ -1,153 +1,54 @@
 /********************************************************
  * Variables
  *********************************************************/
+var playlists;
 var nrOfTracks = 0;
-
-var tracklist;
 
 /********************************************************
  * Initialize
  *********************************************************/
 $(document).ready(function() {
-    
-    seekbar();
 
-    //Adds the playlist and starts playing it
-    test(4);
+    //Connect to the mopidy server
+    mopidy = new Mopidy();
+
+    //Make consol output errors for mopidy
+    mopidy.on(console.log.bind(console));
+
+    fetchFromMopidy();
+    
+    //Initialize volume control
+    volumeControl();
 });
 
-function play(track){
-    mopidy.on("state:online", function () {
-        mopidy.playback.play();
-    });
+function setPlaylists(newlist){
+    playlists = newlist;
 }
 
-function next(){ 
-    mopidy.on("state:online", function () {
-        mopidy.playback.next();
-    });
+function addNrOfTracks(nr){
+    nrOfTracks = nrOfTracks + nr;
 }
 
-function previous(){
-    mopidy.on("state:online", function () {
-        mopidy.playback.previous();
-    });
+function getNrOfTracks(){
+    return nrOfTracks;
 }
 
-/********************************************************
- * Add row to queue
- *********************************************************/
-function addRow(track, artist, time, album){
-         if (!document.getElementsByTagName) return;
-         
-         tabBody=document.getElementsByTagName("TBODY").item(0);
-         row=document.createElement("TR");
-         
-         cell1 = document.createElement("TD");
-         cell2 = document.createElement("TD");
-         cell3 = document.createElement("TD");
-         cell4 = document.createElement("TD");
-         
-         textnode1=document.createTextNode(track);
-         textnode2=document.createTextNode(artist);
-         textnode3=document.createTextNode(time);
-         textnode4=document.createTextNode(album);
-
-         cell1.appendChild(textnode1);
-         cell2.appendChild(textnode2);
-         cell3.appendChild(textnode3);
-         cell4.appendChild(textnode4);
-
-         row.appendChild(cell1);
-         row.appendChild(cell2);
-         row.appendChild(cell3);
-         row.appendChild(cell4);
-
-         tabBody.appendChild(row);
-}
-
-/********************************************************
- * process results of list of playlists of the user
- *********************************************************/
-function processGetPlaylists(resultArr) {
-
-    if ((!resultArr) || (resultArr == '')) {
-        return;
-    }
-
-    for (var i = 0; i < resultArr.length; i++) {
-        insertPlaylist("error-menu", i+1, resultArr[i].name);
-    };
-}
-
-/********************************************************
- * Shows the number of playlists
- *********************************************************/
-function showNrOfPlaylist(nr){
-    $('p#nrOfPlaylists').text(nr);
-}
-
-/********************************************************
- * Shows the number of tracks
- *********************************************************/
-function showNrOfTracks(nr){
-    $('p#nrOfTracks').text(nr);
-}
-
-/********************************************************
- * Adds a playlist to the sidebar
- *********************************************************/
-function insertPlaylist(myid, newListItem) {
-    $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
-}
-
-function addMoreTracksToCounter(nr){
-    window.nrOfTracks += list.length;
-}
-
-function setTrackList(list){
-    window.tracklist = list;
-}
-
-//playlistNr is a position on which playlist to be loaded.
-function test(playlistNr){
+function fetchFromMopidy(){
     var consoleError = console.error.bind(console);
 
     var getFirstPlaylist = function (list) {
-
-        //All playlists
-        getAllPlaylists(list);
-
-        //Set the number of playlists found
-        showNrOfPlaylist(list.length);
-
-        //Return the n'th playlist
-        return list[playlistNr];
+        setPlaylists(list);
+        insertAllPlaylists(list);
+        showNrOfPlaylists(list.length);
+        return list[4];
     };
 
     var getFirstTrack = function(list) {
-
-        //addMoreTracksToCounter(list.length);
-
         return list[0];
     }
 
-    var getAllPlaylists = function(list){
-
-        if ((!list) || (list == '')) {
-            return;
-        }
-
-        for (var i = 0; i < list.length; i++) {
-            insertPlaylist("error-menu", i+1, list[i].name);
-        };
-
-    }
-
     var extractTracks = function (playlist) {
-
-        //setTrackList(playlist.tracks);
-
+        addNrOfTracks(playlist.tracks.length);
         return playlist.tracks;
     };
 
@@ -173,7 +74,15 @@ function test(playlistNr){
         });
     };
 
+    var putPlaylistsOnGUI = function(list){
+        if ((!list) || (list == '')) {return;}
+        for (var i = 0; i < list.length; i++) {
+               insertPlaylist("error-menu", i+1, list[i].name);
+        };
+    }
+
     var queueAndPlayFirstPlaylist = function () {
+        //Playlists from mopidy server
         mopidy.playlists.getPlaylists()
             // => list of Playlists
             .then(getFirstPlaylist, consoleError)
@@ -189,20 +98,18 @@ function test(playlistNr){
             .then(mopidy.playback.play, consoleError)
             // => null
             .then(printNowPlaying, consoleError);
-
-            //Show total nr of tracks
-            //showNrOfTracks(nrOfTracks);
     };
 
-    var mopidy = new Mopidy();             // Connect to server
-    mopidy.on(console.log.bind(console));  // Log all events
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
+
+    var nrTrks = getNrOfTracks();
+    showNrOfTracks(nrTrks);
 }
 
 /********************************************************
- * Seekbar initializing
+ * Volume control
  *********************************************************/
-function seekbar(){
+function volumeControl(){
     $(function($) {
 
         $(".knob").knob({
