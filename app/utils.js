@@ -102,11 +102,11 @@ function insertPlaylist(myid, newListItem) {
 }
 
 function addMoreTracksToCounter(nr){
-    nrOfTracks += list.length;
+    window.nrOfTracks += list.length;
 }
 
 function setTrackList(list){
-    tracklist = list;
+    window.tracklist = list;
 }
 
 //playlistNr is a position on which playlist to be loaded.
