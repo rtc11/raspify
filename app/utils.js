@@ -15,6 +15,8 @@ $(document).ready(function() {
     //Adds the playlist and starts playing it
     test(4);
 
+    processGetPlaylists(tracklist);
+
 });
 
 function play(track){
@@ -79,6 +81,7 @@ function getPlaylists() {
 
 /********************************************************
  * process results of list of playlists of the user
+ *********************************************************/
 function processGetPlaylists(resultArr) {
 
     if ((!resultArr) || (resultArr == '')) {
@@ -88,11 +91,7 @@ function processGetPlaylists(resultArr) {
     for (var i = 0; i < resultArr.length; i++) {
         insertPlaylist("error-menu", i+1, resultArr[i].name);
     };
-
-    //Set the number of playlists found
-    showNrOfPlaylist(resultArr.length);
 }
- *********************************************************/
 
 /********************************************************
  * Shows the number of playlists
@@ -132,6 +131,9 @@ function test(playlistNr){
     };
 
     var getFirstTrack = function(list) {
+
+        nrOfTracks += list.length;
+
         return list[0];
     }
 
