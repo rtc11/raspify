@@ -14,9 +14,6 @@ $(document).ready(function() {
 
     //Adds the playlist and starts playing it
     test(4);
-
-    processGetPlaylists(tracklist);
-
 });
 
 function play(track){
@@ -114,6 +111,14 @@ function insertPlaylist(myid, newListItem) {
     $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
 }
 
+function addMoreTracksToCounter(nr){
+    nrOfTracks += list.length;
+}
+
+function setTrackList(list){
+    tracklist = list;
+}
+
 //playlistNr is a position on which playlist to be loaded.
 function test(playlistNr){
     var consoleError = console.error.bind(console);
@@ -132,7 +137,7 @@ function test(playlistNr){
 
     var getFirstTrack = function(list) {
 
-        nrOfTracks += list.length;
+        addMoreTracksToCounter(list.length);
 
         return list[0];
     }
@@ -151,7 +156,7 @@ function test(playlistNr){
 
     var extractTracks = function (playlist) {
 
-        tracklist = playlist.tracks;
+        setTrackList(playlist.tracks);
 
         return playlist.tracks;
     };
