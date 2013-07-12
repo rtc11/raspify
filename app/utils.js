@@ -101,9 +101,7 @@ function fetchFromMopidy(){
     };
 
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
-
-    var nrTrks = getNrOfTracks();
-    showNrOfTracks(nrTrks);
+    showNrOfTracks(getNrOfTracks());
 }
 
 /********************************************************
