@@ -14,10 +14,6 @@ $(document).ready(function() {
 
     //Adds the playlist and starts playing it
     test(4);
-
-    //Show total nr of tracks
-    showNrOfTracks(nrOfTracks);
-
 });
 
 function play(track){
@@ -192,7 +188,10 @@ function test(playlistNr){
             // => TlTrack
             .then(mopidy.playback.play, consoleError)
             // => null
-            .then(printNowPlaying, consoleError)
+            .then(printNowPlaying, consoleError);
+
+            //Show total nr of tracks
+            showNrOfTracks(nrOfTracks);
     };
 
     var mopidy = new Mopidy();             // Connect to server
