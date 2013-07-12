@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     //Adds the playlist and starts playing it
     test(4);
-    
+
 });
 
 function play(track){
@@ -140,6 +140,13 @@ function test(playlistNr){
     }
 
     var extractTracks = function (playlist) {
+
+        var tracks = playlist.tracks;
+
+        for(var i = 0; i<playlist.tracks.lenght; i++){
+            addRow(tracks.name, tracks.artist, tracks.time, tracks.album);
+        }
+
         return playlist.tracks;
     };
 
