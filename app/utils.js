@@ -10,8 +10,6 @@ $(document).ready(function() {
     
     seekbar();
 
-    //Adds the playlist and starts playing it
-    test(4);
 
     // Connect to mopidy server
     var mopidy = new Mopidy();
@@ -20,6 +18,9 @@ $(document).ready(function() {
         //Fetch the playlists
         getPlaylists();
     });
+    
+    //Adds the playlist and starts playing it
+    test(4);
 });
 
 function play(track){
