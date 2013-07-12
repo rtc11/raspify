@@ -122,6 +122,9 @@ function test(playlistNr){
         //All playlists
         getAllPlaylists(list);
 
+        //Set the number of playlists found
+        showNrOfPlaylist(list.length);
+
         //Return the n'th playlist
         return list[playlistNr];
     };
@@ -135,8 +138,6 @@ function test(playlistNr){
             insertPlaylist("error-menu", i+1, resultArr[i].name);
         };
 
-        //Set the number of playlists found
-        showNrOfPlaylist(resultArr.length);
     }
 
     var extractTracks = function (playlist) {
@@ -144,7 +145,7 @@ function test(playlistNr){
         var tracks = playlist.tracks;
 
         for(var i = 0; i<playlist.tracks.lenght; i++){
-            addRow(tracks.name, tracks.artist, tracks.time, tracks.album);
+            addRow(tracks[i].name, tracks[i].artist, tracks[i].time, tracks[i].album);
         }
 
         return playlist.tracks;
