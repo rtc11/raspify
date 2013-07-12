@@ -127,7 +127,7 @@ function test(playlistNr){
 
     var getFirstTrack = function(list) {
 
-        addMoreTracksToCounter(list.length);
+        //addMoreTracksToCounter(list.length);
 
         return list[0];
     }
@@ -146,7 +146,7 @@ function test(playlistNr){
 
     var extractTracks = function (playlist) {
 
-        setTrackList(playlist.tracks);
+        //setTrackList(playlist.tracks);
 
         return playlist.tracks;
     };
@@ -191,7 +191,7 @@ function test(playlistNr){
             .then(printNowPlaying, consoleError);
 
             //Show total nr of tracks
-            showNrOfTracks(nrOfTracks);
+            //showNrOfTracks(nrOfTracks);
     };
 
     var mopidy = new Mopidy();             // Connect to server
