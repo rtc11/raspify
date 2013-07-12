@@ -14,6 +14,10 @@ $(document).ready(function() {
 
     //Adds the playlist and starts playing it
     test(4);
+
+    //Show total nr of tracks
+    showNrOfTracks(nrOfTracks);
+
 });
 
 function play(track){
@@ -65,16 +69,6 @@ function addRow(track, artist, time, album){
 
          tabBody.appendChild(row);
 }
-
-/********************************************************
- * Get all the playlists
-function getPlaylists() {
-    // Get playlists without tracks
-    mopidy.playlists.getPlaylists(false)
-    .then(processGetPlaylists, console.error);  
-}
- *********************************************************/
-
 
 /********************************************************
  * process results of list of playlists of the user
