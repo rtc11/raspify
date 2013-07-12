@@ -10,17 +10,9 @@ $(document).ready(function() {
     
     seekbar();
 
-
-    // Connect to mopidy server
-    var mopidy = new Mopidy();
-    mopidy.on("state:online", function() {
-
-        //Fetch the playlists
-        getPlaylists();
-    });
-    
     //Adds the playlist and starts playing it
     test(4);
+    
 });
 
 function play(track){
@@ -75,17 +67,16 @@ function addRow(track, artist, time, album){
 
 /********************************************************
  * Get all the playlists
- *********************************************************/
 function getPlaylists() {
     // Get playlists without tracks
     mopidy.playlists.getPlaylists(false)
     .then(processGetPlaylists, console.error);  
 }
+ *********************************************************/
 
 
 /********************************************************
  * process results of list of playlists of the user
- *********************************************************/
 function processGetPlaylists(resultArr) {
 
     if ((!resultArr) || (resultArr == '')) {
@@ -99,6 +90,7 @@ function processGetPlaylists(resultArr) {
     //Set the number of playlists found
     showNrOfPlaylist(resultArr.length);
 }
+ *********************************************************/
 
 /********************************************************
  * Shows the number of playlists
@@ -126,8 +118,26 @@ function test(playlistNr){
     var consoleError = console.error.bind(console);
 
     var getFirst = function (list) {
+
+        //All playlists
+        getAllPlaylists(list);
+
+        //Return the n'th playlist
         return list[playlistNr];
     };
+
+    var getAllPlaylists = function(resultArr){
+        if ((!resultArr) || (resultArr == '')) {
+            return;
+        }
+
+        for (var i = 0; i < resultArr.length; i++) {
+            insertPlaylist("error-menu", i+1, resultArr[i].name);
+        };
+
+        //Set the number of playlists found
+        showNrOfPlaylist(resultArr.length);
+    }
 
     var extractTracks = function (playlist) {
         return playlist.tracks;
@@ -170,10 +180,10 @@ function test(playlistNr){
             // => TlTrack
             .then(mopidy.playback.play, consoleError)
             // => null
-            .then(printNowPlaying, consoleError);
+            .then(printNowPlaying, consoleError)
     };
 
-//    var mopidy = new Mopidy();             // Connect to server
+    var mopidy = new Mopidy();             // Connect to server
     mopidy.on(console.log.bind(console));  // Log all events
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
 }
