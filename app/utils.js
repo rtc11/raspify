@@ -8,19 +8,19 @@ var nrOfTracks = 0;
  *********************************************************/
 $(document).ready(function() {
     
-    test();
+    //Adds the playlist and starts playing it
+    test(4);
 
-    /**
+    //This should be called when a track is played
+    loadTimer();
 
     // Connect to mopidy server
-    mopidy = new Mopidy();
+    var mopidy = new Mopidy();
      mopidy.on("state:online", function() {
 
         //Fetch the playlists
         getPlaylists();
     });
-
-     */
 });
 
 function play(track){
@@ -29,11 +29,15 @@ function play(track){
     });
 }
 
-function next(){
-    var mopidy = new Mopidy(); 
-    
+function next(){ 
     mopidy.on("state:online", function () {
         mopidy.playback.next();
+    });
+}
+
+function previous(){
+    mopidy.on("state:online", function () {
+        mopidy.playback.previous();
     });
 }
 
@@ -110,6 +114,11 @@ function showNrOfTracks(nr){
     $('p#nrOfTracks').text(nr);
 }
 
+function loadTimer(){
+    var loader = $('#timer').percentageLoader();
+    //loader.setValue('1:23');
+    //loader.setProgress(0.35);
+}
 /********************************************************
  * Adds a playlist to the sidebar
  *********************************************************/
@@ -117,11 +126,12 @@ function insertPlaylist(myid, newListItem) {
     $('ul#' + myid).append('<li><a href="index.html">' + newListItem + '</a></li>');
 }
 
-function test(){
+//playlistNr is a position on which playlist to be loaded.
+function test(playlistNr){
     var consoleError = console.error.bind(console);
 
     var getFirst = function (list) {
-        return list[4];
+        return list[playlistNr];
     };
 
     var extractTracks = function (playlist) {

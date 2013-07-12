@@ -84,6 +84,16 @@ hr {
   border-left: 1px solid #000000;
   border-left: 1px solid #111;
 }
+.contentSmall {
+  min-width: 180px;
+  position: relative;
+  min-height: 180px;
+  background: #fff;
+  margin-left: 240px;
+  margin-top: 6px;
+  border-left: 1px solid #000000;
+  border-left: 1px solid #111;
+}
 .header {
   background: #ffffff;
   background: #ffffff;
@@ -125,6 +135,18 @@ hr {
 .page-content {
   padding: 1em;
 }
+/*
+.timer {
+  min-width: 180px;
+  position: relative;
+  min-height: 180px;
+  background: #fff;
+  margin-left: 240px;
+  margin-top: 6px;
+  border-left: 1px solid #000000;
+  border-left: 1px solid #111;
+}
+*/
 footer {
   padding: 1em;
   margin-top: 4em;
