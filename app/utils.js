@@ -3,7 +3,6 @@
  *********************************************************/
 var mopidy;
 var playlists;
-var nrOfTracks = 0;
 
 /********************************************************
  * Initialize
@@ -18,6 +17,8 @@ $(document).ready(function() {
 
     fetchFromMopidy();
     
+    setNrOfTracks();
+
     //Initialize volume control
     volumeControl();
 });
@@ -46,8 +47,14 @@ function setPlaylists(newlist){
     playlists = newlist;
 }
 
-function addNrOfTracks(nr){
-    nrOfTracks = nrOfTracks + nr;
+function setNrOfTracks(){
+    var nrOfTracks = 0;
+
+    for(var i = 0; i<playlists.length; i++){
+        nrOfTracks += playlist[i].tracks.length;
+    }
+
+    showNrOfTracks(nrOfTracks);
 }
 
 function getNrOfTracks(){
