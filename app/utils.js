@@ -17,8 +17,6 @@ $(document).ready(function() {
 
     fetchFromMopidy();
     
-    setNrOfTracks();
-
     //Initialize volume control
     volumeControl();
 });
