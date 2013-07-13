@@ -39,7 +39,7 @@ function addTracksToQueue(liste){
     for(var i = 0; i<liste.length; i++){
         addRow(liste[i].track.name
             , liste[i].track.album.artists[0].name
-            , "liste[i].track.time"
+            , liste[i].track.length
             , liste[i].track.album.name);
     }
 }
