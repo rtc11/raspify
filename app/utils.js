@@ -47,16 +47,6 @@ function setPlaylists(newlist){
     playlists = newlist;
 }
 
-function setNrOfTracks(){
-    var nrOfTracks = 0;
-
-    for(var i = 0; i<playlists.length; i++){
-        nrOfTracks += playlists[i].tracks.length;
-    }
-
-    showNrOfTracks(nrOfTracks);
-}
-
 function getNrOfTracks(){
     return nrOfTracks;
 }
@@ -88,13 +78,28 @@ function fetchFromMopidy(){
         putPlaylistsOnGUI(list);
         showNrOfPlaylists(list.length);
 
+        setNrOfTracks(list);
+
+
         return list[4];
     };
 
-    var getFirstTrack = function(lista) {
+    var setNrOfTracks = function (playlists){
+        var nrOfTracks = 0;
+
+        for(var i = 0; i<playlists.length; i++){
+            var list = extractTracks(playlists[i]);
+            var size = list.length;
+            nrOfTracks += size;
+        }
+
+        showNrOfTracks(nrOfTracks);
+    }
+
+    var getFirstTrack = function(list) {
         addTracksToQueue(lista);
 
-        return lista[0];
+        return list[0];
     }
 
     var extractTracks = function (playlist) {
