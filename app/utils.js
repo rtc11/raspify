@@ -36,16 +36,10 @@ function getNrOfTracks(){
 
 function addTracksToQueue(liste){
 
-    console.log(liste[i].track.name + " "
-     + liste[i].track.artist + " "
-     + liste[i].track.time + " " 
-     + liste[i].track.album);
-
-
     for(var i = 0; i<liste.length; i++){
         addRow(liste[i].track.name
-            , liste[i].track.artist.name
-            , liste[i].track.time
+            , liste[i].track.album.artists[0].name
+            , "liste[i].track.time"
             , liste[i].track.album.name);
     }
 }
