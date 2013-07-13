@@ -63,13 +63,12 @@ function addTracksToQueue(liste){
     }
 }
 
- function secondsToString(seconds) {
-//    var numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
-    var numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
-    var numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
-   
-    return numminutes + ":" + numseconds;
+ function secondsToString(millis) {
 
+    var minutes = ( millis % (1000*60*60) ) / (1000*60);
+    var seconds = ( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
+   
+    return minutes + ":" + seconds;
 }
 
 function fetchFromMopidy(){
