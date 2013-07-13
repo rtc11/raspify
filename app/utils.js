@@ -80,8 +80,6 @@ function fetchFromMopidy(){
         putPlaylistsOnGUI(list);
         showNrOfPlaylists(list.length);
 
-        console.log("PLAYLIST_NAME: " + list[4] + " " + list[4].name + " " + list[4].playlist + " " + list[4].uri);
-
         return list[4];
     };
 
@@ -118,11 +116,11 @@ function fetchFromMopidy(){
         });
     };
 
-    var putPlaylistsOnGUI = function(list){
+    var putPlaylistsOnGUI = function(playlists_){
         if ((!list) || (list == '')) {return;}
+
         for (var i = 0; i < list.length; i++) {
-                //lookup_playlist_name_from_uri(uri);
-               insertPlaylist("error-menu", i+1, list[i].uri);
+               insertPlaylist("error-menu", playlists_[i].name);
         };
     }
 
