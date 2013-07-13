@@ -1,21 +1,3 @@
-function play(track){
-    mopidy.on("state:online", function () {
-        mopidy.playback.play();
-    });
-}
-
-function next(){ 
-    mopidy.on("state:online", function () {
-        mopidy.playback.next();
-    });
-}
-
-function previous(){
-    mopidy.on("state:online", function () {
-        mopidy.playback.previous();
-    });
-}
-
 /********************************************************
  * Shows the number of playlists
  *********************************************************/

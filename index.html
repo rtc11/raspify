@@ -104,9 +104,9 @@
         <!--***************************************************
         * CONTROLS
         ****************************************************-->
-        <button onClick='previous(); return false;'>Previous</button>
-        <button onClick='play(); return false;'>Play</button>
-        <button onClick='next(); return false;'>Next</button>
+        <button onClick='control.previous(); return false;'>Previous</button>
+        <button onClick='control.play(); return false;'>Play</button>
+        <button onClick='control.next(); return false;'>Next</button>
 
       </ul>
       <div class="container-fluid">
@@ -117,6 +117,7 @@
               <div id="page-stats" class="block-body collapse in">
                 <div class="stat-widget-container">
 
+                  <!-- NUMBER OF PLAYLISTS -->
                   <div class="stat-widget">
                     <div class="stat-button">
                       <p class="title" id="nrOfPlaylists">0</p>
@@ -124,6 +125,7 @@
                     </div>
                   </div>
 
+                  <!-- NUMBER OF TRACKS -->
                   <div class="stat-widget">
                     <div class="stat-button">
                       <p class="title" id="nrOfTracks">0</p>
@@ -150,20 +152,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <!--
-                    <tr>
-                      <td>Mark</td>
-                      <td>Tompson</td>
-                      <td>the_mark7</td>
-                      <td>Something</td>
-                    </tr>
-                    <tr>
-                      <td>Ashley</td>
-                      <td>Jacobs</td>
-                      <td>ash11927</td>
-                      <td>Something</td>
-                    </tr>
-                  -->
+                    <!-- HERE IS THE QUEUE/TRACKLIST -->
                   </tbody>
                 </table>
 

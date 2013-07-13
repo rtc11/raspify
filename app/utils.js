@@ -22,6 +22,29 @@ $(document).ready(function() {
     volumeControl();
 });
 
+
+/********************************************************
+ * CONTROLS
+ *********************************************************/
+function control(){
+    play: function() {
+        mopidy.on("state:online", function () {
+            mopidy.playback.play();
+        });
+    }
+    next: function() { 
+        mopidy.on("state:online", function () {
+            mopidy.playback.next();
+        });
+    }
+    previous: function() {
+        mopidy.on("state:online", function () {
+            mopidy.playback.previous();
+        });
+    }
+}
+
+
 function setPlaylists(newlist){
     playlists = newlist;
 }
