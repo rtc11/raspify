@@ -116,11 +116,11 @@ function fetchFromMopidy(){
         });
     };
 
-    var putPlaylistsOnGUI = function(playlists_){
+    var putPlaylistsOnGUI = function(list){
         if ((!list) || (list == '')) {return;}
 
         for (var i = 0; i < list.length; i++) {
-               insertPlaylist("error-menu", playlists_[i].name);
+               insertPlaylist("error-menu", list[i].name);
         };
     }
 
