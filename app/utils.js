@@ -202,7 +202,7 @@ function volumeControl(){
             release : function (value) {
                 //console.log(this.$.attr('value'));
                 console.log("release : " + value);
-                mopidy.playback.setvol(value);
+                mopidy.playback.setVolume(value);
             },
             cancel : function () {
                 console.log("cancel : ", this);
