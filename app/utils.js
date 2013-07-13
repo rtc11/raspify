@@ -118,7 +118,7 @@ function fetchFromMopidy(){
         if ((!list) || (list == '')) {return;}
         for (var i = 0; i < list.length; i++) {
                 //lookup_playlist_name_from_uri(uri);
-               insertPlaylist("error-menu", i+1, list[i].playlist.uri);
+               insertPlaylist("error-menu", i+1, list[i].uri);
         };
     }
 
