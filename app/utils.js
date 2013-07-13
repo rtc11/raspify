@@ -86,7 +86,7 @@ function fetchFromMopidy(){
         var nrOfTracks = 0;
 
         for(var i = 0; i<playlists.length; i++){
-            var list = extractTracks(playlists[i]);
+            var list = extractTracks2(playlists[i]);
             var size = list.length;
             nrOfTracks += size;
         }
@@ -99,6 +99,10 @@ function fetchFromMopidy(){
 
         return list[0];
     }
+
+    var extractTracks2 = function (playlist) {
+        return playlist.tracks;
+    };
 
     var extractTracks = function (playlist) {
         return playlist.tracks;
