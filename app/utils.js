@@ -26,24 +26,21 @@ $(document).ready(function() {
 /********************************************************
  * CONTROLS
  *********************************************************/
-function control(){
-    play: function() {
-        mopidy.on("state:online", function () {
-            mopidy.playback.play();
-        });
-    }
-    next: function() { 
-        mopidy.on("state:online", function () {
-            mopidy.playback.next();
-        });
-    }
-    previous: function() {
-        mopidy.on("state:online", function () {
-            mopidy.playback.previous();
-        });
-    }
+function play() {
+    mopidy.on("state:online", function () {
+        mopidy.playback.play();
+    });
 }
-
+function next() { 
+    mopidy.on("state:online", function () {
+        mopidy.playback.next();
+    });
+}
+function previous() {
+    mopidy.on("state:online", function () {
+        mopidy.playback.previous();
+    });
+}
 
 function setPlaylists(newlist){
     playlists = newlist;
@@ -58,9 +55,8 @@ function getNrOfTracks(){
 }
 
 function addTracksToQueue(liste){
-
     for(var i = 0; i<liste.length; i++){
-        addRow(liste[i].track.name
+        addRow( liste[i].track.name
             , liste[i].track.album.artists[0].name
             , secondsToString(liste[i].track.length)
             , liste[i].track.album.name);
@@ -121,7 +117,7 @@ function fetchFromMopidy(){
     var putPlaylistsOnGUI = function(list){
         if ((!list) || (list == '')) {return;}
         for (var i = 0; i < list.length; i++) {
-               insertPlaylist("error-menu", i+1, list[i].playlist);
+               insertPlaylist("error-menu", i+1, list[i].playlist.name);
         };
     }
 
