@@ -65,8 +65,8 @@ function addTracksToQueue(liste){
 
  function secondsToString(millis) {
 
-    var minutes = ( millis % (1000*60*60) ) / (1000*60);
-    var seconds = ( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
+    var minutes = Math.floor( millis % (1000*60*60) ) / (1000*60);
+    var seconds = Math.floor( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
    
     return minutes + ":" + seconds;
 }
