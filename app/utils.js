@@ -34,9 +34,9 @@ function getNrOfTracks(){
     return nrOfTracks;
 }
 
-function addTracksToQueue(list){
-    for(var i = 0; i<list.length; i++){
-        addRow(list[i].name, "-", "-", "-");
+function addTracksToQueue(liste){
+    for(var i = 0; i<liste.length; i++){
+        addRow(liste[i].track.name, "-", "-", "-");
     }
 }
 
@@ -50,9 +50,9 @@ function fetchFromMopidy(){
         return list[4];
     };
 
-    var getFirstTrack = function(list) {
-        addTracksToQueue(list);
-        return list[0];
+    var getFirstTrack = function(lista) {
+        addTracksToQueue(lista);
+        return lista[0];
     }
 
     var extractTracks = function (playlist) {
