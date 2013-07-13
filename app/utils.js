@@ -79,11 +79,15 @@ function fetchFromMopidy(){
         setPlaylists(list);
         putPlaylistsOnGUI(list);
         showNrOfPlaylists(list.length);
+
+        console.log("PLAYLIST_NAME: " + list[4] + " " + list[4].name + " " + list[4].playlist + " " + list[4].uri);
+
         return list[4];
     };
 
     var getFirstTrack = function(lista) {
         addTracksToQueue(lista);
+
         return lista[0];
     }
 
