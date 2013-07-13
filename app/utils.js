@@ -51,7 +51,7 @@ function setNrOfTracks(){
     var nrOfTracks = 0;
 
     for(var i = 0; i<playlists.length; i++){
-        nrOfTracks += playlist[i].tracks.length;
+        nrOfTracks += playlists[i].tracks.length;
     }
 
     showNrOfTracks(nrOfTracks);
@@ -98,7 +98,6 @@ function fetchFromMopidy(){
     }
 
     var extractTracks = function (playlist) {
-        addNrOfTracks(playlist.tracks.length);
         return playlist.tracks;
     };
 
