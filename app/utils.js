@@ -39,9 +39,18 @@ function addTracksToQueue(liste){
     for(var i = 0; i<liste.length; i++){
         addRow(liste[i].track.name
             , liste[i].track.album.artists[0].name
-            , liste[i].track.length
+            , secondsToString(liste[i].track.length)
             , liste[i].track.album.name);
     }
+}
+
+ function secondsToString(seconds) s{
+//    var numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
+    var numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
+    var numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
+   
+    return numminutes + ":" + numseconds;
+
 }
 
 function fetchFromMopidy(){
