@@ -86,7 +86,7 @@ function fetchFromMopidy(){
         var nrOfTracks = 0;
 
         for(var i = 0; i<playlists.length; i++){
-            var list = extractTracks2(playlists[i]);
+            var list = extractTracks(playlists[i]);
             var size = list.length;
             nrOfTracks += size;
         }
@@ -100,18 +100,12 @@ function fetchFromMopidy(){
         return list[0];
     }
 
-    var extractTracks2 = function (playlist) {
-        return playlist.tracks;
-    };
-
     var extractTracks = function (playlist) {
         return playlist.tracks;
     };
 
     var printTypeAndName = function (model) {
         console.log(model.__model__ + ": " + model.name);
-        // By returning the playlist, this function can be inserted
-        // anywhere a model with a name is piped in the chain.
         return model;
     };
 
@@ -121,9 +115,8 @@ function fetchFromMopidy(){
     };
 
     var printNowPlaying = function () {
-        // By returning any arguments we get, the function can be inserted
-        // anywhere in the chain.
         var args = arguments;
+
         return mopidy.playback.getCurrentTrack().then(function (track) {
             console.log("Now playing:", trackDesc(track));
             return args;
@@ -158,7 +151,6 @@ function fetchFromMopidy(){
     };
 
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
-    showNrOfTracks(getNrOfTracks());
 }
 
 /********************************************************
