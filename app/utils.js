@@ -72,47 +72,33 @@ function fetchFromMopidy(){
     var consoleError = console.error.bind(console);
 
     var getFirstPlaylist = function (list) {
+        //Add playlists to local variable
         setPlaylists(list);
+        //Put the playlists on the GUI
         putPlaylistsOnGUI(list);
+        //Show the number of playlists fetched
         showNrOfPlaylists(list.length);
-
+        //Set the number of tracks found
         setNrOfTracks(list);
-
-
+        //Return the playlist to be played
         return list[4];
     };
 
-    var setNrOfTracks = function (playlists){
-        var nrOfTracks = 0;
-
-        for(var i = 0; i<playlists.length; i++){
-            var list = extractTracks(playlists[i]);
-            var size = list.length;
-            nrOfTracks += size;
-        }
-
-        showNrOfTracks(nrOfTracks);
-    }
-
-    var getFirstTrack = function(list) {
-        addTracksToQueue(lista);
-
-        return list[0];
-    }
+      var printTypeAndName = function (model) {
+        console.log(model.__model__ + ": " + model.name);
+        return model;
+    };
 
     var extractTracks = function (playlist) {
         return playlist.tracks;
     };
 
-    var printTypeAndName = function (model) {
-        console.log(model.__model__ + ": " + model.name);
-        return model;
-    };
-
-    var trackDesc = function (track) {
-        return track.name + " by " + track.artists[0].name +
-            " from " + track.album.name;
-    };
+    var getFirstTrack = function(list) {
+        //Put the queue on the GUI
+        addTracksToQueue(list);
+        //Return the first track in the playlist
+        return list[0];
+    }
 
     var printNowPlaying = function () {
         var args = arguments;
@@ -123,12 +109,30 @@ function fetchFromMopidy(){
         });
     };
 
+    var trackDesc = function (track) {
+        return track.name + " by " + track.artists[0].name +
+            " from " + track.album.name;
+    };
+
     var putPlaylistsOnGUI = function(list){
         if ((!list) || (list == '')) {return;}
 
         for (var i = 0; i < list.length; i++) {
                insertPlaylist("error-menu", list[i].name);
         };
+    }
+
+    var setNrOfTracks = function (playlists){
+        var nrOfTracks = 0;
+
+        for(var i = 0; i<playlists.length; i++){
+            var list = extractTracks(playlists[i]);
+            var size = list.length;
+            nrOfTracks += size;
+        }
+
+        //Put the number of tracks found on the GUI
+        showNrOfTracks(nrOfTracks);
     }
 
     var queueAndPlayFirstPlaylist = function () {
