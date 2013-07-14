@@ -295,23 +295,24 @@ function volumeControl(){
  * CONTROLS
  *********************************************************/
 function play() {
+    console.log("CONTROL: Play");
+    
     mopidy.on("state:online", function () {
         mopidy.playback.play();
 
-        console.log("CONTROL: Play");
     });
 }
 function next() { 
+    console.log("CONTROL: Next");
+    
     mopidy.on("state:online", function () {
         mopidy.playback.next();
-
-        console.log("CONTROL: Next");
     });
 }
 function previous() {
+    conosle.log("CONTROL: Previous");
+    
     mopidy.on("state:online", function () {
         mopidy.playback.previous();
-
-        conosle.log("CONTROL: Previous");
     });
 }
