@@ -12,8 +12,6 @@ $(document).ready(function() {
     //Connect to the mopidy server
     mopidy = new Mopidy();
 
-    //mopidy.playback.setVolume(100);
-
     //Make consol output errors for mopidy
     mopidy.on(console.log.bind(console));
 
@@ -51,7 +49,13 @@ function getNrOfTracks(){
     return nrOfTracks;
 }
 
+function loadPlaylist(id) {
+    var tracks = playlists[id].tracks;
+    addTracksToQueue(tracks);
+}
+
 function addTracksToQueue(liste){
+
     for(var i = 0; i<liste.length; i++){
         addRow( liste[i].track.name
             , liste[i].track.album.artists[0].name
@@ -159,14 +163,20 @@ function fetchFromMopidy(){
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
 }
 
+function clearRows(){
+    tabBody=document.getElementsByTagName("TBODY").item(0);
+    newTabBody = document.createElement('TBODY');
+    tabBody.replaceChild(newTabBody, tabBody);
+}
+
 /********************************************************
  * Add row to queue
  *********************************************************/
 function addRow(track, artist, time, album){
          if (!document.getElementsByTagName) return;
-         
+
          tabBody=document.getElementsByTagName("TBODY").item(0);
-         row=document.createElement("TR");
+         newRow=document.createElement("TR");
          
          cell1 = document.createElement("TD");
          cell2 = document.createElement("TD");
@@ -183,12 +193,12 @@ function addRow(track, artist, time, album){
          cell3.appendChild(textnode3);
          cell4.appendChild(textnode4);
 
-         row.appendChild(cell1);
-         row.appendChild(cell2);
-         row.appendChild(cell3);
-         row.appendChild(cell4);
+         newRow.appendChild(cell1);
+         newRow.appendChild(cell2);
+         newRow.appendChild(cell3);
+         newRow.appendChild(cell4);
 
-         tabBody.appendChild(row);
+         tabBody.appendChild(newRow);
 }
 
 /********************************************************
