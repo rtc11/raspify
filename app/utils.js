@@ -156,9 +156,7 @@ function fetchFromMopidy(){
 }
 
 function clearRows(){
-    tabBody=document.getElementsByTagName("TBODY").item(0);
-    newTabBody = document.createElement('TBODY');
-    tabBody.replaceChild(newTabBody, tabBody);
+    document.getElementById("tbody").innerHTML = "";
 }
 
 /********************************************************
