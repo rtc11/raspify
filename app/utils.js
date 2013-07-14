@@ -105,7 +105,6 @@ function fetchFromMopidy(){
 
         return mopidy.playback.getCurrentTrack().then(function (track) {
             console.log("Now playing:", trackDesc(track));
-            console.log("Volume:", mopidy.playback.getVolume());
             return args;
         });
     };
@@ -156,6 +155,8 @@ function fetchFromMopidy(){
     };
 
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
+
+    console.log("Volume: " + mopidy.playback.getVolume());
 }
 
 /********************************************************
