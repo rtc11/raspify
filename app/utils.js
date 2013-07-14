@@ -1,8 +1,8 @@
 /********************************************************
  * Variables
  *********************************************************/
-var mopidy;
-var playlists[];
+var mopidy = new Array();
+var playlists = new Array();
 
 /********************************************************
  * Initialize
@@ -50,8 +50,8 @@ function getNrOfTracks(){
 }
 
 function loadPlaylist(id) {
-    var playlist[] = playlists[id];
-    var tracks[] = playlist.tracks;
+    var playlist = playlists[id];
+    var tracks = playlist.tracks;
 
     addTracksToQueue(tracks);
 }
