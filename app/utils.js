@@ -2,7 +2,7 @@
  * Variables
  *********************************************************/
 var mopidy;
-var playlists;
+var playlists[];
 
 /********************************************************
  * Initialize
@@ -50,7 +50,9 @@ function getNrOfTracks(){
 }
 
 function loadPlaylist(id) {
-    var tracks = playlists[id].tracks;
+    var playlist[] = playlists[id];
+    var tracks[] = playlist.tracks;
+
     addTracksToQueue(tracks);
 }
 
