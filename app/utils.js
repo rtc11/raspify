@@ -33,8 +33,6 @@ function loadPlaylist(id) {
     var playlist = playlists[id];
     var tracks = playlist.tracks;
 
-    console.log("tracks[0].name: " + tracks[0].name + "\ntracks[1].name: " + tracks[1].name);
-
     clearRows();
 
     for(var i = 0; i<tracks.length; i++){
@@ -299,15 +297,21 @@ function volumeControl(){
 function play() {
     mopidy.on("state:online", function () {
         mopidy.playback.play();
+
+        console.log("CONTROL: Play");
     });
 }
 function next() { 
     mopidy.on("state:online", function () {
         mopidy.playback.next();
+
+        console.log("CONTROL: Next");
     });
 }
 function previous() {
     mopidy.on("state:online", function () {
         mopidy.playback.previous();
+
+        conosle.log("CONTROL: Previous");
     });
 }
