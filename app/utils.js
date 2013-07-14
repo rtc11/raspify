@@ -295,6 +295,7 @@ function volumeControl(){
  * CONTROLS
  *********************************************************/
 function play() {
+    mopidy = new Mopidy();
     console.log("CONTROL: Play");
     
     mopidy.on("state:online", function () {
@@ -302,7 +303,8 @@ function play() {
 
     });
 }
-function next() { 
+function next() {
+    mopidy = new Mopidy(); 
     console.log("CONTROL: Next");
     
     mopidy.on("state:online", function () {
@@ -310,6 +312,7 @@ function next() {
     });
 }
 function previous() {
+    mopidy = new Mopidy();
     conosle.log("CONTROL: Previous");
     
     mopidy.on("state:online", function () {
