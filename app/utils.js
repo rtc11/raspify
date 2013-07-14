@@ -12,7 +12,7 @@ $(document).ready(function() {
     //Connect to the mopidy server
     mopidy = new Mopidy();
 
-    mopidy.playback.setVolume(100);
+    //mopidy.playback.setVolume(100);
 
     //Make consol output errors for mopidy
     mopidy.on(console.log.bind(console));
