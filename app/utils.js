@@ -36,13 +36,15 @@ function loadPlaylist(id) {
     console.log("tracks[0].name: " + tracks[0].name + "\ntracks[1].name: " + tracks[1].name);
 
     clearRows();
-    
+
     for(var i = 0; i<tracks.length; i++){
         addRow( tracks[i].name
             , tracks[i].album.artists[0].name
             , secondsToString(tracks[i].length)
             , tracks[i].album.name);
     }
+
+    showNrOfTracklisted(tracks.length);
 }
 
 function addTracksToQueue(liste){
@@ -53,6 +55,8 @@ function addTracksToQueue(liste){
             , secondsToString(liste[i].track.length)
             , liste[i].track.album.name);
     }
+
+    showNrOfTracklisted(liste.length);
 }
 
  function secondsToString(millis) {
@@ -78,7 +82,6 @@ function fetchFromMopidy(){
         //Set the number of tracks found
         setNrOfTracks(list);
         showNrOfQueued(0);
-        showNrOfTracklisted();
         //Return the playlist to be played
         return list[4];
     };
