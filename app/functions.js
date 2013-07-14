@@ -17,11 +17,6 @@ function showNrOfTracks(nr){
  *********************************************************/
 function insertPlaylist(myid, newListItem, id) {
 
-    //onClick="loadPlaylist('+id+')"
-    $('ul#' + myid).append('
-        <li>
-            <a href="#'+id+'">'+newListItem+'
-            </a>
-        </li>'
-    );
+    //
+    $('ul#' + myid).append('<li><a href="#'+id+'" onClick="loadPlaylist('+id+')">'+newListItem+'</a></li>');
 }
