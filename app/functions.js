@@ -16,7 +16,7 @@ function showNrOfTracks(nr){
  * Adds a playlist to the sidebar
  *********************************************************/
 function insertPlaylist(myid, newListItem, id) {
-    $('ul#' + myid).append('<li><a href="#" 
+    $('ul#' + myid).append('<li><a href="#'+id+'" 
         onClick="loadPlaylist('+id+')">' 
         + newListItem + '</a></li>');
 }
