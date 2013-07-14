@@ -21,26 +21,6 @@ $(document).ready(function() {
     volumeControl();
 });
 
-
-/********************************************************
- * CONTROLS
- *********************************************************/
-function play() {
-    mopidy.on("state:online", function () {
-        mopidy.playback.play();
-    });
-}
-function next() { 
-    mopidy.on("state:online", function () {
-        mopidy.playback.next();
-    });
-}
-function previous() {
-    mopidy.on("state:online", function () {
-        mopidy.playback.previous();
-    });
-}
-
 function setPlaylists(newlist){
     playlists = newlist;
 }
@@ -53,6 +33,7 @@ function loadPlaylist(id) {
     var playlist = playlists[id];
     var tracks = playlist.tracks;
 
+    console.log("Playlist: " playlist + "\nTracks: " + tracks + "\ntracks.name: " + tracks.name);
     addTracksToQueue(tracks);
 }
 
@@ -88,6 +69,8 @@ function fetchFromMopidy(){
         showNrOfPlaylists(list.length);
         //Set the number of tracks found
         setNrOfTracks(list);
+        showNrOfQueued(0);
+        showNrOfTracklisted();
         //Return the playlist to be played
         return list[4];
     };
@@ -298,5 +281,24 @@ function volumeControl(){
                 v = this.cv;
             }
         });
+    });
+}
+
+/********************************************************
+ * CONTROLS
+ *********************************************************/
+function play() {
+    mopidy.on("state:online", function () {
+        mopidy.playback.play();
+    });
+}
+function next() { 
+    mopidy.on("state:online", function () {
+        mopidy.playback.next();
+    });
+}
+function previous() {
+    mopidy.on("state:online", function () {
+        mopidy.playback.previous();
     });
 }

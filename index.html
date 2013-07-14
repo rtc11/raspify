@@ -93,7 +93,7 @@
       <div class="header">
         <div class="stats">
           <p class="stat"><span class="number">27</span>tracklisted</p>
-          <p class="stat"><span class="number">2</span>queued</p>
+          <p class="stat"><span class="number" id="nrOfQueued">2</span>queued</p>
         </div>
 
         <h1 class="page-title">Dashboard</h1>
@@ -139,7 +139,8 @@
           </div>
           <div class="row-fluid">
             <div class="block span12">
-              <a href="#tablewidget" class="block-heading" data-toggle="collapse">Queue<span class="label label-warning">2</span></a>
+              <a href="#tablewidget" class="block-heading" data-toggle="collapse">Queue
+                <span class="label label-warning" id="nrOfTracklisted">0</span></a>
               <div id="tablewidget" class="block-body collapse in">
 
                 <table class="table">
