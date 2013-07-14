@@ -1,8 +1,8 @@
 /********************************************************
  * Variables
  *********************************************************/
-var mopidy = new Array();
-var playlists = new Array();
+var mopidy;
+var playlists;
 
 /********************************************************
  * Initialize
@@ -33,7 +33,8 @@ function loadPlaylist(id) {
     var playlist = playlists[id];
     var tracks = playlist.tracks;
 
-    console.log("Playlist: " playlist + "\nTracks: " + tracks + "\ntracks.name: " + tracks.name);
+    console.log("Playlist: " playlist + " " + tracks);
+
     addTracksToQueue(tracks);
 }
 
