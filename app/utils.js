@@ -36,7 +36,8 @@ function loadPlaylist(id) {
     console.log("tracks[0].name: " + tracks[0].name + "\ntracks[1].name: " + tracks[1].name);
 
     clearRows();
-    for(var i = 0; i<liste.length; i++){
+    
+    for(var i = 0; i<tracks.length; i++){
         addRow( tracks[i].name
             , tracks[i].album.artists[0].name
             , secondsToString(tracks[i].length)
