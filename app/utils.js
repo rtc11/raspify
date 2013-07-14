@@ -33,9 +33,9 @@ function loadPlaylist(id) {
     var playlist = playlists[id];
     var tracks = playlist.tracks;
 
-    console.log("Playlist: " + playlist + " " + tracks);
+    console.log("Playlist: " + playlist + "\nTracks: " + tracks + "\nTracks.Name: " + tracks.name);
 
-    addTracksToQueue(tracks);
+    //addTracksToQueue(tracks);
 }
 
 function addTracksToQueue(liste){
