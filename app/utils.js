@@ -12,6 +12,8 @@ $(document).ready(function() {
     //Connect to the mopidy server
     mopidy = new Mopidy();
 
+    mopidy.playback.setVolume(100);
+
     //Make consol output errors for mopidy
     mopidy.on(console.log.bind(console));
 
@@ -118,7 +120,7 @@ function fetchFromMopidy(){
         if ((!list) || (list == '')) {return;}
 
         for (var i = 0; i < list.length; i++) {
-               insertPlaylist("error-menu", list[i].name);
+               insertPlaylist("error-menu", list[i].name, i);
         };
     }
 
@@ -155,8 +157,6 @@ function fetchFromMopidy(){
     };
 
     mopidy.on("state:online", queueAndPlayFirstPlaylist);
-
-    console.log("Volume: " + mopidy.playback.getVolume());
 }
 
 /********************************************************
