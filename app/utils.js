@@ -67,7 +67,7 @@ function processGetPlaylists(playlists){
 }
 
 function getCurrentTracklist(currentTrackList){
-    console.log("getCurrentTracklist: " + currentTrackList);
+    console.log("getCurrentTracklist:");
 
     currentPlaylist = currentTrackList;
 
@@ -76,7 +76,7 @@ function getCurrentTracklist(currentTrackList){
 
 //TODO: temporary function for adding current tracklist to UI
 function putTracksOnTrackList2(tracks){
-    console.log("putTracksOnTrackList2");
+    console.log("putTracksOnTrackList2: " + tracks.length);
 
     clearRows();
 
