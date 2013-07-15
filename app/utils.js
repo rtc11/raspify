@@ -307,23 +307,23 @@ function control(){
     this.play = function(){
        console.log("CONTROL: Play");
         
-        self.mopidy.on("state:online", function () {
-            self.mopidy.playback.play();
+        mopidy.on("state:online", function () {
+            mopidy.playback.play();
 
         });
     }
     this.next = function(){
         console.log("CONTROL: Next");
         
-        self.mopidy.on("state:online", function () {
-            self.mopidy.playback.next();
+        mopidy.on("state:online", function () {
+            mopidy.playback.next();
         });
     }
     this.previous = function(){
         conosle.log("CONTROL: Previous");
         
-        self.mopidy.on("state:online", function () {
-            self.mopidy.playback.previous();
+        mopidy.on("state:online", function () {
+            mopidy.playback.previous();
         });
     }
 }
