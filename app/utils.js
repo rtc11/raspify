@@ -49,10 +49,7 @@ function fetchFromMopidy() {
 
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
-    .then(getCurrentTracklist, consoleError)
-    .then(getFirstTrack, consoleError)
-    .then(mopidy.playback.play, consoleError)
-    .then(printNowPlaying, consoleError);
+    .then(getCurrentTracklist, consoleError);
 }
 
 /*********************************************************
@@ -128,21 +125,30 @@ function putTracksOnTrackList(id) {
     showNrOfTracklisted(tracks.length);
 }
 
+/*********************************************************
+* Clears the tracklist and star playing the input tracks
+*********************************************************/
 function clearAndAddNewTrackList(tracks){
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
-
+    mopidy.playback.play();
+    printNowPlaying(tracks[0]);
     currentPlaylist = tracks;
 }
 
-function printNowPlaying() {
-    var args = arguments;
+/*********************************************************
+* Print out now playing track
+*********************************************************/
+function printNowPlaying(track) {
     return mopidy.playback.getCurrentTrack().then(function (track) {
         console.log("Now playing:", trackDesc(track));
-        
-        return args;
     });
+};
+
+function trackDesc(track) {
+    return track.name + " by " + track.artists[0].name +
+        " from " + track.album.name;
 };
 
 /*********************************************************
