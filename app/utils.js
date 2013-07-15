@@ -300,7 +300,7 @@ function volumeControl(){
 /********************************************************
  * CONTROLS
  *********************************************************/
-function control = function(){
+function control(){
         
     var mopidy = new Mopidy();
 
