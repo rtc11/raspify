@@ -35,26 +35,27 @@ function showNrOfTracklisted(nr){
  * Adds a playlist to the sidebar
  *********************************************************/
 function insertPlaylist(myid, playlist_name, playlist) {
-    //console.log("Inserted playlist: " + playlist_name);
+    console.log("Inserted playlist: " + playlist);
 
     $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+playlist+')">'+playlist_name+'</a></li>');
-}
 
-/*********************************************************
- * Put the tracks from the playlist on the UI
- *********************************************************/
-function putTracksOnTrackList(playlist) {
-    console.log("putTracksOnTrackList: " + playlist.name);
+    /*********************************************************
+     * Put the tracks from the playlist on the UI
+     *********************************************************/
+    var putTracksOnTrackList = function(playlist) {
+        console.log("putTracksOnTrackList: " + playlist.name);
 
-    tracks = getTracks(playlist);
+        tracks = getTracks(playlist);
 
-    clearRows();
+        clearRows();
 
-    for(var i = 0; i<tracks.length; i++){
-        addRow( tracks[i].track.name, 
-                tracks[i].track.album.artists[0].name,
-                secondsToString(tracks[i].track.length),
-                tracks[i].track.album.name);
+        for(var i = 0; i<tracks.length; i++){
+            addRow( tracks[i].track.name, 
+                    tracks[i].track.album.artists[0].name,
+                    secondsToString(tracks[i].track.length),
+                    tracks[i].track.album.name);
+        }
+        showNrOfTracklisted(tracks.length);
     }
-    showNrOfTracklisted(tracks.length);
+
 }
