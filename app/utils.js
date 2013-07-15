@@ -22,7 +22,7 @@ $(document).ready(function() {
     mopidy.on("state:online", setVolume);
 });
 
-function getVolume(){
+function setVolume(){
     mopidy.statu
     mopidy.playback.setVolume(100);
 }
