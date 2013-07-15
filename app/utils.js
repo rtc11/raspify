@@ -18,7 +18,9 @@ $(document).ready(function() {
     fetchFromMopidy();
     
     //Initialize volume control
-    volumeControl();
+    var volumeC = volumeControl();
+    var volume = mopidy.playback.getVolume();
+    volumeC.release(volume);
 });
 
 function setPlaylists(newlist){
@@ -165,32 +167,32 @@ function clearRows(){
  * Add row to queue
  *********************************************************/
 function addRow(track, artist, time, album){
-         if (!document.getElementsByTagName) return;
+    if (!document.getElementsByTagName) return;
 
-         tabBody=document.getElementsByTagName("TBODY").item(0);
-         newRow=document.createElement("TR");
+    tabBody=document.getElementsByTagName("TBODY").item(0);
+    newRow=document.createElement("TR");
          
-         cell1 = document.createElement("TD");
-         cell2 = document.createElement("TD");
-         cell3 = document.createElement("TD");
-         cell4 = document.createElement("TD");
-         
-         textnode1=document.createTextNode(track);
-         textnode2=document.createTextNode(artist);
-         textnode3=document.createTextNode(time);
-         textnode4=document.createTextNode(album);
+    cell1 = document.createElement("TD");
+    cell2 = document.createElement("TD");
+    cell3 = document.createElement("TD");
+    cell4 = document.createElement("TD");
 
-         cell1.appendChild(textnode1);
-         cell2.appendChild(textnode2);
-         cell3.appendChild(textnode3);
-         cell4.appendChild(textnode4);
+    textnode1=document.createTextNode(track);
+    textnode2=document.createTextNode(artist);
+    textnode3=document.createTextNode(time);
+    textnode4=document.createTextNode(album);
 
-         newRow.appendChild(cell1);
-         newRow.appendChild(cell2);
-         newRow.appendChild(cell3);
-         newRow.appendChild(cell4);
+    cell1.appendChild(textnode1);
+    cell2.appendChild(textnode2);
+    cell3.appendChild(textnode3);
+    cell4.appendChild(textnode4);
 
-         tabBody.appendChild(newRow);
+    newRow.appendChild(cell1);
+    newRow.appendChild(cell2);
+    newRow.appendChild(cell3);
+    newRow.appendChild(cell4);
+
+    tabBody.appendChild(newRow);
 }
 
 /********************************************************
@@ -295,7 +297,6 @@ function volumeControl(){
  * CONTROLS
  *********************************************************/
 function play() {
-    mopidy = new Mopidy();
     console.log("CONTROL: Play");
     
     mopidy.on("state:online", function () {
@@ -304,7 +305,6 @@ function play() {
     });
 }
 function next() {
-    mopidy = new Mopidy(); 
     console.log("CONTROL: Next");
     
     mopidy.on("state:online", function () {
@@ -312,7 +312,6 @@ function next() {
     });
 }
 function previous() {
-    mopidy = new Mopidy();
     conosle.log("CONTROL: Previous");
     
     mopidy.on("state:online", function () {
