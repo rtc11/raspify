@@ -160,7 +160,7 @@ function addRow(track, artist, time, album){
     newRow.appendChild(cell3);
     newRow.appendChild(cell4);
 
-    tabBody.rows[0].cells[0].onclick=function(){alert('event added');};
+    tabBody.rows[0].onclick=function(){alert('event added');};
 
     tabBody.appendChild(newRow);
 }
