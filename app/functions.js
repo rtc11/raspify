@@ -30,7 +30,7 @@ function showNrOfTracklisted(nr){
 /**********************************************************
  * Get playlists from Mopidy with tracks and put on UI
  *********************************************************/
-function initialize() {
+function fetchFromMopidy() {
     var consoleError = console.error.bind(console);
 
     mopidy.playlists.getPlaylists()
