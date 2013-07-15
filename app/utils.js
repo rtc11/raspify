@@ -50,7 +50,8 @@ function fetchFromMopidy() {
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
     .then(getCurrentTracklist, consoleError)
-    .then(mopidy.playback.play(), consoleError)
+    .then(getFirstTrack, consoleError)
+    .then(mopidy.playback.play, consoleError)
     .then(printNowPlaying, consoleError);
 }
 
@@ -75,6 +76,10 @@ function getCurrentTracklist(currentTrackList){
     currentPlaylist = currentTrackList;
 
     putTracksOnTrackList2(currentTrackList);
+}
+
+function getFirstTrack(tracklist){
+    return tracklist.tracks[0];
 }
 
 //TODO: temporary function for adding current tracklist to UI
