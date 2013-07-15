@@ -50,6 +50,8 @@ function fetchFromMopidy() {
  * Put the playlists on the UI
  *********************************************************/
 function processGetPlaylists(playlists){
+    console.error("processGetPlaylists: " + playlists);
+
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
          insertPlaylist("error-menu", playlists[i].name, playlists[i]);
@@ -70,6 +72,9 @@ function insertPlaylist(myid, playlist_name, playlist) {
  * Put the tracks from the playlist on the UI
  *********************************************************/
 function putTracksOnTrackList(playlist) {
+
+    console.error("putTracksOnTrackList: " + playlist.name);
+
     tracks = getTracks(playlist);
 
     clearRows();
@@ -87,6 +92,8 @@ function putTracksOnTrackList(playlist) {
  * Get the tracks from a playlist
  *********************************************************/
 function getTracks(playlist){
+     console.error("getTracks:" + playlist.name);
+
     return playlist.tracks;
 }
 
@@ -118,6 +125,8 @@ function setVolume(){
  * Set the current playlist
  *********************************************************/
 function setPlaylists(li){
+    console.error("setPlaylists: " + li);
+
     playlists = li;
 }
 
