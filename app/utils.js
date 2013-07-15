@@ -19,13 +19,12 @@ $(document).ready(function() {
     
     //Initialize volume control
     volumeControl();
-    mopidy.on("state:online", getVolume);
+    mopidy.on("state:online", setVolume);
 });
 
 function getVolume(){
-    var volume = mopidy.getVolume();
-    volumeControl.release(volume);
-    return volume;
+    mopidy.statu
+    mopidy.playback.setVolume(100);
 }
 
 function setPlaylists(newlist){
@@ -304,22 +303,22 @@ function volumeControl(){
 function play() {
     console.log("CONTROL: Play");
     
-    mopidy.on("state:online", function () {
-        mopidy.playback.play();
+    self.mopidy.on("state:online", function () {
+        self.mopidy.playback.play();
 
     });
 }
 function next() {
     console.log("CONTROL: Next");
     
-    mopidy.on("state:online", function () {
-        mopidy.playback.next();
+    self.mopidy.on("state:online", function () {
+        self.mopidy.playback.next();
     });
 }
 function previous() {
     conosle.log("CONTROL: Previous");
     
-    mopidy.on("state:online", function () {
-        mopidy.playback.previous();
+    self.mopidy.on("state:online", function () {
+        self.mopidy.playback.previous();
     });
 }
