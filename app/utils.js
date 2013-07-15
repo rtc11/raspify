@@ -47,7 +47,7 @@ function fetchFromMopidy() {
     .then(countTotalNrOfTracks, consoleError);
 
     //Get the current tracklist
-    mopidy.playlists.playlistinfo()
+    mopidy.playback.getCurrentTracklist()
     .then(getCurrentTracklist, consoleError);
 }
 
