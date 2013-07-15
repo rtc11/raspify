@@ -89,10 +89,12 @@ function putTracksOnTrackList2(tracks){
         console.log(tracks[i].track.name + "\n" + 
                     tracks[i].track.album.artists[0].name);
 
+        /*
         addRow( tracks[i].track.name, 
                 tracks[i].track.album.artists[0].name,
                 secondsToString(tracks[i].track.length),
                 tracks[i].album.track.name);
+        */
     }
 
     showNrOfTracklisted(tracks.length);
