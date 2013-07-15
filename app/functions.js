@@ -2,7 +2,7 @@
  * Shows the number of playlists
  *********************************************************/
 function showNrOfPlaylists(nr){
-    console.error("showNrOfTracklisted: " + nr);
+    console.log("showNrOfTracklisted: " + nr);
 
     $('p#nrOfPlaylists').text(nr);
 }
@@ -10,7 +10,7 @@ function showNrOfPlaylists(nr){
  * Shows the number of tracks
  *********************************************************/
 function showNrOfTracks(nr){
-    console.error("showNrOfTracks: " + nr);
+    console.log("showNrOfTracks: " + nr);
 
     $('p#nrOfTracks').text(nr);
 }
@@ -18,7 +18,7 @@ function showNrOfTracks(nr){
  * Shows the number of queued tracks
  *********************************************************/
 function showNrOfQueued(nr){
-    console.error("showNrOfQueued: " + nr);
+    console.log("showNrOfQueued: " + nr);
 
     $('span#nrOfQueued').text(nr);
 }
@@ -26,7 +26,7 @@ function showNrOfQueued(nr){
  * Shows the number of tracks in track list
  *********************************************************/
 function showNrOfTracklisted(nr){
-    console.error("showNrOfTracklisted: " + nr);
+    console.log("showNrOfTracklisted: " + nr);
 
     $('span#nrOfTracklisted').text(nr);
 }
@@ -35,7 +35,7 @@ function showNrOfTracklisted(nr){
  * Adds a playlist to the sidebar
  *********************************************************/
 function insertPlaylist(myid, playlist_name, playlist) {
-    console.error("Inserted playlist: " + playlist_name);
+    console.log("Inserted playlist: " + playlist_name);
 
     $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+playlist+')">'+playlist_name+'</a></li>');
 }

@@ -39,7 +39,7 @@ function initialize(){
  * Get playlists from Mopidy with tracks and put on UI
  *********************************************************/
 function fetchFromMopidy() {
-    var consoleError = console.error.bind(console);
+    var consoleError = console.log.bind(console);
 
     mopidy.playlists.getPlaylists()
     .then(processGetPlaylists, consoleError)
@@ -50,7 +50,7 @@ function fetchFromMopidy() {
  * Put the playlists on the UI
  *********************************************************/
 function processGetPlaylists(playlists){
-    console.error("processGetPlaylists: " + playlists);
+    console.log("processGetPlaylists: " + playlists);
 
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
@@ -62,18 +62,10 @@ function processGetPlaylists(playlists){
 }
 
 /*********************************************************
- * Adds a playlist to the sidebar
- *********************************************************/
-function insertPlaylist(myid, playlist_name, playlist) {
-    $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+playlist+')">'+playlist_name+'</a></li>');
-}
-
-/*********************************************************
  * Put the tracks from the playlist on the UI
  *********************************************************/
 function putTracksOnTrackList(playlist) {
-
-    console.error("putTracksOnTrackList: " + playlist.name);
+    console.log("putTracksOnTrackList: " + playlist.name);
 
     tracks = getTracks(playlist);
 
@@ -92,7 +84,7 @@ function putTracksOnTrackList(playlist) {
  * Get the tracks from a playlist
  *********************************************************/
 function getTracks(playlist){
-     console.error("getTracks:" + playlist.name);
+     console.log("getTracks:" + playlist.name);
 
     return playlist.tracks;
 }
@@ -125,7 +117,7 @@ function setVolume(){
  * Set the current playlist
  *********************************************************/
 function setPlaylists(li){
-    console.error("setPlaylists: " + li);
+    console.log("setPlaylists: " + li);
 
     playlists = li;
 }
