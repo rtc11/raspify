@@ -50,7 +50,7 @@ function fetchFromMopidy() {
  * Put the playlists on the UI
  *********************************************************/
 function processGetPlaylists(playlists){
-    console.log("processGetPlaylists: " + playlists);
+    //console.log("processGetPlaylists: " + playlists);
 
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
@@ -117,7 +117,7 @@ function setVolume(){
  * Set the current playlist
  *********************************************************/
 function setPlaylists(li){
-    console.log("setPlaylists: " + li);
+    //console.log("setPlaylists: " + li);
 
     playlists = li;
 }
