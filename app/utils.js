@@ -2,7 +2,9 @@
  * Variables
  *********************************************************/
 var mopidy;
-var playlists;
+
+var playlists = {};
+var currentPlaylist;
 
 /********************************************************
  * Initialize
@@ -12,163 +14,46 @@ $(document).ready(function() {
     //Connect to the mopidy server
     mopidy = new Mopidy();
 
-    //Make consol output errors for mopidy
-    mopidy.on(console.log.bind(console));
-
-    fetchFromMopidy();
-    
-    //Initialize volume control
-    volumeControl();
-    mopidy.on("state:online", setVolume);
+    //Get the playlists from the mopidy server
+    initialize();
 });
 
+function initialize(){
+    mopidy.on("state:online", fetchFromMopidy);
+    
+    //Set the number of queued elements to 0
+    showNrOfQueued(0);
+
+     //Initialize volume control
+    volumeControl();
+
+    //Set the volume to 100 (TODO: make the volume be 100 by default)
+    mopidy.on("state:online", setVolume);
+}
+
+/********************************************************
+ * Set the volume on the mopidy server
+ *********************************************************/
 function setVolume(){
-    mopidy.statu
     mopidy.playback.setVolume(100);
 }
 
-function setPlaylists(newlist){
-    playlists = newlist;
+/********************************************************
+ * Set the current playlist
+ *********************************************************/
+function setPlaylists(li){
+    playlists = li;
 }
 
-function getNrOfTracks(){
-    return nrOfTracks;
-}
-
-function loadPlaylist(id) {
-    var playlist = playlists[id];
-    var tracks = playlist.tracks;
-
-    clearRows();
-
-    for(var i = 0; i<tracks.length; i++){
-        addRow( tracks[i].name
-            , tracks[i].album.artists[0].name
-            , secondsToString(tracks[i].length)
-            , tracks[i].album.name);
-    }
-
-    showNrOfTracklisted(tracks.length);
-}
-
-function addTracksToQueue(liste){
-
-    for(var i = 0; i<liste.length; i++){
-        addRow( liste[i].track.name
-            , liste[i].track.album.artists[0].name
-            , secondsToString(liste[i].track.length)
-            , liste[i].track.album.name);
-    }
-
-    showNrOfTracklisted(liste.length);
-}
-
- function secondsToString(millis) {
-    var minutes = Math.floor( ( millis % (1000*60*60) ) / (1000*60));
-    var seconds = Math.floor( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
-
-    if(seconds < 10){
-        return minutes + ":" + "0" + seconds;
-    }
-    return minutes + ":" + seconds;
-}
-
-function fetchFromMopidy(){
-    var consoleError = console.error.bind(console);
-
-    var getFirstPlaylist = function (list) {
-        //Add playlists to local variable
-        setPlaylists(list);
-        //Put the playlists on the GUI
-        putPlaylistsOnGUI(list);
-        //Show the number of playlists fetched
-        showNrOfPlaylists(list.length);
-        //Set the number of tracks found
-        setNrOfTracks(list);
-        showNrOfQueued(0);
-        //Return the playlist to be played
-        return list[4];
-    };
-
-      var printTypeAndName = function (model) {
-        console.log(model.__model__ + ": " + model.name);
-        return model;
-    };
-
-    var extractTracks = function (playlist) {
-        return playlist.tracks;
-    };
-
-    var getFirstTrack = function(list) {
-        //Put the queue on the GUI
-        addTracksToQueue(list);
-        //Return the first track in the playlist
-        return list[0];
-    }
-
-    var printNowPlaying = function () {
-        var args = arguments;
-
-        return mopidy.playback.getCurrentTrack().then(function (track) {
-            console.log("Now playing:", trackDesc(track));
-            return args;
-        });
-    };
-
-    var trackDesc = function (track) {
-        return track.name + " by " + track.artists[0].name +
-            " from " + track.album.name;
-    };
-
-    var putPlaylistsOnGUI = function(list){
-        if ((!list) || (list == '')) {return;}
-
-        for (var i = 0; i < list.length; i++) {
-               insertPlaylist("error-menu", list[i].name, i);
-        };
-    }
-
-    var setNrOfTracks = function (playlists){
-        var nrOfTracks = 0;
-
-        for(var i = 0; i<playlists.length; i++){
-            var list = extractTracks(playlists[i]);
-            var size = list.length;
-            nrOfTracks += size;
-        }
-
-        //Put the number of tracks found on the GUI
-        showNrOfTracks(nrOfTracks);
-    }
-
-    var queueAndPlayFirstPlaylist = function () {
-        //Playlists from mopidy server
-        mopidy.playlists.getPlaylists()
-            // => list of Playlists
-            .then(getFirstPlaylist, consoleError)
-            // => Playlist
-            .then(printTypeAndName, consoleError)
-            // => Playlist
-            .then(extractTracks, consoleError)
-            // => list of Tracks
-            .then(mopidy.tracklist.add, consoleError)
-            // => list of TlTracks
-            .then(getFirstTrack, consoleError)
-            // => TlTrack
-            .then(mopidy.playback.play, consoleError)
-            // => null
-            .then(printNowPlaying, consoleError);
-    };
-
-    mopidy.on("state:online", queueAndPlayFirstPlaylist);
-}
-
+/********************************************************
+ * Clears the rows in the tracklist
+ *********************************************************/
 function clearRows(){
     document.getElementById("tbody").innerHTML = "";
 }
 
 /********************************************************
- * Add row to queue
+ * Add row to tracklist
  *********************************************************/
 function addRow(track, artist, time, album){
     if (!document.getElementsByTagName) return;
@@ -195,6 +80,8 @@ function addRow(track, artist, time, album){
     newRow.appendChild(cell2);
     newRow.appendChild(cell3);
     newRow.appendChild(cell4);
+
+    myTab.rows[0].cells[0].onclick=function(){alert('event added');};
 
     tabBody.appendChild(newRow);
 }
@@ -328,27 +215,12 @@ function control(){
     }
 }
 
-/**
-function play() {
-    console.log("CONTROL: Play");
-    
-    self.mopidy.on("state:online", function () {
-        self.mopidy.playback.play();
+ function secondsToString(millis) {
+    var minutes = Math.floor( ( millis % (1000*60*60) ) / (1000*60));
+    var seconds = Math.floor( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
 
-    });
+    if(seconds < 10){
+        return minutes + ":" + "0" + seconds;
+    }
+    return minutes + ":" + seconds;
 }
-function next() {
-    console.log("CONTROL: Next");
-    
-    self.mopidy.on("state:online", function () {
-        self.mopidy.playback.next();
-    });
-}
-function previous() {
-    conosle.log("CONTROL: Previous");
-    
-    self.mopidy.on("state:online", function () {
-        self.mopidy.playback.previous();
-    });
-}
-**/
