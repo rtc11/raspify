@@ -10,15 +10,15 @@ var currentPlaylist;
  * Initialize
  *********************************************************/
 $(document).ready(function() {
-
-    //Connect to the mopidy server
-    mopidy = new Mopidy();
-
+    
     //Get the playlists from the mopidy server
     initialize();
 });
 
 function initialize(){
+     //Connect to the mopidy server
+    mopidy = new Mopidy();
+
     mopidy.on("state:online", fetchFromMopidy);
     
     //Set the number of queued elements to 0
