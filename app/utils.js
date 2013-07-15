@@ -41,9 +41,14 @@ function initialize(){
 function fetchFromMopidy() {
     var consoleError = console.error.bind(console);
 
+    //Get all the playlists
     mopidy.playlists.getPlaylists()
     .then(processGetPlaylists, consoleError)
     .then(countTotalNrOfTracks, consoleError);
+
+    //Get the current tracklist
+    mopidy.playlists.getCurrentTracklist()
+    .then(getCurrentTracklist, consoleError);
 }
 
 /*********************************************************
@@ -59,6 +64,26 @@ function processGetPlaylists(playlists){
 
     setPlaylists(playlists);
     showNrOfPlaylists(playlists.length);
+}
+
+function getCurrentTracklist(currentTrackList){
+    currentPlaylist = currentTrackList;
+
+    putTracksOnTrackList2(currentTrackList);
+}
+
+//TODO: temporary function for adding current tracklist to UI
+function putTracksOnTrackList2(tracks){
+    clearRows();
+
+    for(var i = 0; i<tracks.length; i++){
+        addRow( tracks[i].name, 
+                tracks[i].album.artists[0].name,
+                secondsToString(tracks[i].length),
+                tracks[i].album.name);
+    }
+
+    showNrOfTracklisted(tracks.length);
 }
 
 /*********************************************************
@@ -79,6 +104,7 @@ function putTracksOnTrackList(id) {
                 secondsToString(tracks[i].length),
                 tracks[i].album.name);
     }
+
     showNrOfTracklisted(tracks.length);
 }
 
@@ -86,8 +112,6 @@ function putTracksOnTrackList(id) {
  * Get the tracks from a playlist
  *********************************************************/
 function getTracks(playlist){
-     console.log("getTracks:" + playlist.name);
-
     return playlist.tracks;
 }
 
@@ -95,6 +119,8 @@ function getTracks(playlist){
  * Counts the total number of tracks
  *********************************************************/
 function countTotalNrOfTracks(playlists){
+    console.log("countTotalNrOfTracks: starting calculating...");
+
     var nrOfTracks = 0;
     for(var i = 0; i<playlists.length; i++){
         var list = getTracks(playlists[i]);
@@ -119,8 +145,6 @@ function setVolume(){
  * Set the current playlist
  *********************************************************/
 function setPlaylists(li){
-    //console.log("setPlaylists: " + li);
-
     playlists = li;
 }
 
@@ -128,6 +152,8 @@ function setPlaylists(li){
  * Clears the rows in the tracklist
  *********************************************************/
 function clearRows(){
+    console.log("clearRows: clearing table of content: Queue");
+
     document.getElementById("tbody").innerHTML = "";
 }
 

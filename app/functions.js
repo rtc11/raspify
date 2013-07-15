@@ -2,7 +2,7 @@
  * Shows the number of playlists
  *********************************************************/
 function showNrOfPlaylists(nr){
-    console.log("showNrOfTracklisted: " + nr);
+    console.log("showNrOfPlaylists: " + nr);
 
     $('p#nrOfPlaylists').text(nr);
 }
@@ -10,7 +10,7 @@ function showNrOfPlaylists(nr){
  * Shows the number of tracks
  *********************************************************/
 function showNrOfTracks(nr){
-    console.log("showNrOfTracks: " + nr);
+    console.log("showNrOfTracks: ...calculated: " + nr);
 
     $('p#nrOfTracks').text(nr);
 }
