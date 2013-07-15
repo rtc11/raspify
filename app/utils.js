@@ -49,7 +49,8 @@ function fetchFromMopidy() {
 
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
-    .then(getCurrentTracklist, consoleError);
+    .then(getCurrentTracklist, consoleError)
+    .then(printNowPlaying, consoleError);
 }
 
 /*********************************************************
@@ -129,6 +130,15 @@ function clearAndAddNewTrackList(tracks){
 
     currentPlaylist = tracks;
 }
+
+function printNowPlaying() {
+    var args = arguments;
+    return mopidy.playback.getCurrentTrack().then(function (track) {
+        console.log("Now playing:", trackDesc(track));
+        
+        return args;
+    });
+};
 
 /*********************************************************
  * Get the tracks from a playlist
