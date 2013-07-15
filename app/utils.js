@@ -47,7 +47,7 @@ function fetchFromMopidy() {
     .then(countTotalNrOfTracks, consoleError);
 
     //Get the current tracklist
-    mopidy.stored_playlists.playlistinfo()
+    mopidy.tracklist.getTlTracks()
     .then(getCurrentTracklist, consoleError);
 }
 
@@ -77,10 +77,10 @@ function putTracksOnTrackList2(tracks){
     clearRows();
 
     for(var i = 0; i<tracks.length; i++){
-        addRow( tracks[i].name, 
-                tracks[i].album.artists[0].name,
-                secondsToString(tracks[i].length),
-                tracks[i].album.name);
+        addRow( tracks[i].track.name, 
+                tracks[i].track.album.artists[0].name,
+                secondsToString(tracks[i].track.length),
+                tracks[i].album.track.name);
     }
 
     showNrOfTracklisted(tracks.length);
