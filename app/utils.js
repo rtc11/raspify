@@ -5,6 +5,7 @@ var mopidy;
 
 var playlists = {};
 var currentPlaylist;
+var play = true;
 
 /********************************************************
  * Initialize
@@ -108,6 +109,8 @@ function putTracksOnTrackList(id) {
 
     clearRows();
 
+    clearAndAddNewTrackList(tracks);
+
     for(var i = 0; i<tracks.length; i++){
         addRow( tracks[i].name, 
                 tracks[i].album.artists[0].name,
@@ -116,6 +119,13 @@ function putTracksOnTrackList(id) {
     }
 
     showNrOfTracklisted(tracks.length);
+}
+
+function clearAndAddNewTrackList(){
+    mopidy.playback.stop(true);
+    mopidy.tracklist.clear();
+    mopidy.tracklist.add(tracks);
+    mpidy.playback.play();
 }
 
 /*********************************************************
@@ -310,8 +320,13 @@ function control(){
        console.log("CONTROL: Play");
         
         mopidy.on("state:online", function () {
-            mopidy.playback.play();
-
+            if (!play) {
+                mopidy.playback.play();
+            }
+            else {
+                mopidy.playback.pause();
+            }
+            play = !play;
         });
     }
     this.next = function(){
