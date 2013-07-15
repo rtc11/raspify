@@ -69,7 +69,7 @@ function putTracksOnTrackList(id) {
 
     var playlist = playlists[id];
 
-    console.log("putTracksOnTrackList: " playlist.name + " on id: " + id);
+    console.log("putTracksOnTrackList: " + playlist.name + " on id: " + id);
 
     tracks = getTracks(playlist);
 
