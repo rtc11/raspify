@@ -61,7 +61,26 @@ function processGetPlaylists(playlists){
     showNrOfPlaylists(playlists.length);
 }
 
+/*********************************************************
+* Put the tracks from the playlist on the UI
+*********************************************************/
+function putTracksOnTrackList() {
+        console.log("putTracksOnTrackList:");
 
+        /**
+        tracks = getTracks(playlist);
+
+        clearRows();
+
+        for(var i = 0; i<tracks.length; i++){
+            addRow( tracks[i].track.name, 
+                    tracks[i].track.album.artists[0].name,
+                    secondsToString(tracks[i].track.length),
+                    tracks[i].track.album.name);
+        }
+        showNrOfTracklisted(tracks.length);
+        */
+}
 
 /*********************************************************
  * Get the tracks from a playlist
