@@ -39,7 +39,7 @@ function initialize(){
  * Get playlists from Mopidy with tracks and put on UI
  *********************************************************/
 function fetchFromMopidy() {
-    var consoleError = console.log.bind(console);
+    var consoleError = console.error.bind(console);
 
     mopidy.playlists.getPlaylists()
     .then(processGetPlaylists, consoleError)
