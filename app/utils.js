@@ -121,11 +121,13 @@ function putTracksOnTrackList(id) {
     showNrOfTracklisted(tracks.length);
 }
 
-function clearAndAddNewTrackList(){
+function clearAndAddNewTrackList(tracks){
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
     mpidy.playback.play();
+
+    currentPlaylist = tracks;
 }
 
 /*********************************************************
