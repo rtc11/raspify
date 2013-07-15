@@ -58,7 +58,7 @@ function processGetPlaylists(playlists){
     };
 
     setPlaylists(playlists);
-    showNrOfPlaylists(list.length);
+    showNrOfPlaylists(playlists.length);
 }
 
 /*********************************************************
