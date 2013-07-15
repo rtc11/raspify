@@ -304,7 +304,7 @@ function control(){
         
     var mopidy = new Mopidy();
 
-    play : function(){
+    this.play = function(){
        console.log("CONTROL: Play");
         
         self.mopidy.on("state:online", function () {
@@ -312,14 +312,14 @@ function control(){
 
         });
     }
-    next : function(){
+    this.next = function(){
         console.log("CONTROL: Next");
         
         self.mopidy.on("state:online", function () {
             self.mopidy.playback.next();
         });
     }
-    previous : function(){
+    this.previous = function(){
         conosle.log("CONTROL: Previous");
         
         self.mopidy.on("state:online", function () {
