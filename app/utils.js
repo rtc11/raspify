@@ -340,14 +340,16 @@ function control(){
     var mopidy = new Mopidy();
 
     this.play = function(){
-       console.log("CONTROL: Play");
+       
         
         mopidy.on("state:online", function () {
             if (!play) {
                 mopidy.playback.play();
+                console.log("CONTROL: Play");
             }
             else {
                 mopidy.playback.pause();
+                console.log("CONTROL: Pause");
             }
             play = !play;
         });
