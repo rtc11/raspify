@@ -80,7 +80,11 @@ function putTracksOnTrackList2(tracks){
 
     clearRows();
 
-    for(var i = 0; i<tracks.length; i++){
+    var items = tracks.length;
+
+    if(items > 200){ items = 200}
+
+    for(var i = 0; i<items; i++){
         addRow( tracks[i].track.name, 
                 tracks[i].track.album.artists[0].name,
                 secondsToString(tracks[i].track.length),
