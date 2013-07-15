@@ -37,14 +37,15 @@ function showNrOfTracklisted(nr){
 function insertPlaylist(myid, playlist_name, playlist) {
     console.log("Inserted playlist: " + playlist);
 
-    $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+playlist+')">'+playlist_name+'</a></li>');
+    $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList()">'+playlist_name+'</a></li>');
 
     /*********************************************************
      * Put the tracks from the playlist on the UI
      *********************************************************/
-    var putTracksOnTrackList = function(playlist) {
-        console.log("putTracksOnTrackList: " + playlist.name);
+    var putTracksOnTrackList = function() {
+        console.log("putTracksOnTrackList:");
 
+        /**
         tracks = getTracks(playlist);
 
         clearRows();
@@ -56,6 +57,7 @@ function insertPlaylist(myid, playlist_name, playlist) {
                     tracks[i].track.album.name);
         }
         showNrOfTracklisted(tracks.length);
+        */
     }
 
 }
