@@ -50,6 +50,7 @@ function fetchFromMopidy() {
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
     .then(getCurrentTracklist, consoleError)
+    .then(mopidy.playback.play(), consoleError)
     .then(printNowPlaying, consoleError);
 }
 
@@ -126,7 +127,6 @@ function clearAndAddNewTrackList(tracks){
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
-    mopidy.playback.play();
 
     currentPlaylist = tracks;
 }
