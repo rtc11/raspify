@@ -34,6 +34,6 @@ function showNrOfTracklisted(nr){
 /*********************************************************
  * Adds a playlist to the sidebar
  *********************************************************/
-function insertPlaylist(myid, playlist_name, playlist) {
-    $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+playlist+')">'+playlist_name+'</a></li>');
+function insertPlaylist(myid, playlist_name, id) {
+    $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+id+')">'+playlist_name+'</a></li>');
 }

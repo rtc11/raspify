@@ -54,7 +54,7 @@ function processGetPlaylists(playlists){
 
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
-         insertPlaylist("error-menu", playlists[i].name, playlists[i]);
+         insertPlaylist("error-menu", playlists[i].name, i);
     };
 
     setPlaylists(playlists);
@@ -64,8 +64,12 @@ function processGetPlaylists(playlists){
 /*********************************************************
 * Put the tracks from the playlist on the UI
 *********************************************************/
-function putTracksOnTrackList(playlist) {
+function putTracksOnTrackList(id) {
     console.log("putTracksOnTrackList:");
+
+    var playlist = playlists[id];
+
+    console.log("putTracksOnTrackList: " playlist.name + " on id: " + id);
 
     tracks = getTracks(playlist);
 
