@@ -125,7 +125,7 @@ function clearAndAddNewTrackList(tracks){
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
-    mpidy.playback.play();
+    mopidy.playback.play();
 
     currentPlaylist = tracks;
 }
