@@ -18,10 +18,15 @@ $(document).ready(function() {
     fetchFromMopidy();
     
     //Initialize volume control
-    var volumeC = volumeControl();
-    var volume = mopidy.playback.getVolume();
-    volumeC.release(volume);
+    volumeControl();
+    mopidy.on("state:online", getVolume);
 });
+
+function getVolume(){
+    var volume = mopidy.getVolume();
+    volumeControl.release(volume);
+    return volume;
+}
 
 function setPlaylists(newlist){
     playlists = newlist;
