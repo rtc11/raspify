@@ -38,7 +38,7 @@ function initialize(){
 }
 
 function track_playback_started (tl_track) {
-    console.log("track_playback_started" + tl_track);
+    console.log("track_playback_started, song: " + tl_track.track.name);
 
     printNowPlaying(tl_track.track);
 }
