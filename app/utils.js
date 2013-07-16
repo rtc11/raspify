@@ -31,17 +31,16 @@ function initialize(){
     //Set the volume to 100 (TODO: make the volume be 100 by default)
     mopidy.on("state:online", setVolume);
 
-    //mopidy.on("state:tracklist_changed", tracklist_changed);
+    mopidy.on("state:track_playback_started", track_playback_started);
 
     //Log all events from mopidy
     mopidy.on(console.log.bind(console));
 }
 
-function tracklist_changed () {
-    console.log("tracklist_changed" + new_state);
+function track_playback_started (tl_track) {
+    console.log("track_playback_started" + tl_track);
 
-    mopidy.playback.getCurrentTrack()
-    .then(printNowPlaying, consoleError);
+    printNowPlaying(tl_track.track);
 }
 
 //¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
