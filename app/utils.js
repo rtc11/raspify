@@ -34,11 +34,11 @@ function initialize(){
     mopidy.on("state:track_playback_started", track_playback_started);
 
     //Log all events from mopidy
-    mopidy.on(console.log.bind(console));
+    //mopidy.on(console.log.bind(console));
 }
 
 function track_playback_started (tl_track) {
-    console.log("track_playback_started, song: " + tl_track.track.name);
+    console.log("track_playback_started.WOHOOO");
 
     printNowPlaying(tl_track.track);
 }
