@@ -35,9 +35,9 @@ function initialize(){
 }
 
 function tracklist_changed () {
-    console.log(new_state);
+    console.log("tracklist_changed" + new_state);
 
-    mopidy.tracklist.getCurrentTrack()
+    mopidy.playback.getCurrentTrack()
     .then(printNowPlaying, consoleError);
 }
 
