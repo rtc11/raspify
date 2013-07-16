@@ -30,9 +30,13 @@ function initialize(){
 
     //Set the volume to 100 (TODO: make the volume be 100 by default)
     mopidy.on("state:online", setVolume);
+
+    mopidy.on("state:playback_state_changed", playback_state_changed);
 }
 
-
+function playback_state_changed (old_state, new_state) {
+    console.log(new_state);
+}
 
 //¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
