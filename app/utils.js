@@ -31,11 +31,14 @@ function initialize(){
     //Set the volume to 100 (TODO: make the volume be 100 by default)
     mopidy.on("state:online", setVolume);
 
-    mopidy.on("state:playback_state_changed", playback_state_changed);
+    mopidy.on("state:tracklist_changed", tracklist_changed);
 }
 
-function playback_state_changed (old_state, new_state) {
+function tracklist_changed () {
     console.log(new_state);
+
+    mopidy.tracklist.getCurrentTrack()
+    .then(printNowPlaying, consoleError);
 }
 
 //¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -137,7 +140,7 @@ function clearAndAddNewTrackList(tracks){
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
     mopidy.playback.play();
-    printNowPlaying(tracks[0]);
+    //printNowPlaying(tracks[0]);
     currentPlaylist = tracks;
 }
 
@@ -145,9 +148,7 @@ function clearAndAddNewTrackList(tracks){
 * Print out now playing track
 *********************************************************/
 function printNowPlaying(track) {
-    return mopidy.playback.getCurrentTrack().then(function (track) {
-        console.log("Now playing:", trackDesc(track));
-    });
+    console.log("Now playing:", trackDesc(track));
 };
 
 function trackDesc(track) {
