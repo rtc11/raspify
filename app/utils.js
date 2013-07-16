@@ -6,6 +6,7 @@ var mopidy;
 var playlists = {};
 var currentPlaylist;
 var play = true;
+var log = false;
 
 /********************************************************
  * Initialize
@@ -28,19 +29,19 @@ function initialize(){
      //Initialize volume control
     volumeControl();
 
-    //Set the volume to 100 (TODO: make the volume be 100 by default)
-    mopidy.on("state:online", setVolume);
+    //Set the volume to 100 (TODOjlk make the volume be 100 by default)
+    mopidy.on("state:volume_changed", setVolume);
 
-    mopidy.on("state:track_playback_started", track_playback_started);
+    mopidy.on("state:trackPlaybackStarted", trackplaybackstarted);
 
     //Log all events from mopidy
-    //mopidy.on(console.log.bind(console));
+    mopidy.on(console.log.bind(console));
 }
 
-function track_playback_started (tl_track) {
+function trackplaybackstarted () {
     console.log("track_playback_started.WOHOOO");
 
-    printNowPlaying(tl_track.track);
+    printNowPlaying(tltrack.track);
 }
 
 //¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -188,7 +189,9 @@ function countTotalNrOfTracks(playlists){
  * Set the volume on the mopidy server
  *********************************************************/
 function setVolume(){
-    mopidy.playback.setVolume(100);
+	console.log("setVolume(): volume_changed event called");
+	
+    	mopidy.playback.setVolume(100);
 }
 
 /********************************************************
