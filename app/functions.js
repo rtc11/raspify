@@ -40,3 +40,7 @@ function showNrOfTracklisted(nr){
 function insertPlaylist(myid, playlist_name, id) {
     $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+id+')">'+playlist_name+'</a></li>');
 }
+
+function changePlayButton(state){
+	$('button#playPauseButton').text(state);
+}

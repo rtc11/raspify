@@ -1,3 +1,4 @@
+
 /********************************************************
  * Variables
  *********************************************************/
@@ -5,7 +6,7 @@ var mopidy;
 
 var playlists = {};
 var currentPlaylist;
-var play = true;
+var play = false;
 var log = false;
 
 /********************************************************
@@ -23,25 +24,31 @@ function initialize(){
 
     mopidy.on("state:online", fetchFromMopidy);
     
-    //Set the number of queued elements to 0
-    showNrOfQueued(0);
-
      //Initialize volume control
     volumeControl();
 
     //Set the volume to 100 (TODOjlk make the volume be 100 by default)
-    mopidy.on("state:volume_changed", setVolume);
+    //mopidy.on("event:volumeChanged", setVolume);
 
-    mopidy.on("state:trackPlaybackStarted", trackplaybackstarted);
+    //Eventlistener on track changed and starting to play
+    mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
 
     //Log all events from mopidy
-    mopidy.on(console.log.bind(console));
+   // mopidy.on(console.log.bind(console));
+
+    
 }
 
-function trackplaybackstarted () {
-    console.log("track_playback_started.WOHOOO");
+function updateStatusOfAll(){
 
-    printNowPlaying(tltrack.track);
+}
+
+/**********************************************************
+ * Event: When playback starts playing a song, show songdata to user
+ *********************************************************/
+function trackplaybackstarted () {
+    mopidy.playback.getCurrentTrack()
+    .then(printNowPlaying, console.error.bind(console));
 }
 
 //¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -54,12 +61,58 @@ function fetchFromMopidy() {
 
     //Get all the playlists
     mopidy.playlists.getPlaylists()
-    .then(processGetPlaylists, consoleError)
-    .then(countTotalNrOfTracks, consoleError);
+    .then(processGetPlaylists, consoleError);
 
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
-    .then(getCurrentTracklist, consoleError);
+    .then(setCurrentTracklist, consoleError);
+
+    //Get current playing track
+    mopidy.playback.getCurrentTrack()
+    .then(processCurrentTrack, consoleError);
+
+    //Get time position to current track
+    mopidy.playback.getTimePosition()
+    .then(processCurrentTimePosition, consoleError);
+
+    //Get play state: paused, playing, stopped
+    mopidy.playback.getState()
+    .then(processPlayState, consoleError);
+
+    //Get current volume from mopidy
+    mopidy.playback.getVolume()
+    .then(processVolume, consoleError);
+
+    //Get status if repeat mode is on/off
+   //mopidy.playback.getRepeat()
+    //.then(processRepeat, consoleError);
+
+    //Get status if random mode is on/off
+    //mopidy.playback.getRandom()
+    //.then(processRandom, consoleError);
+
+}
+function processCurrentTrack(track){
+    printNowPlaying(track);
+}
+function processCurrentTimePosition(data){
+    var pos = secondsToString(data);
+    var posInt = parseInt(data);
+    console.log("TODO: processCurrentTimePosition: toString: " + pos + " parseInt: " + posInt);
+}
+function processPlayState(state){
+    console.log("TODO: state: " + state);
+
+    if(state == "playing"){
+        changePlayButton("Pause");
+        play = !play;
+    }
+}
+function processVolume(volume){
+    console.log("current volume: " + volume);
+    $('.knob')
+    .val(volume)
+    .trigger('change');
 }
 
 /*********************************************************
@@ -75,44 +128,31 @@ function processGetPlaylists(playlists){
 
     setPlaylists(playlists);
     showNrOfPlaylists(playlists.length);
-}
-
-function getCurrentTracklist(currentTrackList){
-    console.log("getCurrentTracklist:");
-
-    currentPlaylist = currentTrackList;
-
-    putTracksOnTrackList2(currentTrackList);
-}
-
-function getFirstTrack(tracklist){
-    return tracklist.tracks[0];
-}
-
-//TODO: temporary function for adding current tracklist to UI
-function putTracksOnTrackList2(tracks){
-    console.log("putTracksOnTrackList2: " + tracks.length);
-
-    clearRows();
-
-    var items = tracks.length;
-
-    if(items > 200){ items = 200}
-
-    for(var i = 0; i<items; i++){
-
-        //TODO: issues with calling method from here
-        addRow( tracks[i].track.name, 
-                tracks[i].track.album.artists[0].name,
-                secondsToString(tracks[i].track.length),
-                tracks[i].album.track.name);
-    }
-
-    showNrOfTracklisted(tracks.length);
+    countTotalNrOfTracks(playlists);
 }
 
 /*********************************************************
-* Put the tracks from the playlist on the UI
+ * Add current tracklist to queue
+ *********************************************************/
+function setCurrentTracklist(tracks){
+    console.log("setCurrentTracklist: sample: " + tracks[0].track.name);
+
+    var nrOfItems = tracks.length;
+    showNrOfTracklisted(tracks.length);
+
+    for(var j = 0; j<10; j++){
+        addRow(tracks[j].name, 
+            tracks[j].album.artists[0].name, 
+            secondsToString(tracks[j].length), 
+            tracks[j].album.name);
+    }
+
+}
+
+/*********************************************************
+* Put the tracks from the playlists on the UI
+* - id: the position in the local variable 'playlists'
+*       to the desired playlist
 *********************************************************/
 function putTracksOnTrackList(id) {
     var playlist = playlists[id];
@@ -126,10 +166,10 @@ function putTracksOnTrackList(id) {
     clearAndAddNewTrackList(tracks);
 
     for(var i = 0; i<tracks.length; i++){
-        addRow( tracks[i].name, 
-                tracks[i].album.artists[0].name,
-                secondsToString(tracks[i].length),
-                tracks[i].album.name);
+        addRow(tracks[i].name, 
+            tracks[i].album.artists[0].name, 
+            secondsToString(tracks[i].length), 
+            tracks[i].album.name);
     }
 
     showNrOfTracklisted(tracks.length);
@@ -151,12 +191,20 @@ function clearAndAddNewTrackList(tracks){
 * Print out now playing track
 *********************************************************/
 function printNowPlaying(track) {
-    console.log("Now playing:", trackDesc(track));
+    var nowPlaying = trackDesc(track);
+
+    if(play){
+        console.log("Now playing:", nowPlaying);
+        $('h1#nowPlaying').text(nowPlaying);
+    }
+    else{
+        console.log("Now pausing:", nowPlaying);
+        $('h1#nowPlaying').text(nowPlaying);
+    }
 };
 
 function trackDesc(track) {
-    return track.name + " by " + track.artists[0].name +
-        " from " + track.album.name;
+    return track.name + " - " + track.artists[0].name;
 };
 
 /*********************************************************
@@ -191,7 +239,7 @@ function countTotalNrOfTracks(playlists){
 function setVolume(){
 	console.log("setVolume(): volume_changed event called");
 	
-    	mopidy.playback.setVolume(100);
+    //mopidy.playback.setVolume(100);
 }
 
 /********************************************************
@@ -206,7 +254,6 @@ function setPlaylists(li){
  *********************************************************/
 function clearRows(){
     console.log("clearRows: clearing table of content: Queue");
-
     document.getElementById("tbody").innerHTML = "";
 }
 
@@ -214,9 +261,12 @@ function clearRows(){
  * Add row to tracklist
  *********************************************************/
 function addRow(track, artist, time, album){
+
+    console.log("ADDROW CALLED");
+    
     if (!document.getElementsByTagName) return;
 
-    tabBody=document.getElementsByTagName("TBODY").item(0);
+    tabBody=document.getElementById("tbody");
     newRow=document.createElement("TR");
          
     cell1 = document.createElement("TD");
@@ -239,8 +289,6 @@ function addRow(track, artist, time, album){
     newRow.appendChild(cell3);
     newRow.appendChild(cell4);
 
-    //tabBody.rows[0].onclick=function(){alert('event added');};
-
     tabBody.appendChild(newRow);
 }
 
@@ -252,11 +300,11 @@ function volumeControl(){
 
         $(".knob").knob({
             change : function (value) {
-                //console.log("change : " + value);
+                //Change colum on scroll
+                mopidy.playback.setVolume(value);
             },
             release : function (value) {
-                //console.log(this.$.attr('value'));
-                console.log("release : " + value);
+                //Change volum on drag (mouse click)
                 mopidy.playback.setVolume(value);
             },
             cancel : function () {
@@ -356,10 +404,12 @@ function control(){
             if (!play) {
                 mopidy.playback.play();
                 console.log("CONTROL: Play");
+                changePlayButton("Pause");
             }
             else {
                 mopidy.playback.pause();
                 console.log("CONTROL: Pause");
+                changePlayButton("Play");
             }
             play = !play;
         });
@@ -372,7 +422,7 @@ function control(){
         });
     }
     this.previous = function(){
-        conosle.log("CONTROL: Previous");
+        console.log("CONTROL: Previous");
         
         mopidy.on("state:online", function () {
             mopidy.playback.previous();

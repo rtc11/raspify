@@ -724,7 +724,7 @@ body .http-error p {
   text-align: center;
 }
 .stat-widget-container .stat-widget {
-  width: 50%;
+  width: 33%;
   float: left;
 }
 .stat-widget-container .stat-widget .stat-button {
