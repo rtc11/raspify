@@ -47,7 +47,7 @@ function initialize(){
     volumeControl();
 
     //Initialize typeahead.js
-    typeahead();
+    //typeahead();
 
     //Initialize imageflow.js
     imageShow();
@@ -59,21 +59,23 @@ function initialize(){
 /********************************************************
  * Typeahead.js initialization
  *********************************************************/
-function typeahead(){
+function processTypeaheadContent(content){
+
+    var encoded = $.toJSON(content);
+
+   //console.log(encoded);
+
     $('.example-twitter-oss .typeahead').typeahead({                              
       name: 'twitter-oss',                                                        
-      prefetch: 'repos.json',                                             
+      prefetch: 'app/typeaheadcontent.json',                                             
       template: [                                                                 
         '<p class="type">{{type}}</p>',                              
         '<p class="name">{{name}}</p>',                                      
         '<p class="description">{{description}}</p>'
       ].join(''),
+      limit: 7,
       engine: Hogan
     });
-}
-
-function processTypeaheadContent(){
-    
 }
 
 /********************************************************
@@ -290,13 +292,61 @@ function getTracks(playlist){
  *********************************************************/
 function countTotalNrOfTracks(playlists){
     var nrOfTracks = 0;
+
+    var template = new typeaheadTemplate();
+
     for(var i = 0; i<playlists.length; i++){
         var list = getTracks(playlists[i]);
+
+        template.addPlaylist(playlists[i]);
+        template.addTracks(list);
+       
         var size = list.length;
         nrOfTracks += size;
     }
+
+    var content = template.getTemplate();
+    processTypeaheadContent(content);
+
     //Put the number of tracks found on the GUI
     showNrOfTracks(nrOfTracks);
+}
+
+function typeaheadTemplate(){
+
+    var content = [];
+    var self = this;
+
+    this.addPlaylist = function(playlist){
+        var name = playlist.name;
+        var description = (playlist.tracks.length).toString();
+        var type = "Playlist";
+        var value = playlist.name;
+        var token2 = playlist.tracks.length;
+
+        self.add(name, description, type);
+    }
+
+    this.addTracks = function(tracks){
+        
+        for(var i = 0; i<tracks.length; i++){
+            var name = tracks[i].name;
+            var description = tracks[i].album.artists[0].name;
+            var type = "Track";
+            var value = tracks[i].name;
+
+            self.add(name, description, type);
+        }
+        
+    }
+
+    this.getTemplate = function(){
+        return content;
+    }
+
+    this.add = function(name, description, type){
+        content.push({name: name, type: type, description: description, tokens: [name, type, description]});
+    }
 }
 
 /********************************************************
