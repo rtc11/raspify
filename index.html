@@ -15,21 +15,22 @@
     <!-- jQuery UI slider css -->
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     
-    <!-- Bootstrap with theme -->
+    <!-- Bootstrap with a theme -->
     <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style/theme.css">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
     
-    <!-- image show -->
+    <!-- imageflow -->
     <link rel="stylesheet" href="style/imageflow.css" type="text/css" />
 
+    <!-- typeahead -->
     <link rel="stylesheet" type="text/css" href="style/typeahead.css">
 
     <!-- THIS VERSION DOESN NOT SUPPORT MY USE OF IMAGEFLOW AND TYPEAHEAD
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
-    <!--
-    <script src="lib/jquery-1.9.1.min.js"></script>
-    -->
+    <script src="lib/jquery-1.9.1.min.js"></script> -->
+
+    <!--  jQuery libraries is the first libraries to be included
+          because other libraries might be dependent on jQuery -->
     <script src="lib/jquery-1.8.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
@@ -39,21 +40,7 @@
       }
     </style>
     <style type="text/css">
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
-        .brand { font-family: georgia, serif; }
-        .brand .first {
-            color: #ccc;
-            font-style: italic;
-        }
-        .brand .second {
-            color: #fff;
-            font-weight: bold;
-        }
+   
     </style>
   </head>
 
@@ -70,13 +57,10 @@
       </div>
     </div>
     
-    <!--***************************************************
-    * MENU
-     ****************************************************-->
     <div class="sidebar-nav">
       
       <!--***************************************************
-      * VOLUME CONTROL
+      * SEARCH
       ****************************************************-->
       <form class="search form-inline">
         <div class="example example-twitter-oss">
@@ -86,14 +70,18 @@
         </div>  
       </form>
 
-      <!-- Volume control -->
+      <!--***************************************************
+      * VOLUME CONTROl 1
+      ****************************************************-->
       <a href="#volume-menu" class="nav-header" data-toggle="collapse">
         <i class="icon-bell"></i>Volume</a>
       <ul id="volume-menu" class="nav nav-list collapse in" style="text-align: center;">
             <input class="knob" data-width="180" data-height="150" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" value="100" data-thickness=".3">
       </ul>
 
-      <!-- Volume control 2 --> 
+      <!--***************************************************
+      * VOLUME CONTROl 2
+      ****************************************************-->
       <a href="#volume-menu2" class="nav-header" data-toggle="collapse">
           <i class="icon-bell"></i>Volume2</a>
       <ul id="volume-menu2" class="nav nav-list collapse" style="text-align: center;">

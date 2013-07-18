@@ -1,3 +1,19 @@
+/** RIGHT HANDED INFO */
+.example-twitter-oss .type {
+  float: right;
+  font-style: italic;
+}
+
+/** TITLE */
+.example-twitter-oss .name {
+  font-weight: bold;
+}
+
+/** DESCRIPTION (CONTENT) */
+.example-twitter-oss .description {
+  font-size: 14px;
+}
+
 .typeahead {
   background-color: #fff;
 }
@@ -41,18 +57,7 @@
   border-top: 1px solid #ccc;
 }
 
-.example-twitter-oss .repo-language {
-  float: right;
-  font-style: italic;
-}
 
-.example-twitter-oss .repo-name {
-  font-weight: bold;
-}
-
-.example-twitter-oss .repo-description {
-  font-size: 14px;
-}
 
 .example-sports .league-name {
   margin: 0 20px 5px 20px;

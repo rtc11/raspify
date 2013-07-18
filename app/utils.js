@@ -64,27 +64,16 @@ function typeahead(){
       name: 'twitter-oss',                                                        
       prefetch: 'repos.json',                                             
       template: [                                                                 
-        '<p class="repo-language">{{language}}</p>',                              
-        '<p class="repo-name">{{name}}</p>',                                      
-        '<p class="repo-description">{{description}}</p>'                         
+        '<p class="type">{{language}}</p>',                              
+        '<p class="name">{{name}}</p>',                                      
+        '<p class="description">{{description}}</p>'                         
       ].join(''),  
       engine: Hogan                                                               
     });
 }
 
 function processTypeaheadContent(){
-    var content = [];
 
-    for(var i = 0; i<playlists.length; i++){
-        content.push(playlists[i].name);
-    }
-
-    var data = ['above','alpha','alter','beta','bravo','charlie','delta','epsilon','gamma','zulu'];
-
-    $('#search').typeahead({
-        
-        source: data
-    });
 }
 
 /********************************************************
