@@ -118,15 +118,15 @@ hr {
 }
 .breadcrumb {
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
   -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
+  -moz-box-shadow: none;
+  -moz-border-radius: 0px;
+  -moz-background-clip: padding;
+  box-shadow: none;
   background-clip: padding-box;
   background: #eee;
+  border-radius: 0px;
   border-bottom: 1px solid #aaa;
   border-top: 1px solid #fafafa;
   border-left: 1px solid #fff;
@@ -135,18 +135,7 @@ hr {
 .page-content {
   padding: 1em;
 }
-/*
-.timer {
-  min-width: 180px;
-  position: relative;
-  min-height: 180px;
-  background: #fff;
-  margin-left: 240px;
-  margin-top: 6px;
-  border-left: 1px solid #000000;
-  border-left: 1px solid #111;
-}
-*/
+
 footer {
   padding: 1em;
   margin-top: 4em;
@@ -724,7 +713,7 @@ body .http-error p {
   text-align: center;
 }
 .stat-widget-container .stat-widget {
-  width: 33%;
+  width: 50%;
   float: left;
 }
 .stat-widget-container .stat-widget .stat-button {

@@ -41,6 +41,18 @@ function insertPlaylist(myid, playlist_name, id) {
     $('ul#' + myid).append('<li><a href="#'+playlist_name+'" onClick="putTracksOnTrackList('+id+')">'+playlist_name+'</a></li>');
 }
 
+/*********************************************************
+ * Changes the play-button state and image
+ *********************************************************/
 function changePlayButton(state){
-	$('button#playPauseButton').text(state);
+    var src = "";
+
+    if(state == "pause"){
+        src = "img/player-pause.png";
+    }
+    if(state == "play"){
+        src = "img/player-play.png";
+    }
+
+    document.getElementById('playPauseButton').setAttribute('src', src);
 }

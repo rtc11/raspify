@@ -27,6 +27,8 @@ function initialize(){
      //Initialize volume control
     volumeControl();
 
+    imageShow();
+
     //Set the volume to 100 (TODOjlk make the volume be 100 by default)
     //mopidy.on("event:volumeChanged", setVolume);
 
@@ -35,8 +37,17 @@ function initialize(){
 
     //Log all events from mopidy
    // mopidy.on(console.log.bind(console));
+}
 
-    
+function imageShow(){
+
+
+    domReady(function(){
+        var basic_2 = new ImageFlow();
+        basic_2.init({ ImageFlowID: 'unique_name', 
+                   reflections: false, 
+                   reflectionP: 0.0 });
+    });
 }
 
 function updateStatusOfAll(){
@@ -104,8 +115,12 @@ function processPlayState(state){
     console.log("TODO: state: " + state);
 
     if(state == "playing"){
-        changePlayButton("Pause");
-        play = !play;
+        changePlayButton("pause");
+        play = true;
+    }
+    if(state == "paused"){
+        changePlayButton("play");
+        play = false;
     }
 }
 function processVolume(volume){
@@ -404,12 +419,12 @@ function control(){
             if (!play) {
                 mopidy.playback.play();
                 console.log("CONTROL: Play");
-                changePlayButton("Pause");
+                changePlayButton("pause");
             }
             else {
                 mopidy.playback.pause();
                 console.log("CONTROL: Pause");
-                changePlayButton("Play");
+                changePlayButton("play");
             }
             play = !play;
         });

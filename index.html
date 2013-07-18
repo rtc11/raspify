@@ -14,10 +14,25 @@
 
     <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style/theme.css">
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
+
+    <!-- jQuery UI slider css -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <!-- image show -->
+    <link rel="stylesheet" href="style/imageflow.css" type="text/css" />
+    
+
+    <style type="text/css">
+      #slider { 
+        margin: 10px; 
+      }
+    </style>
 
     <!-- This must be placed here -->
-    <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <!--<script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>-->
     
 
     <style type="text/css">
@@ -52,6 +67,9 @@
       </div>
     </div>
     
+    <!--***************************************************
+    * MENU
+     ****************************************************-->
     <div class="sidebar-nav">
       
       <!--***************************************************
@@ -61,13 +79,22 @@
         <input type="text" placeholder="Search...">
       </form>
 
+      <!-- Volume control -->
       <a href="#volume-menu" class="nav-header" data-toggle="collapse">
-        <i class="icon-bell"></i>Volume
-      </a>
+        <i class="icon-bell"></i>Volume</a>
       <ul id="volume-menu" class="nav nav-list collapse in" style="text-align: center;">
-        <!--<div>-->
             <input class="knob" data-width="180" data-height="150" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" value="100" data-thickness=".3">
-        <!--</div>-->
+      </ul>
+
+      <!-- Volume control 2 --> 
+      <a href="#volume-menu2" class="nav-header" data-toggle="collapse">
+          <i class="icon-bell"></i>Volume2</a>
+      <ul id="volume-menu2" class="nav nav-list collapse" style="text-align: center;">
+        <div id="unique_name" class="imageflow"> 
+          <img src="img/img1.png" longdesc="#URL_1" width="400" height="300" alt="Text_1" />
+          <img src="img/img2.png" longdesc="#URL_2" width="300" height="400" alt="Text_2" />
+          <img src="img/img3.png" longdesc="#URL_3" width="400" height="400" alt="Text_3" />
+        </div>
       </ul>
 
       <a href="#dashboard-menu" class="nav-header" data-toggle="collapse">
@@ -92,10 +119,11 @@
         <i class="icon-chevron-up"></i>
       </a>
       <ul id="error-menu" class="nav nav-list collapse in">
-        <!--  Javascript/knockout  adds playlists here -->
+        <!--  Javascript/knockout adds playlists here -->
       </ul>
-    </div><!-- /sidebar-nav -->
+    </div>
    
+   <!-- HEADER INFORMATION -->
     <div class="content">
       <div class="header">
         <div class="stats">
@@ -106,33 +134,42 @@
         <h1 class="page-title" id="nowPlaying">...Now Playing...</h1>
       </div>
 
+      <!--***************************************************
+      * CONTROLS
+      ****************************************************-->
       <ul class="breadcrumb">
 
-        <!--***************************************************
-        * CONTROLS
-        ****************************************************-->
-        <button onClick='new control().previous(); return false;'>Previous</button>
-        <button onClick='new control().play(); return false;' id="playPauseButton">Play</button>
-        <button onClick='new control().next(); return false;'>Next</button>
+          <!-- CONTROL BUTONS -->
+          <button onClick='new control().previous(); return false;' >
+            <img src="img/player-previous.png" height="42" width="42"px id="previousButton">
+          </button>
+          <button onClick='new control().play(); return false;'>
+            <img src="img/player-play.png" height="42" width="42" id="playPauseButton">
+          </button>
+          <button onClick='new control().next(); return false;'>
+            <img src="img/player-next.png" height="42" width="42" id="nextButton">
+          </button>
+
+          <!-- SEEKBAR -->
+          <div id="slider" ></div>
+          <script>
+            $("div#slider").slider();
+          </script>
 
       </ul>
+
+
       <div class="container-fluid">
         <div class="row-fluid">
+
+          <!--***************************************************
+          * STATS DIV
+          ****************************************************-->
           <div class="row-fluid">
             <div class="block">
               <a href="#page-stats" class="block-heading" data-toggle="collapse">Stats</a>
               <div id="page-stats" class="block-body collapse in">
                 <div class="stat-widget-container">
-
-                  <!--
-                  <div class="stat-widget">
-                    <div class="stat-button">
-                      <p class="title">
-                          <input class="knob" data-width="100" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" value="100">
-                      </p>
-                    </div>
-                  </div>
-                  -->
 
                   <!-- NUMBER OF PLAYLISTS -->
                   <div class="stat-widget">
@@ -154,13 +191,19 @@
               </div>
             </div>
           </div>
+
+          <!--***************************************************
+          * QUEUE/TRACKLIST DIV
+          ****************************************************-->
           <div class="row-fluid">
             <div class="block span12">
               <a href="#tablewidget" class="block-heading" data-toggle="collapse">Queue
-                <span class="label label-warning" id="nrOfTracklisted">0</span></a>
-              <div id="tablewidget" class="block-body collapse in">
+                <span class="label label-warning" id="nrOfTracklisted">0</span>
+              </a>
 
-                <table class="table">
+            <!-- QUEUE/TRACKLIST-->
+            <div id="tablewidget" class="block-body collapse in">
+              <table class="table">
                   <thead>
                     <tr>
                       <th>Track</th>
@@ -170,30 +213,40 @@
                     </tr>
                   </thead>
                   <tbody id="tbody">
-                    <!-- HERE IS THE QUEUE/TRACKLIST -->
+                    <!--   
+                    <tr>
+                      <th>content</th>
+                      <th>content</th>
+                      <th>content</th>
+                      <th>content</th>
+                    </tr>
+                    -->
                   </tbody>
-                </table>
+              </table>
 
-              </div>
             </div>
-          </div> <!-- /row-fluid -->
-
-          <div class="row-fluid">
           </div>
+        </div>
 
+          <!-- FOOTER -->
+        <div class="row-fluid">
+          </div>
           <footer>
             <hr>
             <p>&copy; 2013 Robin Tordly</p>
           </footer>
         </div>
-      </div>
-    </div> <!-- /container-fluid -->
 
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT LIBRARIES -->
     <script src="/mopidy/mopidy.min.js" type="text/javascript"></script>
     <script src="app/utils.js" type="text/javascript"></script>
     <script src="app/functions.js" type="text/javascript"></script>
     <script src="lib/bootstrap.js"></script>
     <script src="lib/jquery.knob.js" type="text/javascript"></script>
+    <script src="lib/imageflow.js" type="text/javascript"></script>
 
   </body>
 </html>
