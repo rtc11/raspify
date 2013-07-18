@@ -64,16 +64,16 @@ function typeahead(){
       name: 'twitter-oss',                                                        
       prefetch: 'repos.json',                                             
       template: [                                                                 
-        '<p class="type">{{language}}</p>',                              
+        '<p class="type">{{type}}</p>',                              
         '<p class="name">{{name}}</p>',                                      
-        '<p class="description">{{description}}</p>'                         
-      ].join(''),  
-      engine: Hogan                                                               
+        '<p class="description">{{description}}</p>'
+      ].join(''),
+      engine: Hogan
     });
 }
 
 function processTypeaheadContent(){
-
+    
 }
 
 /********************************************************

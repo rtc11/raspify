@@ -2,7 +2,7 @@
   {
     "name": "languageahead.js",
     "description": "A fast and fully-featured autocomplete library",
-    "language": "JavaScript",
+    "type": "JavaScript",
     "value": "languageahead.js",
     "tokens": [
       "typeahead.js",
@@ -12,7 +12,7 @@
   {
     "name": "cassandra",
     "description": "A Ruby client for the Cassandra distributed database",
-    "language": "Ruby",
+    "type": "Ruby",
     "value": "cassandra",
     "tokens": [
       "cassandra",
@@ -22,7 +22,7 @@
   {
     "name": "hadoop-lzo",
     "description": "Refactored version of code.google.com/hadoop-gpl-compression for hadoop 0.20",
-    "language": "Shell",
+    "type": "Shell",
     "value": "hadoop-lzo",
     "tokens": [
       "hadoop",
