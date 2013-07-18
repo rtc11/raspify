@@ -3,45 +3,56 @@
  * Variables
  *********************************************************/
 var mopidy;
-
+var seekbar;
 var playlists = {};
 var currentPlaylist;
 var play = false;
 var log = false;
+var shuffle = 0;
+var repeat = 0;
+var currentTrackPositionTime = 0;
+var currentTrackMaxTime = 0;
+
+/********************************************************
+ * Auto run method
+ *********************************************************/
+$(document).ready(function() {
+    initialize();
+});
 
 /********************************************************
  * Initialize
  *********************************************************/
-$(document).ready(function() {
-
-    //Get the playlists from the mopidy server
-    initialize();
-});
-
 function initialize(){
-     //Connect to the mopidy server
+    //Connect to the mopidy server
     mopidy = new Mopidy();
 
+    //Create the seekbar
+    seekbar = new Seekbar();
+
+    //Fetch playlists and tracks from mopidy
     mopidy.on("state:online", fetchFromMopidy);
-    
-     //Initialize volume control
-    volumeControl();
-
-    imageShow();
-
-    //Set the volume to 100 (TODOjlk make the volume be 100 by default)
-    //mopidy.on("event:volumeChanged", setVolume);
 
     //Eventlistener on track changed and starting to play
     mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
 
+    //Listen to event: 'volumeChanged'
+    mopidy.on("event:volumeChanged", volumeChanged);
+    
+    //Initialize volume control
+    volumeControl();
+
+    //Initialize the volume control
+    imageShow();
+
     //Log all events from mopidy
-   // mopidy.on(console.log.bind(console));
+    //mopidy.on(console.log.bind(console));
 }
 
+/********************************************************
+ * Image Flow initialization
+ *********************************************************/
 function imageShow(){
-
-
     domReady(function(){
         var basic_2 = new ImageFlow();
         basic_2.init({ ImageFlowID: 'unique_name', 
@@ -50,19 +61,17 @@ function imageShow(){
     });
 }
 
-function updateStatusOfAll(){
-
-}
-
 /**********************************************************
  * Event: When playback starts playing a song, show songdata to user
  *********************************************************/
 function trackplaybackstarted () {
     mopidy.playback.getCurrentTrack()
     .then(printNowPlaying, console.error.bind(console));
-}
 
-//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+    //When a song changes, it starts on time 0
+    currentTrackPositionTime = 0;
+    console.log("% Current time: " + currentTrackPositionTime);
+}
 
 /**********************************************************
  * Get playlists from Mopidy with tracks and put on UI
@@ -95,25 +104,39 @@ function fetchFromMopidy() {
     .then(processVolume, consoleError);
 
     //Get status if repeat mode is on/off
-   //mopidy.playback.getRepeat()
-    //.then(processRepeat, consoleError);
+    mopidy.playback.getRepeat()
+    .then(processRepeat, consoleError);
 
-    //Get status if random mode is on/off
-    //mopidy.playback.getRandom()
-    //.then(processRandom, consoleError);
+    //Get status if shuffle is on/off
+    mopidy.playback.getRandom()
+    .then(processRandom, consoleError);
 
+}
+
+function processRepeat(state){
+    console.log("processRepeat: " + state);
+    changeRepeatButton(state);
+    this.repeat = state;
+}
+function processRandom(state){
+    console.log("processRandom: " + state);
+    changeShuffleButton(state);
+    this.shuffle = state
 }
 function processCurrentTrack(track){
     printNowPlaying(track);
+    
+    //currentTrackMaxTime = track.length;
 }
 function processCurrentTimePosition(data){
     var pos = secondsToString(data);
     var posInt = parseInt(data);
-    console.log("TODO: processCurrentTimePosition: toString: " + pos + " parseInt: " + posInt);
+
+    //First time when we fetch from mopidy
+    currentTrackPositionTime = posInt;
+    console.log("# Current time: " + currentTrackPositionTime);
 }
 function processPlayState(state){
-    console.log("TODO: state: " + state);
-
     if(state == "playing"){
         changePlayButton("pause");
         play = true;
@@ -129,13 +152,7 @@ function processVolume(volume){
     .val(volume)
     .trigger('change');
 }
-
-/*********************************************************
- * Put the playlists on the UI
- *********************************************************/
 function processGetPlaylists(playlists){
-    //console.log("processGetPlaylists: " + playlists);
-
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
          insertPlaylist("error-menu", playlists[i].name, i);
@@ -150,8 +167,6 @@ function processGetPlaylists(playlists){
  * Add current tracklist to queue
  *********************************************************/
 function setCurrentTracklist(tracks){
-    console.log("setCurrentTracklist: sample: " + tracks[0].track.name);
-
     var nrOfItems = tracks.length;
     showNrOfTracklisted(tracks.length);
 
@@ -175,10 +190,11 @@ function putTracksOnTrackList(id) {
     console.log("putTracksOnTrackList: " + playlist.name + " on id: " + id);
 
     tracks = getTracks(playlist);
-
     clearRows();
-
     clearAndAddNewTrackList(tracks);
+    showNrOfTracklisted(tracks.length);
+    changePlayButton("pause");
+    play = true;
 
     for(var i = 0; i<tracks.length; i++){
         addRow(tracks[i].name, 
@@ -186,8 +202,6 @@ function putTracksOnTrackList(id) {
             secondsToString(tracks[i].length), 
             tracks[i].album.name);
     }
-
-    showNrOfTracklisted(tracks.length);
 }
 
 /*********************************************************
@@ -198,7 +212,6 @@ function clearAndAddNewTrackList(tracks){
     mopidy.tracklist.clear();
     mopidy.tracklist.add(tracks);
     mopidy.playback.play();
-    //printNowPlaying(tracks[0]);
     currentPlaylist = tracks;
 }
 
@@ -216,6 +229,10 @@ function printNowPlaying(track) {
         console.log("Now pausing:", nowPlaying);
         $('h1#nowPlaying').text(nowPlaying);
     }
+
+    currentTrackMaxTime = track.length;
+    console.log("% Max time: " + currentTrackMaxTime);
+    this.seekbar.initialize(currentTrackMaxTime, currentTrackPositionTime);
 };
 
 function trackDesc(track) {
@@ -233,8 +250,6 @@ function getTracks(playlist){
  * Counts the total number of tracks
  *********************************************************/
 function countTotalNrOfTracks(playlists){
-    console.log("countTotalNrOfTracks: starting calculating...");
-
     var nrOfTracks = 0;
     for(var i = 0; i<playlists.length; i++){
         var list = getTracks(playlists[i]);
@@ -245,16 +260,15 @@ function countTotalNrOfTracks(playlists){
     showNrOfTracks(nrOfTracks);
 }
 
-
-//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-
 /********************************************************
  * Set the volume on the mopidy server
  *********************************************************/
-function setVolume(){
-	console.log("setVolume(): volume_changed event called");
-	
-    //mopidy.playback.setVolume(100);
+function volumeChanged(){
+    mopidy.playback.getVolume()
+    .then(function(volume){
+        console.log("volumeChanged: " + volume), 
+        console.error.bind(console)
+    });
 }
 
 /********************************************************
@@ -268,7 +282,7 @@ function setPlaylists(li){
  * Clears the rows in the tracklist
  *********************************************************/
 function clearRows(){
-    console.log("clearRows: clearing table of content: Queue");
+    console.log("clearRows: clearing the queue");
     document.getElementById("tbody").innerHTML = "";
 }
 
@@ -413,8 +427,6 @@ function control(){
     var mopidy = new Mopidy();
 
     this.play = function(){
-       
-        
         mopidy.on("state:online", function () {
             if (!play) {
                 mopidy.playback.play();
@@ -441,6 +453,36 @@ function control(){
         
         mopidy.on("state:online", function () {
             mopidy.playback.previous();
+        });
+    }
+    this.shuffle = function(){
+        console.log("CONTROL: Shuffle");
+
+        mopidy.on("state:online", function() {
+            shuffle = !shuffle;
+            changeShuffleButton(shuffle);
+
+            if(shuffle){
+                mopidy.playback.setRandom(1);
+            }
+            else{
+                mopidy.playback.setRandom(0);
+            }
+
+        });
+    }
+    this.repeat = function(){
+        console.log("CONTROL: Repeat");
+
+        mopidy.on("state:online", function() {
+            repeat = !repeat;
+            changeRepeatButton(repeat);
+            if(repeat){
+                mopidy.playback.setRepeat(1);
+            }
+            else{
+                mopidy.playback.setRepeat(0);
+            }
         });
     }
 }

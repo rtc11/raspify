@@ -3,7 +3,6 @@
  *********************************************************/
 function showNrOfPlaylists(nr){
     console.log("showNrOfPlaylists: " + nr);
-
     $('p#nrOfPlaylists').text(nr);
 }
 
@@ -11,8 +10,7 @@ function showNrOfPlaylists(nr){
  * Shows the number of tracks
  *********************************************************/
 function showNrOfTracks(nr){
-    console.log("showNrOfTracks: ...calculated: " + nr);
-
+    console.log("showNrOfTracks: " + nr);
     $('p#nrOfTracks').text(nr);
 }
 
@@ -21,7 +19,6 @@ function showNrOfTracks(nr){
  *********************************************************/
 function showNrOfQueued(nr){
     console.log("showNrOfQueued: " + nr);
-
     $('span#nrOfQueued').text(nr);
 }
 
@@ -30,7 +27,6 @@ function showNrOfQueued(nr){
  *********************************************************/
 function showNrOfTracklisted(nr){
     console.log("showNrOfTracklisted: " + nr);
-
     $('span#nrOfTracklisted').text(nr);
 }
 
@@ -42,17 +38,78 @@ function insertPlaylist(myid, playlist_name, id) {
 }
 
 /*********************************************************
- * Changes the play-button state and image
+ * Changes the play-buttons image
  *********************************************************/
 function changePlayButton(state){
     var src = "";
-
-    if(state == "pause"){
-        src = "img/player-pause.png";
-    }
-    if(state == "play"){
-        src = "img/player-play.png";
-    }
-
+    if(state == "pause"){ src = "img/player-pause.png"; }
+    if(state == "play"){ src = "img/player-play.png"; }
     document.getElementById('playPauseButton').setAttribute('src', src);
+}
+
+/*********************************************************
+ * Changes the repeat-buttons image
+ *********************************************************/
+function changeRepeatButton(repeat){
+    var src = "";
+    if(repeat){ src = "img/player-repeat-on.png"; }
+    else{ src = "img/player-repeat.png"; }
+    document.getElementById('repeatButton').setAttribute('src', src);
+}
+
+/*********************************************************
+ * Changes the shuffle-buttons image
+ *********************************************************/
+function changeShuffleButton(shuffle){
+    var src = "";
+    if(shuffle){ src = "img/player-shuffle-on.png"; }
+    else{ src = "img/player-shuffle.png"; }
+    document.getElementById('shuffleButton').setAttribute('src', src);
+}
+
+/*********************************************************
+ * The seekbar object with its functions
+ *********************************************************/
+function Seekbar(){
+    var max = 0;
+    var pos = 0;
+
+    //initialize and instantiate the seekbar
+    this.initialize = function(maxVal, current){
+        $( "div#slider" ).slider({ max: maxVal });
+        $( "div#slider" ).slider({ min: 0 });
+        $( "div#slider" ).slider({ value: current });
+        $( "div#slider" ).slider({
+            change: function( event, ui ) {
+                var mopidy = new Mopidy();
+                mopidy.on("state:online", function(){
+                    mopidy.playback.seek(ui.value);
+                });
+            }
+        });
+    }
+
+    //Set max value of seekbar
+    this.setMax = function(input){
+        $( "div#slider" ).slider( "option", "max", input );
+        this.max = input;
+    }
+
+    //Set current position of seekbar
+    this.setCurrentPos = function(input){
+        $( "div#slider" ).slider( "option", "value", input );
+        this.pos = input;
+    }
+
+    //Get max value of seekbar
+    this.getMax = function(){
+        var maxVal = $( "div#slider" ).slider( "option", "max" );
+        return maxVal;
+    }
+
+    //Get current position of seekbar
+    this.getCurrentPos = function(){
+        var value = $( "div#slider" ).slider( "option", "value" );
+        return value;
+    }
 }

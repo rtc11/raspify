@@ -149,13 +149,20 @@
           <button onClick='new control().next(); return false;'>
             <img src="img/player-next.png" height="42" width="42" id="nextButton">
           </button>
+          <button onClick='new control().shuffle(); return false;'>
+            <img src="img/player-shuffle.png" height="42" width="42" id="shuffleButton">
+          </button>
+          <button onClick='new control().repeat(); return false;'>
+            <img src="img/player-repeat.png" height="42" width="42" id="repeatButton">
+          </button>
 
           <!-- SEEKBAR -->
           <div id="slider" ></div>
           <script>
-            $("div#slider").slider();
+            
           </script>
 
+        
       </ul>
 
 
