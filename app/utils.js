@@ -37,15 +37,19 @@ function initialize(){
     //Eventlistener on track changed and starting to play
     mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
 
+    //Eventlistener on track paused
     mopidy.on("event:trackPlaybackPaused", trackplaybackpaused);
 
     //Listen to event: 'volumeChanged'
     mopidy.on("event:volumeChanged", volumeChanged);
     
-    //Initialize volume control
+    //Initialize jquery.knob.js
     volumeControl();
 
-    //Initialize the volume control
+    //Initialize typeahead.js
+    typeahead();
+
+    //Initialize imageflow.js
     imageShow();
 
     //Log all events from mopidy
@@ -53,7 +57,38 @@ function initialize(){
 }
 
 /********************************************************
- * Image Flow initialization
+ * Typeahead.js initialization
+ *********************************************************/
+function typeahead(){
+    $('.example-twitter-oss .typeahead').typeahead({                              
+      name: 'twitter-oss',                                                        
+      prefetch: 'repos.json',                                             
+      template: [                                                                 
+        '<p class="repo-language">{{language}}</p>',                              
+        '<p class="repo-name">{{name}}</p>',                                      
+        '<p class="repo-description">{{description}}</p>'                         
+      ].join(''),  
+      engine: Hogan                                                               
+    });
+}
+
+function processTypeaheadContent(){
+    var content = [];
+
+    for(var i = 0; i<playlists.length; i++){
+        content.push(playlists[i].name);
+    }
+
+    var data = ['above','alpha','alter','beta','bravo','charlie','delta','epsilon','gamma','zulu'];
+
+    $('#search').typeahead({
+        
+        source: data
+    });
+}
+
+/********************************************************
+ * ImageFlow.js initialization
  *********************************************************/
 function imageShow(){
     domReady(function(){
@@ -171,6 +206,9 @@ function processGetPlaylists(playlists){
     setPlaylists(playlists);
     showNrOfPlaylists(playlists.length);
     countTotalNrOfTracks(playlists);
+
+    //Now that we got the playlists: put them into search query
+    //processTypeaheadContent();
 }
 
 /*********************************************************
@@ -342,7 +380,7 @@ function addRow(){
 }
 
 /********************************************************
- * Volume control
+ * Volume control - jQuery.knob.js initialization
  *********************************************************/
 function volumeControl(){
     $(function($) {
