@@ -12,6 +12,7 @@ var shuffle = 0;
 var repeat = 0;
 var currentTrackPositionTime = 0;
 var currentTrackMaxTime = 0;
+var self = this;
 
 /********************************************************
  * Auto run method
@@ -63,6 +64,10 @@ function imageShow(){
     });
 }
 
+/**********************************************************
+ * Event: When playback state is pausing, 
+ * update the seekbar position (might be some millies wrong)
+ *********************************************************/
 function trackplaybackpaused(){
     mopidy.playback.getTimePosition()
     .then(seekbar.setCurrentPos, console.error.bind(console));
@@ -132,8 +137,6 @@ function processRandom(state){
 }
 function processCurrentTrack(track){
     printNowPlaying(track);
-    
-    //currentTrackMaxTime = track.length;
 }
 function processCurrentTimePosition(data){
     var pos = secondsToString(data);
@@ -177,13 +180,14 @@ function setCurrentTracklist(tracks){
     var nrOfItems = tracks.length;
     showNrOfTracklisted(tracks.length);
 
+    var queueAdder = new addRow();
     for(var j = 0; j<10; j++){
-        addRow(tracks[j].name, 
-            tracks[j].album.artists[0].name, 
-            secondsToString(tracks[j].length), 
-            tracks[j].album.name);
+        queueAdder.add(
+            tracks[j].track.name,
+            tracks[j].track.album.artists[0].name,
+            secondsToString(tracks[j].track.length),
+            tracks[j].track.album.name);
     }
-
 }
 
 /*********************************************************
@@ -203,8 +207,9 @@ function putTracksOnTrackList(id) {
     changePlayButton("pause");
     play = true;
 
+    var addr = new addRow();
     for(var i = 0; i<tracks.length; i++){
-        addRow(tracks[i].name, 
+        addr.add(tracks[i].name, 
             tracks[i].album.artists[0].name, 
             secondsToString(tracks[i].length), 
             tracks[i].album.name);
@@ -294,38 +299,46 @@ function clearRows(){
 }
 
 /********************************************************
- * Add row to tracklist
+ * Add row to tracklist object
  *********************************************************/
-function addRow(track, artist, time, album){
+function addRow(){
 
-    console.log("ADDROW CALLED");
-    
-    if (!document.getElementsByTagName) return;
+    //Function for adding a row to tracklist
+    this.add = function(track, artist, time, album){
 
-    tabBody=document.getElementById("tbody");
-    newRow=document.createElement("TR");
-         
-    cell1 = document.createElement("TD");
-    cell2 = document.createElement("TD");
-    cell3 = document.createElement("TD");
-    cell4 = document.createElement("TD");
+        //Find the tbody in the right table
+        tabBody=document.getElementById("tbody");
 
-    textnode1=document.createTextNode(track);
-    textnode2=document.createTextNode(artist);
-    textnode3=document.createTextNode(time);
-    textnode4=document.createTextNode(album);
+        //Create a new row element
+        newRow=document.createElement("TR");
+             
+        //Create a cell (column) for 'track', 'artist', 'time' and 'album'
+        cell1 = document.createElement("TD");
+        cell2 = document.createElement("TD");
+        cell3 = document.createElement("TD");
+        cell4 = document.createElement("TD");
 
-    cell1.appendChild(textnode1);
-    cell2.appendChild(textnode2);
-    cell3.appendChild(textnode3);
-    cell4.appendChild(textnode4);
+        //Create text nodes and put them to variables
+        trackVar=document.createTextNode(track);
+        artistVar=document.createTextNode(artist);
+        timeVar=document.createTextNode(time);
+        albumVar=document.createTextNode(album);
 
-    newRow.appendChild(cell1);
-    newRow.appendChild(cell2);
-    newRow.appendChild(cell3);
-    newRow.appendChild(cell4);
+        //Add the text nodes to the cells
+        cell1.appendChild(trackVar);
+        cell2.appendChild(artistVar);
+        cell3.appendChild(timeVar);
+        cell4.appendChild(albumVar);
 
-    tabBody.appendChild(newRow);
+        //Add the cells to the row element
+        newRow.appendChild(cell1);
+        newRow.appendChild(cell2);
+        newRow.appendChild(cell3);
+        newRow.appendChild(cell4);
+
+        //Add the row to the table
+        tabBody.appendChild(newRow);
+    }
 }
 
 /********************************************************
