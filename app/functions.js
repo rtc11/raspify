@@ -73,20 +73,28 @@ function changeShuffleButton(shuffle){
 function Seekbar(){
     var max = 0;
     var pos = 0;
+    var self = this;
+    $( "div#slider" ).slider(); //Create empty seekbar
 
     //initialize and instantiate the seekbar
     this.initialize = function(maxVal, current){
         $( "div#slider" ).slider({ max: maxVal });
         $( "div#slider" ).slider({ min: 0 });
         $( "div#slider" ).slider({ value: current });
+        //$( "div#slider" ).slider({ animate: "fast" }); //changes position while draging the slider
         $( "div#slider" ).slider({
-            change: function( event, ui ) {
+            slide: function( event, ui ) {
                 var mopidy = new Mopidy();
                 mopidy.on("state:online", function(){
                     mopidy.playback.seek(ui.value);
+                    if(!play){
+                        mopidy.playback.pause();
+                    }
                 });
             }
         });
+
+        window.setInterval(this.incrementCurrentPos, 1000);
     }
 
     //Set max value of seekbar
@@ -95,8 +103,17 @@ function Seekbar(){
         this.max = input;
     }
 
+    this.incrementCurrentPos = function(){
+        if(play){
+            //using variable self, because 'this' is now incrementCurrentPos() and not seekbar()
+            var curr = self.getCurrentPos();
+            $('div#slider').slider("option", "value", curr + 1000);
+        }
+    }
+
     //Set current position of seekbar
     this.setCurrentPos = function(input){
+        console.log("Current position updated to: " + input);
         $( "div#slider" ).slider( "option", "value", input );
         this.pos = input;
     }

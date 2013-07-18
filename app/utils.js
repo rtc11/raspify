@@ -36,6 +36,8 @@ function initialize(){
     //Eventlistener on track changed and starting to play
     mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
 
+    mopidy.on("event:trackPlaybackPaused", trackplaybackpaused);
+
     //Listen to event: 'volumeChanged'
     mopidy.on("event:volumeChanged", volumeChanged);
     
@@ -59,6 +61,11 @@ function imageShow(){
                    reflections: false, 
                    reflectionP: 0.0 });
     });
+}
+
+function trackplaybackpaused(){
+    mopidy.playback.getTimePosition()
+    .then(seekbar.setCurrentPos, console.error.bind(console));
 }
 
 /**********************************************************
