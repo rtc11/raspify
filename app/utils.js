@@ -61,8 +61,6 @@ function initialize(){
  *********************************************************/
 function processTypeaheadContent(content){
 
-    var encoded = $.toJSON(content);
-
    //console.log(encoded);
 
     $('.example-twitter-oss .typeahead').typeahead({                              
