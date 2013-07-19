@@ -14,55 +14,43 @@ var currentTrackPositionTime = 0;
 var currentTrackMaxTime = 0;
 var self = this;
 
-/********************************************************
- * Auto run method
- *********************************************************/
-$(document).ready(function() {
-    initialize();
-});
+//Generates JSON content and prints to console
+var generateJSON = false; 
+
+//If this is true, the console will log events from mopidy server      
+var mopidyConsole = false;
 
 /********************************************************
  * Initialize
  *********************************************************/
-function initialize(){
+$(document).ready(function() {
     //Connect to the mopidy server
     mopidy = new Mopidy();
-
     //Create the seekbar
     seekbar = new Seekbar();
 
     //Fetch playlists and tracks from mopidy
     mopidy.on("state:online", fetchFromMopidy);
-
     //Eventlistener on track changed and starting to play
     mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
-
     //Eventlistener on track paused
     mopidy.on("event:trackPlaybackPaused", trackplaybackpaused);
-
     //Listen to event: 'volumeChanged'
     mopidy.on("event:volumeChanged", volumeChanged);
     
     //Initialize jquery.knob.js
     volumeControl();
-
-    //Initialize typeahead.js
-    //typeahead();
-
     //Initialize imageflow.js
     imageShow();
 
     //Log all events from mopidy
-    //mopidy.on(console.log.bind(console));
-}
+    if(mopidyConsole){mopidy.on(console.log.bind(console));}
+});
 
 /********************************************************
  * Typeahead.js initialization
  *********************************************************/
-function processTypeaheadContent(content){
-
-   //console.log(encoded);
-
+function processTypeaheadContent(){
     $('.example-twitter-oss .typeahead').typeahead({                              
       name: 'twitter-oss',                                                        
       prefetch: 'app/typeaheadcontent.json',                                             
@@ -195,9 +183,6 @@ function processGetPlaylists(playlists){
     setPlaylists(playlists);
     showNrOfPlaylists(playlists.length);
     countTotalNrOfTracks(playlists);
-
-    //Now that we got the playlists: put them into search query
-    //processTypeaheadContent();
 }
 
 /*********************************************************
@@ -296,15 +281,22 @@ function countTotalNrOfTracks(playlists){
     for(var i = 0; i<playlists.length; i++){
         var list = getTracks(playlists[i]);
 
-        template.addPlaylist(playlists[i]);
-        template.addTracks(list);
+        if(generateJSON){
+            template.addPlaylist(playlists[i]);
+            template.addTracks(list);
+        }
        
         var size = list.length;
         nrOfTracks += size;
     }
 
-    var content = template.getTemplate();
-    processTypeaheadContent(content);
+    if(generateJSON){
+        var content = template.getTemplate();
+        console.log(content);
+    }
+
+    //Run the typeahead code
+    processTypeaheadContent();
 
     //Put the number of tracks found on the GUI
     showNrOfTracks(nrOfTracks);
