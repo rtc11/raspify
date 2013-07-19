@@ -134,18 +134,29 @@ function fetchFromMopidy() {
     //Get status if shuffle is on/off
     mopidy.playback.getRandom()
     .then(processRandom, consoleError);
-
 }
 
-function processRepeat(state){
-    console.log("processRepeat: " + state);
-    changeRepeatButton(state);
-    this.repeat = state;
+function processGetPlaylists(playlists){
+    if ((!playlists) || (playlists == '')) {return;}
+    for (var i = 0; i < playlists.length; i++) {
+         insertPlaylist("error-menu", playlists[i].name, i);
+    };
+    setPlaylists(playlists);
+    showNrOfPlaylists(playlists.length);
+    countTotalNrOfTracks(playlists);
 }
-function processRandom(state){
-    console.log("processRandom: " + state);
-    changeShuffleButton(state);
-    this.shuffle = state
+function setCurrentTracklist(tracks){
+    var nrOfItems = tracks.length;
+    showNrOfTracklisted(tracks.length);
+
+    var queueAdder = new addRow();
+    for(var j = 0; j<10; j++){
+        queueAdder.add(
+            tracks[j].track.name,
+            tracks[j].track.album.artists[0].name,
+            secondsToString(tracks[j].track.length),
+            tracks[j].track.album.name);
+    }
 }
 function processCurrentTrack(track){
     printNowPlaying(track);
@@ -174,32 +185,15 @@ function processVolume(volume){
     .val(volume)
     .trigger('change');
 }
-function processGetPlaylists(playlists){
-    if ((!playlists) || (playlists == '')) {return;}
-    for (var i = 0; i < playlists.length; i++) {
-         insertPlaylist("error-menu", playlists[i].name, i);
-    };
-
-    setPlaylists(playlists);
-    showNrOfPlaylists(playlists.length);
-    countTotalNrOfTracks(playlists);
+function processRepeat(state){
+    console.log("processRepeat: " + state);
+    changeRepeatButton(state);
+    this.repeat = state;
 }
-
-/*********************************************************
- * Add current tracklist to queue
- *********************************************************/
-function setCurrentTracklist(tracks){
-    var nrOfItems = tracks.length;
-    showNrOfTracklisted(tracks.length);
-
-    var queueAdder = new addRow();
-    for(var j = 0; j<10; j++){
-        queueAdder.add(
-            tracks[j].track.name,
-            tracks[j].track.album.artists[0].name,
-            secondsToString(tracks[j].track.length),
-            tracks[j].track.album.name);
-    }
+function processRandom(state){
+    console.log("processRandom: " + state);
+    changeShuffleButton(state);
+    this.shuffle = state
 }
 
 /*********************************************************
@@ -302,6 +296,9 @@ function countTotalNrOfTracks(playlists){
     showNrOfTracks(nrOfTracks);
 }
 
+/*********************************************************
+ * Generate JSON string used for typeahead
+ *********************************************************/
 function typeaheadTemplate(){
 
     var content = [];
@@ -313,21 +310,17 @@ function typeaheadTemplate(){
         var type = "Playlist";
         var value = playlist.name;
         var token2 = playlist.tracks.length;
-
         self.add(name, description, type);
     }
 
     this.addTracks = function(tracks){
-        
         for(var i = 0; i<tracks.length; i++){
             var name = tracks[i].name;
             var description = tracks[i].album.artists[0].name;
             var type = "Track";
             var value = tracks[i].name;
-
             self.add(name, description, type);
         }
-        
     }
 
     this.getTemplate = function(){
@@ -409,172 +402,9 @@ function addRow(){
 }
 
 /********************************************************
- * Volume control - jQuery.knob.js initialization
+ * Convert milliseconds to human readable form (03:24)
  *********************************************************/
-function volumeControl(){
-    $(function($) {
-
-        $(".knob").knob({
-            change : function (value) {
-                //Change colum on scroll
-                mopidy.playback.setVolume(value);
-            },
-            release : function (value) {
-                //Change volum on drag (mouse click)
-                mopidy.playback.setVolume(value);
-            },
-            cancel : function () {
-                console.log("cancel : ", this);
-            },
-            draw : function () {
-
-                // "tron" case
-                if(this.$.data('skin') == 'tron') {
-
-                    var a = this.angle(this.cv)  // Angle
-                        , sa = this.startAngle          // Previous start angle
-                        , sat = this.startAngle         // Start angle
-                        , ea                            // Previous end angle
-                        , eat = sat + a                 // End angle
-                        , r = 1;
-
-                    this.g.lineWidth = this.lineWidth;
-
-                    this.o.cursor
-                        && (sat = eat - 0.3)
-                        && (eat = eat + 0.3);
-
-                    if (this.o.displayPrevious) {
-                        ea = this.startAngle + this.angle(this.v);
-                        this.o.cursor
-                            && (sa = ea - 0.3)
-                            && (ea = ea + 0.3);
-                        this.g.beginPath();
-                        this.g.strokeStyle = this.pColor;
-                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-                        this.g.stroke();
-                    }
-
-                    this.g.beginPath();
-                    this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-                    this.g.stroke();
-
-                    this.g.lineWidth = 2;
-                    this.g.beginPath();
-                    this.g.strokeStyle = this.o.fgColor;
-                    this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                    this.g.stroke();
-
-                    return false;
-                }
-            }
-        });
-
-        // Example of infinite knob, iPod click wheel
-        var v, up=0,down=0,i=0
-            ,$idir = $("div.idir")
-            ,$ival = $("div.ival")
-            ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
-            ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
-        $("input.infinite").knob({
-            min : 0, max : 20, stopper : false, change : function () {
-            
-                if(v > this.cv){
-                    if(up){
-                        decr();
-                        up=0;
-                    }
-                    else{
-                        up=1;down=0;
-                    }
-                } 
-                else {
-                    if(v < this.cv){
-                        if(down){
-                            incr();
-                            down=0;
-                        }
-                        else{
-                            down=1;up=0;
-                        }
-                    }
-                }
-                v = this.cv;
-            }
-        });
-    });
-}
-
-/********************************************************
- * CONTROLS
- *********************************************************/
-function control(){
-        
-    var mopidy = new Mopidy();
-
-    this.play = function(){
-        mopidy.on("state:online", function () {
-            if (!play) {
-                mopidy.playback.play();
-                console.log("CONTROL: Play");
-                changePlayButton("pause");
-            }
-            else {
-                mopidy.playback.pause();
-                console.log("CONTROL: Pause");
-                changePlayButton("play");
-            }
-            play = !play;
-        });
-    }
-    this.next = function(){
-        console.log("CONTROL: Next");
-        
-        mopidy.on("state:online", function () {
-            mopidy.playback.next();
-        });
-    }
-    this.previous = function(){
-        console.log("CONTROL: Previous");
-        
-        mopidy.on("state:online", function () {
-            mopidy.playback.previous();
-        });
-    }
-    this.shuffle = function(){
-        console.log("CONTROL: Shuffle");
-
-        mopidy.on("state:online", function() {
-            shuffle = !shuffle;
-            changeShuffleButton(shuffle);
-
-            if(shuffle){
-                mopidy.playback.setRandom(1);
-            }
-            else{
-                mopidy.playback.setRandom(0);
-            }
-
-        });
-    }
-    this.repeat = function(){
-        console.log("CONTROL: Repeat");
-
-        mopidy.on("state:online", function() {
-            repeat = !repeat;
-            changeRepeatButton(repeat);
-            if(repeat){
-                mopidy.playback.setRepeat(1);
-            }
-            else{
-                mopidy.playback.setRepeat(0);
-            }
-        });
-    }
-}
-
- function secondsToString(millis) {
+function secondsToString(millis) {
     var minutes = Math.floor( ( millis % (1000*60*60) ) / (1000*60));
     var seconds = Math.floor( ( millis % (1000*60*60) ) % (1000*60) ) / 1000;
 

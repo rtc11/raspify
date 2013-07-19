@@ -103,6 +103,7 @@ function Seekbar(){
         this.max = input;
     }
 
+    //Increment the pointer every second
     this.incrementCurrentPos = function(){
         if(play){
             //using variable self, because 'this' is now incrementCurrentPos() and not seekbar()
