@@ -155,7 +155,9 @@ function setCurrentTracklist(tracks){
             tracks[j].track.name,
             tracks[j].track.album.artists[0].name,
             secondsToString(tracks[j].track.length),
-            tracks[j].track.album.name);
+            tracks[j].track.album.name,
+            tracks[j].track.uri,
+            tracks[j].track);
     }
 }
 function processCurrentTrack(track){
@@ -202,9 +204,19 @@ function processRandom(state){
 *       to the desired playlist
 *********************************************************/
 function putTracksOnTrackList(id) {
-    var playlist = playlists[id];
 
-    console.log("putTracksOnTrackList: " + playlist.name + " on id: " + id);
+    var playlist = [];
+
+    if(isNumber(id)){
+        console.log("isnumber: true " + id);
+        playlist = playlists[id];
+    }
+    else{
+        console.log("isnumber: false");
+        playlist = id;
+    }
+
+    console.log("putTracksOnTrackList: " + playlist.name);
 
     tracks = getTracks(playlist);
     clearRows();
@@ -218,8 +230,18 @@ function putTracksOnTrackList(id) {
         addr.add(tracks[i].name, 
             tracks[i].album.artists[0].name, 
             secondsToString(tracks[i].length), 
-            tracks[i].album.name);
+            tracks[i].album.name,
+            tracks[i].uri,
+            tracks[i]);
     }
+}
+
+function isNumber (o) {
+  return ! isNaN (o-0) && o !== null && o.replace(/^\s\s*/, '') !== "" && o !== false;
+}
+
+function isNumber (o) {
+  return ! isNaN (o-0);
 }
 
 /*********************************************************
@@ -364,7 +386,7 @@ function clearRows(){
 function addRow(){
 
     //Function for adding a row to tracklist
-    this.add = function(track, artist, time, album){
+    this.add = function(track, artist, time, album, uri, tltrack){
 
         //Find the tbody in the right table
         tabBody=document.getElementById("tbody");
@@ -395,6 +417,13 @@ function addRow(){
         newRow.appendChild(cell2);
         newRow.appendChild(cell3);
         newRow.appendChild(cell4);
+
+        newRow.onclick = (function(){
+                var pl = [];
+                var tr = tltrack.track;
+                pl.push(tr);
+                putTracksOnTrackList(pl);
+            });
 
         //Add the row to the table
         tabBody.appendChild(newRow);
