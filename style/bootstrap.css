@@ -748,7 +748,7 @@ pre code {
   font-size: 11.844px;
   font-weight: bold;
   line-height: 14px;
-  color: #ffffff;
+  color: #292929; /*now: gray grey default: #ffffff*/
   vertical-align: baseline;
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -782,7 +782,7 @@ a.badge:hover {
 }
 .label-warning,
 .badge-warning {
-  background-color: #f89406;
+  background-color: #66EE66;  /* now: green default: orange #f89406 */
 }
 .label-warning[href],
 .badge-warning[href] {
@@ -798,7 +798,7 @@ a.badge:hover {
 }
 .label-info,
 .badge-info {
-  background-color: #3a87ad;
+  background-color: #66EE66; /*now: green default: orange f89406*/
 }
 .label-info[href],
 .badge-info[href] {

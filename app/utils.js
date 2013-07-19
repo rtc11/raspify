@@ -412,9 +412,6 @@ function addRow(){
     this.add = function(track, artist, time, album, tltrack, current){
 
         //var uri = tltrack.uri;
-        if(current){
-            console.log("ADDROW: "+track+": " + current);
-        }
 
         //Find the tbody in the right table
         tabBody=document.getElementById("tbody");
@@ -450,7 +447,14 @@ function addRow(){
                 var playlist = [];
                 playlist.push(tltrack);
                 putTracksOnTrackList(playlist);
-            });
+        });
+
+        if(current){
+            newRow.style.backgroundColor = "#66EE66";
+        }
+        else{
+            newRow.style.backgrounColor = "#000000";
+        }
 
         //Add the row to the table
         tabBody.appendChild(newRow);
