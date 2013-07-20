@@ -48,6 +48,7 @@ $(document).ready(function() {
     if(mopidyConsole){mopidy.on(console.log.bind(console));}
 });
 
+   
 /********************************************************
  * Typeahead.js initialization
  *********************************************************/
@@ -55,14 +56,21 @@ function processTypeaheadContent(){
     $('.example-twitter-oss .typeahead').typeahead({                              
       name: 'twitter-oss',                                                        
       prefetch: 'app/typeaheadcontent.json',                                             
-      template: [                                                                 
-        '<p class="type">{{type}}</p>',                              
-        '<p class="name">{{name}}</p>',                                      
+      template: [
+        '<p class="lul">{{uri}}</p>',
+        '<p class="type>{{type}}</p>',                              
+        '<p class="name">{{name}}</p>',                                   
         '<p class="description">{{description}}</p>'
       ].join(''),
       limit: 7,
       engine: Hogan
     });
+
+    $('.example-twitter-oss .typeahead').on("typeahead:selected", test);
+}
+
+function test(object, datum){
+    console.log(toObjectSource(datum));
 }
 
 /********************************************************
@@ -95,7 +103,7 @@ function trackplaybackstarted () {
 
     //When a song changes, it starts on time 0
     currentTrackPositionTime = 0;
-    console.log("% Current time: " + currentTrackPositionTime);
+    //console.log("% Current time: " + currentTrackPositionTime);
 }
 
 /**********************************************************
@@ -181,9 +189,10 @@ function processCurrentTimePosition(data){
 
     //First time when we fetch from mopidy
     currentTrackPositionTime = posInt;
-    console.log("# Current time: " + currentTrackPositionTime);
+    //console.log("# Current time: " + currentTrackPositionTime);
 }
 function processPlayState(state){
+    console.log("State: " + state);
     if(state == "playing"){
         changePlayButton("pause");
         play = true;
@@ -194,18 +203,18 @@ function processPlayState(state){
     }
 }
 function processVolume(volume){
-    console.log("current volume: " + volume);
+    //console.log("current volume: " + volume);
     $('.knob')
     .val(volume)
     .trigger('change');
 }
 function processRepeat(state){
-    console.log("processRepeat: " + state);
+    console.log("Repeat: " + state);
     changeRepeatButton(state);
     this.repeat = state;
 }
 function processRandom(state){
-    console.log("processRandom: " + state);
+    console.log("Shuffle: " + state);
     changeShuffleButton(state);
     this.shuffle = state
 }
@@ -285,16 +294,16 @@ function printNowPlaying(track) {
      trackNowPlaying = track;
 
     if(play){
-        console.log("Now playing:", nowPlaying);
+        //console.log("Now playing:", nowPlaying);
         $('h1#nowPlaying').text(nowPlaying);
     }
     else{
-        console.log("Now pausing:", nowPlaying);
+        //console.log("Now pausing:", nowPlaying);
         $('h1#nowPlaying').text(nowPlaying);
     }
 
     currentTrackMaxTime = track.length;
-    console.log("% Max time: " + currentTrackMaxTime);
+    //console.log("% Max time: " + currentTrackMaxTime);
     this.seekbar.initialize(currentTrackMaxTime, currentTrackPositionTime);
 };
 
@@ -331,7 +340,7 @@ function countTotalNrOfTracks(playlists){
 
     if(generateJSON){
         var content = template.getTemplate();
-        console.log(content);
+        console.log(JSON.stringify(content, null, "\t"));
     }
 
     //Run the typeahead code
@@ -355,7 +364,7 @@ function typeaheadTemplate(){
         var type = "Playlist";
         var value = playlist.name;
         var token2 = playlist.tracks.length;
-        self.add(name, description, type);
+        self.add(name, description, type, playlist.uri);
     }
 
     this.addTracks = function(tracks){
@@ -364,7 +373,7 @@ function typeaheadTemplate(){
             var description = tracks[i].album.artists[0].name;
             var type = "Track";
             var value = tracks[i].name;
-            self.add(name, description, type);
+            self.add(name, description, type, tracks[i].uri);
         }
     }
 
@@ -372,8 +381,8 @@ function typeaheadTemplate(){
         return content;
     }
 
-    this.add = function(name, description, type){
-        content.push({name: name, type: type, description: description, tokens: [name, type, description]});
+    this.add = function(name, description, type, uri){
+        content.push({name: name, type: type, description: description, tokens: [name, type, description], uri: uri});
     }
 }
 
@@ -473,6 +482,27 @@ function secondsToString(millis) {
     }
     return minutes + ":" + seconds;
 }
+
+var toObjectSource = function(obj)   {
+     if(obj === null)   {
+        return "[null]";
+     }
+     if(obj === undefined) {
+        return "[undefined]";
+     }
+
+     var str = "[";
+     var member = null;
+     for(var each in obj)   {
+        try   {
+           member = obj[each];
+           str += each + "=" + member + ", ";
+        }catch(err) {
+           alert(err);
+        }
+     }
+     return str + "]";
+  }
 
 function print(){
     var current = "";

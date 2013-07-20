@@ -2,7 +2,7 @@
  * Shows the number of playlists
  *********************************************************/
 function showNrOfPlaylists(nr){
-    console.log("showNrOfPlaylists: " + nr);
+    //console.log("showNrOfPlaylists: " + nr);
     $('p#nrOfPlaylists').text(nr);
 }
 
@@ -10,7 +10,7 @@ function showNrOfPlaylists(nr){
  * Shows the number of tracks
  *********************************************************/
 function showNrOfTracks(nr){
-    console.log("showNrOfTracks: " + nr);
+    //console.log("showNrOfTracks: " + nr);
     $('p#nrOfTracks').text(nr);
 }
 
@@ -18,7 +18,7 @@ function showNrOfTracks(nr){
  * Shows the number of queued tracks
  *********************************************************/
 function showNrOfQueued(nr){
-    console.log("showNrOfQueued: " + nr);
+    //console.log("showNrOfQueued: " + nr);
     $('span#nrOfQueued').text(nr);
 }
 
@@ -26,7 +26,7 @@ function showNrOfQueued(nr){
  * Shows the number of tracks in track list
  *********************************************************/
 function showNrOfTracklisted(nr){
-    console.log("showNrOfTracklisted: " + nr);
+    //console.log("showNrOfTracklisted: " + nr);
     $('span#nrOfTracklisted').text(nr);
 }
 
