@@ -229,6 +229,7 @@ function putTracksOnTrackList(id) {
     var playlist;
     var curr;
 
+    //Check if id is a list/array
     if(isNaN(id)){
         playlist = id;
         tracks = playlist;
@@ -240,12 +241,11 @@ function putTracksOnTrackList(id) {
         playlist = playlists[id];
         tracks = getTracks(playlist);
 
-        //Get the current playing track.
-        //The current track is on pos 0 because the a playlist was chosen
+        //Get the current playing track. Current track is the first track in the list
         curr = tracks[0].name;
     }
 
-    clearRows();
+    
     clearAndAddNewTrackList(tracks);
     showNrOfTracklisted(tracks.length);
     changePlayButton("pause");
@@ -279,10 +279,17 @@ function putTracksOnTrackList(id) {
 * Clears the tracklist and star playing the input tracks
 *********************************************************/
 function clearAndAddNewTrackList(tracks){
+
+    //Empty the tracklist on the UI 
+    clearRows();
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
+
+    //Add tracks to mopidy tracklist
     mopidy.tracklist.add(tracks);
     mopidy.playback.play();
+    
+    //Update current playlist to the new tracks
     currentPlaylist = tracks;
 }
 
