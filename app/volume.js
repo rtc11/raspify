@@ -14,7 +14,7 @@ function volumeControl(){
                 mopidy.playback.setVolume(value);
             },
             cancel : function () {
-                console.log("cancel : ", this);
+                print.d("cancel : ", this);
             },
             draw : function () {
 

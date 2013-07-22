@@ -13,7 +13,9 @@ var repeat = 0;
 var currentTrackPositionTime = 0;
 var currentTrackMaxTime = 0;
 var self = this;
-var trackNowPlaying;
+var print = new Print();
+
+var logOn = true;
 
 //Generates JSON content and prints to console
 var generateJSON = false; 
@@ -66,11 +68,13 @@ function processTypeaheadContent(){
       engine: Hogan
     });
 
+    //TODO: 
     $('.example-twitter-oss .typeahead').on("typeahead:selected", test);
 }
 
+//TODO:
 function test(object, datum){
-    console.log(toObjectSource(datum));
+    print.d(toObjectSource(datum));
 }
 
 /********************************************************
@@ -103,7 +107,7 @@ function trackplaybackstarted () {
 
     //When a song changes, it starts on time 0
     currentTrackPositionTime = 0;
-    //console.log("% Current time: " + currentTrackPositionTime);
+    print.d("% Current time: " + currentTrackPositionTime);
 }
 
 /**********************************************************
@@ -112,13 +116,17 @@ function trackplaybackstarted () {
 function fetchFromMopidy() {
     var consoleError = console.error.bind(console);
 
+    //Get all the playlists
+    mopidy.playlists.getPlaylists()
+    .then(processGetPlaylists, consoleError);
+
     //Get current playing track
     mopidy.playback.getCurrentTrack()
     .then(processCurrentTrack, consoleError);
 
-    //Get all the playlists
-    mopidy.playlists.getPlaylists()
-    .then(processGetPlaylists, consoleError);
+    //Get play state: paused, playing, stopped
+    mopidy.playback.getState()
+    .then(processPlayState, consoleError);
 
     //Get the current tracklist
     mopidy.tracklist.getTlTracks()
@@ -128,10 +136,6 @@ function fetchFromMopidy() {
     //Get time position to current track
     mopidy.playback.getTimePosition()
     .then(processCurrentTimePosition, consoleError);
-
-    //Get play state: paused, playing, stopped
-    mopidy.playback.getState()
-    .then(processPlayState, consoleError);
 
     //Get current volume from mopidy
     mopidy.playback.getVolume()
@@ -159,16 +163,8 @@ function setCurrentTracklist(tracks){
     var nrOfItems = tracks.length;
     showNrOfTracklisted(tracks.length);
 
-    var curr = trackNowPlaying.name;
-    var nowPlaying = false;
-
     var queueAdder = new addRow();
-    for(var j = 0; j<10; j++){
-        if(curr != ""){
-            if(curr == tracks[j].track.name){
-                nowPlaying = true;
-            }
-        }
+    for(var j = 0; j<tracks.length; j++){
 
         queueAdder.add(
             tracks[j].track.name,
@@ -176,8 +172,7 @@ function setCurrentTracklist(tracks){
             secondsToString(tracks[j].track.length),
             tracks[j].track.album.name,
             tracks[j].track,
-            nowPlaying);
-        nowPlaying = false;
+            (j+1));
     }
 }
 function processCurrentTrack(track){
@@ -189,10 +184,10 @@ function processCurrentTimePosition(data){
 
     //First time when we fetch from mopidy
     currentTrackPositionTime = posInt;
-    //console.log("# Current time: " + currentTrackPositionTime);
+    print.d("# Current time: " + currentTrackPositionTime);
 }
 function processPlayState(state){
-    console.log("State: " + state);
+    print.d("State: " + state);
     if(state == "playing"){
         changePlayButton("pause");
         play = true;
@@ -203,20 +198,26 @@ function processPlayState(state){
     }
 }
 function processVolume(volume){
-    //console.log("current volume: " + volume);
+    print.d("current volume: " + volume);
     $('.knob')
     .val(volume)
     .trigger('change');
 }
 function processRepeat(state){
-    console.log("Repeat: " + state);
+    print.d("Repeat: " + state);
     changeRepeatButton(state);
     this.repeat = state;
 }
 function processRandom(state){
-    console.log("Shuffle: " + state);
+    print.d("Shuffle: " + state);
     changeShuffleButton(state);
     this.shuffle = state
+}
+
+//Called from printNowPlaying
+function processGetRowPosition(){
+    mopidy.playback.getTracklistPosition()
+    .then(paintRow, console.error.bind(console));
 }
 
 /*********************************************************
@@ -227,22 +228,15 @@ function processRandom(state){
 function putTracksOnTrackList(id) {
 
     var playlist;
-    var curr;
 
     //Check if id is a list/array
     if(isNaN(id)){
         playlist = id;
         tracks = playlist;
-
-        //Current playing track is instantiated
-        curr = trackNowPlaying.name;
     }
     else{
         playlist = playlists[id];
         tracks = getTracks(playlist);
-
-        //Get the current playing track. Current track is the first track in the list
-        curr = tracks[0].name;
     }
 
     
@@ -251,27 +245,14 @@ function putTracksOnTrackList(id) {
     changePlayButton("pause");
     play = true;
 
-    //Check if a song is currently playing
-    var nowPlaying = false;
-
     var addr = new addRow();
     for(var i = 0; i<tracks.length; i++){
-
-        //Song is playing, set nowPlaying to true
-        if(curr != ""){
-            if(curr == tracks[i].name){
-                nowPlaying = true;
-            }
-        }
-
         addr.add(tracks[i].name, 
             tracks[i].album.artists[0].name, 
             secondsToString(tracks[i].length), 
             tracks[i].album.name,
             tracks[i],
-            nowPlaying);
-
-        nowPlaying = false;
+            (i+1));
     }
 }
 
@@ -288,6 +269,7 @@ function clearAndAddNewTrackList(tracks){
     //Add tracks to mopidy tracklist
     mopidy.tracklist.add(tracks);
     mopidy.playback.play();
+    play = true;
     
     //Update current playlist to the new tracks
     currentPlaylist = tracks;
@@ -298,20 +280,20 @@ function clearAndAddNewTrackList(tracks){
 *********************************************************/
 function printNowPlaying(track) {
     var nowPlaying = trackDesc(track);
-     trackNowPlaying = track;
 
     if(play){
-        //console.log("Now playing:", nowPlaying);
+        print.d("Now playing:" + nowPlaying);
         $('h1#nowPlaying').text(nowPlaying);
     }
     else{
-        //console.log("Now pausing:", nowPlaying);
+        print.d("Now pausing:", nowPlaying);
         $('h1#nowPlaying').text(nowPlaying);
     }
 
     currentTrackMaxTime = track.length;
-    //console.log("% Max time: " + currentTrackMaxTime);
+    print.d("% Max time: " + currentTrackMaxTime);
     this.seekbar.initialize(currentTrackMaxTime, currentTrackPositionTime);
+    processGetRowPosition();
 };
 
 function trackDesc(track) {
@@ -394,12 +376,12 @@ function typeaheadTemplate(){
 }
 
 /********************************************************
- * Set the volume on the mopidy server
+ * Event from mopidy when volume changes
  *********************************************************/
 function volumeChanged(){
     mopidy.playback.getVolume()
     .then(function(volume){
-        console.log("volumeChanged: " + volume), 
+        print.d("volumeChangedEvent: " + volume), 
         console.error.bind(console)
     });
 }
@@ -415,8 +397,22 @@ function setPlaylists(li){
  * Clears the rows in the tracklist
  *********************************************************/
 function clearRows(){
-    console.log("clearRows: clearing the queue");
+    print.d("clearRows: clearing the queue");
     document.getElementById("tbody").innerHTML = "";
+}
+
+
+
+function paintRow(pos){
+
+    print.d("Current position: " + pos);
+
+    tbody = document.getElementById("tbody");
+    row = tbody.rows[pos];
+
+    row.style.backgroundColor = "#66EE66";
+
+    tbody.rows[pos - 1].style.backgroundColor = "#FFFFFF";
 }
 
 /********************************************************
@@ -425,55 +421,61 @@ function clearRows(){
 function addRow(){
 
     //Function for adding a row to tracklist
-    this.add = function(track, artist, time, album, tltrack, current){
-
+    this.add = function(track, artist, time, album, tltrack, id){
         //var uri = tltrack.uri;
 
-        //Find the tbody in the right table
+        //Find the table body
         tabBody=document.getElementById("tbody");
 
-        //Create a new row element
-        newRow=document.createElement("TR");
-             
-        //Create a cell (column) for 'track', 'artist', 'time' and 'album'
-        cell1 = document.createElement("TD");
-        cell2 = document.createElement("TD");
-        cell3 = document.createElement("TD");
-        cell4 = document.createElement("TD");
+        //Insert row
+        newRow =  insertRow(track, artist, time, album);
 
-        //Create text nodes and put them to variables
-        trackVar=document.createTextNode(track);
-        artistVar=document.createTextNode(artist);
-        timeVar=document.createTextNode(time);
-        albumVar=document.createTextNode(album);
-
-        //Add the text nodes to the cells
-        cell1.appendChild(trackVar);
-        cell2.appendChild(artistVar);
-        cell3.appendChild(timeVar);
-        cell4.appendChild(albumVar);
-
-        //Add the cells to the row element
-        newRow.appendChild(cell1);
-        newRow.appendChild(cell2);
-        newRow.appendChild(cell3);
-        newRow.appendChild(cell4);
-
+        //Add click listener
         newRow.onclick = (function(){
                 var playlist = [];
                 playlist.push(tltrack);
                 putTracksOnTrackList(playlist);
         });
 
+        //Paint the row
+        /*
         if(current){
             newRow.style.backgroundColor = "#66EE66";
         }
         else{
             newRow.style.backgrounColor = "#000000";
         }
+        */
 
-        //Add the row to the table
+        //Add the row to the table body
         tabBody.appendChild(newRow);
+    }
+
+    var insertRow = function(track, artist, time, album){
+
+        newRow=document.createElement("TR");
+             
+        cell1 = document.createElement("TD");
+        cell2 = document.createElement("TD");
+        cell3 = document.createElement("TD");
+        cell4 = document.createElement("TD");
+
+        trackVar=document.createTextNode(track);
+        artistVar=document.createTextNode(artist);
+        timeVar=document.createTextNode(time);
+        albumVar=document.createTextNode(album);
+
+        cell1.appendChild(trackVar);
+        cell2.appendChild(artistVar);
+        cell3.appendChild(timeVar);
+        cell4.appendChild(albumVar);
+
+        newRow.appendChild(cell1);
+        newRow.appendChild(cell2);
+        newRow.appendChild(cell3);
+        newRow.appendChild(cell4);
+
+        return newRow;
     }
 }
 
@@ -511,7 +513,7 @@ var toObjectSource = function(obj)   {
      return str + "]";
   }
 
-function print(){
+function printplaylist(){
     var current = "";
 
     mopidy.playback.getCurrentTlTrack().then(function(track){
@@ -529,5 +531,14 @@ function print(){
         }
         
     });
+}
+
+function Print(){
+    this.d = function(text){
+        if(logOn){
+            console.log(text);
+        }
+    }
+    
 }
 

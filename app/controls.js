@@ -9,33 +9,33 @@ function control(){
         mopidy.on("state:online", function () {
             if (!play) {
                 mopidy.playback.play();
-                console.log("CONTROL: Play");
+                print.d("Control: Play");
                 changePlayButton("pause");
             }
             else {
                 mopidy.playback.pause();
-                console.log("CONTROL: Pause");
+                print.d("Control: Pause");
                 changePlayButton("play");
             }
             play = !play;
         });
     }
     this.next = function(){
-        console.log("CONTROL: Next");
+        print.d("Control: Next");
         
         mopidy.on("state:online", function () {
             mopidy.playback.next();
         });
     }
     this.previous = function(){
-        console.log("CONTROL: Previous");
+        print.d("Control: Previous");
         
         mopidy.on("state:online", function () {
             mopidy.playback.previous();
         });
     }
     this.shuffle = function(){
-        console.log("CONTROL: Shuffle");
+        print.d("Control: Shuffle");
 
         mopidy.on("state:online", function() {
             shuffle = !shuffle;
@@ -51,7 +51,7 @@ function control(){
         });
     }
     this.repeat = function(){
-        console.log("CONTROL: Repeat");
+        print.d("Control: Repeat");
 
         mopidy.on("state:online", function() {
             repeat = !repeat;

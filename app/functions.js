@@ -2,7 +2,7 @@
  * Shows the number of playlists
  *********************************************************/
 function showNrOfPlaylists(nr){
-    //console.log("showNrOfPlaylists: " + nr);
+    print.d("showNrOfPlaylists: " + nr);
     $('p#nrOfPlaylists').text(nr);
 }
 
@@ -10,7 +10,7 @@ function showNrOfPlaylists(nr){
  * Shows the number of tracks
  *********************************************************/
 function showNrOfTracks(nr){
-    //console.log("showNrOfTracks: " + nr);
+    print.d("showNrOfTracks: " + nr);
     $('p#nrOfTracks').text(nr);
 }
 
@@ -18,7 +18,7 @@ function showNrOfTracks(nr){
  * Shows the number of queued tracks
  *********************************************************/
 function showNrOfQueued(nr){
-    //console.log("showNrOfQueued: " + nr);
+    print.d("showNrOfQueued: " + nr);
     $('span#nrOfQueued').text(nr);
 }
 
@@ -26,7 +26,7 @@ function showNrOfQueued(nr){
  * Shows the number of tracks in track list
  *********************************************************/
 function showNrOfTracklisted(nr){
-    //console.log("showNrOfTracklisted: " + nr);
+    print.d("showNrOfTracklisted: " + nr);
     $('span#nrOfTracklisted').text(nr);
 }
 
@@ -114,7 +114,7 @@ function Seekbar(){
 
     //Set current position of seekbar
     this.setCurrentPos = function(input){
-        console.log("Current position updated to: " + input);
+        print.d("Current position updated to: " + input);
         $( "div#slider" ).slider( "option", "value", input );
         this.pos = input;
     }
