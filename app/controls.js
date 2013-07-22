@@ -21,14 +21,14 @@ function control(){
         });
     }
     this.next = function(){
-        print.d("Control: Next");
+        //print.d("Control: Next");
         
         mopidy.on("state:online", function () {
             mopidy.playback.next();
         });
     }
     this.previous = function(){
-        print.d("Control: Previous");
+        //print.d("Control: Previous");
         
         mopidy.on("state:online", function () {
             mopidy.playback.previous();

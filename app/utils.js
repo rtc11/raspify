@@ -1,26 +1,38 @@
-
 /********************************************************
  * Variables
  *********************************************************/
-var mopidy;
-var seekbar;
-var playlists = {};
-var currentPlaylist;
-var play = false;
-var log = false;
-var shuffle = 0;
-var repeat = 0;
-var currentTrackPositionTime = 0;
-var currentTrackMaxTime = 0;
 var self = this;
+//Mopidy server
+var mopidy;
+//The seekbar
+var seekbar;
+//All playlists from the mopidy server
+var playlists = {};
+//Current playing playlist
+var currentPlaylist;
+//Used for logic like play/pause icons
+var play = false;
+//0 is false, 1 is true
+var shuffle = 0;
+//0 is false, 1 is true
+var repeat = 0;
+//Current time position of playing track
+var currentTrackPositionTime = 0;
+//Max length of track time
+var currentTrackMaxTime = 0;
+//Object for print funtions
 var print = new Print();
+//Stack of the position the played tracks have in the tracklist
+var previousTrackPosition =  [];
 
+/********************************************************
+* Editable variables
+*********************************************************/
+//Console will log sysout's
 var logOn = true;
-
 //Generates JSON content and prints to console
 var generateJSON = false; 
-
-//If this is true, the console will log events from mopidy server      
+//Console will log events from mopidy server      
 var mopidyConsole = false;
 
 /********************************************************
@@ -59,7 +71,6 @@ function processTypeaheadContent(){
       name: 'twitter-oss',                                                        
       prefetch: 'app/typeaheadcontent.json',                                             
       template: [
-        '<p class="lul">{{uri}}</p>',
         '<p class="type>{{type}}</p>',                              
         '<p class="name">{{name}}</p>',                                   
         '<p class="description">{{description}}</p>'
@@ -68,11 +79,11 @@ function processTypeaheadContent(){
       engine: Hogan
     });
 
-    //TODO: 
+    //TODO: add to queue when clicked
     $('.example-twitter-oss .typeahead').on("typeahead:selected", test);
 }
 
-//TODO:
+//TODO: add to queue when clicked
 function test(object, datum){
     print.d(toObjectSource(datum));
 }
@@ -102,12 +113,14 @@ function trackplaybackpaused(){
  * Event: When playback starts playing a song, show songdata to user
  *********************************************************/
 function trackplaybackstarted () {
+    mopidy.playback.getTracklistPosition()
+    .then(paintRow, console.error.bind(console));
+
     mopidy.playback.getCurrentTrack()
     .then(printNowPlaying, console.error.bind(console));
 
     //When a song changes, it starts on time 0
     currentTrackPositionTime = 0;
-    print.d("% Current time: " + currentTrackPositionTime);
 }
 
 /**********************************************************
@@ -132,7 +145,6 @@ function fetchFromMopidy() {
     mopidy.tracklist.getTlTracks()
     .then(setCurrentTracklist, consoleError);
 
-
     //Get time position to current track
     mopidy.playback.getTimePosition()
     .then(processCurrentTimePosition, consoleError);
@@ -148,76 +160,10 @@ function fetchFromMopidy() {
     //Get status if shuffle is on/off
     mopidy.playback.getRandom()
     .then(processRandom, consoleError);
-}
 
-function processGetPlaylists(playlists){
-    if ((!playlists) || (playlists == '')) {return;}
-    for (var i = 0; i < playlists.length; i++) {
-         insertPlaylist("error-menu", playlists[i].name, i);
-    };
-    setPlaylists(playlists);
-    showNrOfPlaylists(playlists.length);
-    countTotalNrOfTracks(playlists);
-}
-function setCurrentTracklist(tracks){
-    var nrOfItems = tracks.length;
-    showNrOfTracklisted(tracks.length);
-
-    var queueAdder = new addRow();
-    for(var j = 0; j<tracks.length; j++){
-
-        queueAdder.add(
-            tracks[j].track.name,
-            tracks[j].track.album.artists[0].name,
-            secondsToString(tracks[j].track.length),
-            tracks[j].track.album.name,
-            tracks[j].track,
-            (j+1));
-    }
-}
-function processCurrentTrack(track){
-    printNowPlaying(track);
-}
-function processCurrentTimePosition(data){
-    var pos = secondsToString(data);
-    var posInt = parseInt(data);
-
-    //First time when we fetch from mopidy
-    currentTrackPositionTime = posInt;
-    print.d("# Current time: " + currentTrackPositionTime);
-}
-function processPlayState(state){
-    print.d("State: " + state);
-    if(state == "playing"){
-        changePlayButton("pause");
-        play = true;
-    }
-    if(state == "paused"){
-        changePlayButton("play");
-        play = false;
-    }
-}
-function processVolume(volume){
-    print.d("current volume: " + volume);
-    $('.knob')
-    .val(volume)
-    .trigger('change');
-}
-function processRepeat(state){
-    print.d("Repeat: " + state);
-    changeRepeatButton(state);
-    this.repeat = state;
-}
-function processRandom(state){
-    print.d("Shuffle: " + state);
-    changeShuffleButton(state);
-    this.shuffle = state
-}
-
-//Called from printNowPlaying
-function processGetRowPosition(){
-    mopidy.playback.getTracklistPosition()
-    .then(paintRow, console.error.bind(console));
+    //This is called from mopidy_calls in method: setCurrentTracklist
+    //mopidy.playback.getTracklistPosition()
+    //.then(paintRow, consoleError);
 }
 
 /*********************************************************
@@ -226,10 +172,9 @@ function processGetRowPosition(){
 *       to the desired playlist
 *********************************************************/
 function putTracksOnTrackList(id) {
-
     var playlist;
 
-    //Check if id is a list/array
+    //Check if id is a list[] or a number
     if(isNaN(id)){
         playlist = id;
         tracks = playlist;
@@ -238,7 +183,6 @@ function putTracksOnTrackList(id) {
         playlist = playlists[id];
         tracks = getTracks(playlist);
     }
-
     
     clearAndAddNewTrackList(tracks);
     showNrOfTracklisted(tracks.length);
@@ -290,10 +234,10 @@ function printNowPlaying(track) {
         $('h1#nowPlaying').text(nowPlaying);
     }
 
+    //Total lenght in milliseconds of current playing track
     currentTrackMaxTime = track.length;
-    print.d("% Max time: " + currentTrackMaxTime);
+    //Update the seekbar with current time position and track length
     this.seekbar.initialize(currentTrackMaxTime, currentTrackPositionTime);
-    processGetRowPosition();
 };
 
 function trackDesc(track) {
@@ -371,7 +315,7 @@ function typeaheadTemplate(){
     }
 
     this.add = function(name, description, type, uri){
-        content.push({name: name, type: type, description: description, tokens: [name, type, description], uri: uri});
+        content.push({name: name, type: type, description: description, uri: uri, tokens: [name, type, description]});
     }
 }
 
@@ -401,18 +345,26 @@ function clearRows(){
     document.getElementById("tbody").innerHTML = "";
 }
 
-
-
+/********************************************************
+ * Paint the row at 'pos' and unpaint/clear the previous row
+ *********************************************************/
 function paintRow(pos){
 
     print.d("Current position: " + pos);
+    var tbody = document.getElementById("tbody");
 
-    tbody = document.getElementById("tbody");
-    row = tbody.rows[pos];
+    //Get the row on position 'pos' and change color
+    tbody.rows[pos].style.backgroundColor = "#66EE66";
 
-    row.style.backgroundColor = "#66EE66";
+    previousTrackPosition.push(pos);
+    
+    //Clear previous played row. TODO: removed row from queue
+    if(previousTrackPosition.length > 1){
+        var last = previousTrackPosition[previousTrackPosition.length - 2];
+        print.d("Removing paint from row: " + last);
+        tbody.rows[last].style.backgroundColor = "#FFFFFF";
+    }
 
-    tbody.rows[pos - 1].style.backgroundColor = "#FFFFFF";
 }
 
 /********************************************************
