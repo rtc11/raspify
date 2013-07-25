@@ -494,3 +494,18 @@ function Print(){
     
 }
 
+function runScript(e) {
+    if (e.which == 13 || e.keyCode == 13) {
+
+        var tb = document.getElementById("spotifyURI").value;
+
+        console.log(tb);
+
+        mopidy.playback.stop(true);
+        mopidy.tracklist.clear();
+        mopidy.tracklist.add(null, null, tb);
+        mopidy.playback.play();
+
+        return false;
+    }
+}
