@@ -5,38 +5,37 @@ function control(){
         
     var mopidy = new Mopidy();
 
+    //PLAY
     this.play = function(){
         mopidy.on("state:online", function () {
             if (!play) {
                 mopidy.playback.play();
-                print.d("Control: Play");
                 changePlayButton("pause");
             }
             else {
                 mopidy.playback.pause();
-                print.d("Control: Pause");
                 changePlayButton("play");
             }
             play = !play;
         });
     }
+
+    //NEXT
     this.next = function(){
-        //print.d("Control: Next");
-        
         mopidy.on("state:online", function () {
             mopidy.playback.next();
         });
     }
+
+    //PREVIOUS
     this.previous = function(){
-        //print.d("Control: Previous");
-        
         mopidy.on("state:online", function () {
             mopidy.playback.previous();
         });
     }
-    this.shuffle = function(){
-        print.d("Control: Shuffle");
 
+    //SHUFFLE
+    this.shuffle = function(){
         mopidy.on("state:online", function() {
             shuffle = !shuffle;
             changeShuffleButton(shuffle);
@@ -50,9 +49,9 @@ function control(){
 
         });
     }
-    this.repeat = function(){
-        print.d("Control: Repeat");
 
+    //REPEAT
+    this.repeat = function(){
         mopidy.on("state:online", function() {
             repeat = !repeat;
             changeRepeatButton(repeat);
