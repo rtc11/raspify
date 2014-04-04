@@ -1,20 +1,14 @@
-
-var model = {first_name: "Planet", last_name: "Earth"};
+var model = new Backbone.Model({number: 33});
  
 var ViewModel = function(model) {
-
-  this.first_name = ko.observable(model.first_name);
-  this.last_name = ko.observable(model.last_name);
-
-  this.full_name = ko.computed((function() {return "" + (this.first_name()) + " " + (this.last_name());}), this);
+  this.number = kb.observable(model, 'number');
+  this.formatted_number = kb.observable(model, {
+    key: 'number',
+    read: function() { return "#: " + (this.number()); },
+    write: function(value) { return this.number(value.substring(3)); }
+  }, this);
 };
  
 var view_model = new ViewModel(model);
  
-ko.applyBindings(view_model, $('#ko_basic')[0]);
-
-
-
-function populatePlaylist(playlist){
-
-}
+ko.applyBindings(view_model, $('#kboo_read_write')[0]);
