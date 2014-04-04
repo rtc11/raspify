@@ -120,10 +120,9 @@
 							</header>
 							
 							<p>
-								<div id='ko_basic'>
-								  <p>First name: <input class='input-small pull-right' data-bind="value: first_name, valueUpdate: 'keyup'" /></p>
-								  <p>Last name: <input class='input-small pull-right' data-bind="value: last_name, valueUpdate: 'keyup'" /></p>
-								  <p>Hello, <span data-bind="text: full_name"> </span>!</p>
+								<div id='kboo_read_write'>
+									<input class='input-small pull-right' data-bind="value: formatted_number, valueUpdate: 'keyup'"/>
+									<label data-bind="text: number"></label>
 								</div>
 								<script type="application/javascript" src="js/playlist/tabledata.js"></script>
 							</p>
