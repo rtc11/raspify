@@ -10,8 +10,6 @@ var mopidyConsole = false;
 var self = this;
 //Mopidy server
 var mopidy;
-//Object for print funtions
-var print = new Print();
 
 /********************************************************
  * Initialize with jQuery
@@ -56,13 +54,4 @@ function processGetPlaylists(playlists){
         addPlaylist(playlists[i].name);
          
     };
-}
-
-function Print(){
-    this.d = function(text){
-        if(logOn){
-            console.log(text);
-        }
-    }
-    
 }
