@@ -93,13 +93,14 @@
 			</div>
 
 
-			<!-- Controller -->
+			<!-- Controller 
+
 			<div id="controller">
 				
 					blabl
 				
 			</div>
-
+			-->
 		<!-- Main -->
 			<div id="main">
 			
@@ -108,14 +109,26 @@
 
 						<!-- Queue -->
 						<div class="container">
+							<!--<a href="#playlist" class="button scrolly">Playlists</a><br/>-->
 							
-							<a href="#playlist" class="button scrolly">Playlists</a><br/>
-							
-							<strong>Queue:</strong>
-							<ul>
-								<li>test</li>
-								<li>test 2 </li>
-							</ul>
+							<h2>Queue:</h2>
+							<TABLE class="default">
+								<thead>
+									<tr>
+										<th>Track</th>
+										<th>Artist</th>
+										<th>Time</th>
+										<th>Album</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>testa</th>
+										<th>testb</th>
+										<th>testc</th>
+										<th>testd</th>
+									</tr>
+							</TABLE>
 						</div>
 					</section>
 					
@@ -124,13 +137,20 @@
 						<div class="container">
 							
 							<h2>Playlists</h2>
+
+							<table class="default">
+
 							
-							<ul data-bind="foreach: people">
-								<li>
+							 	<tbody data-bind="foreach: people">
+								
 									<!--<span data-bind="text: $index"> </span>:-->
-									<span data-bind="text: name"> </span>
-								</li>
-							</ul>
+									<tr>
+									<th data-bind="text: name"> </th>
+									</tr>
+								</tbody>
+							
+
+							</table>
 						</div>
 					</section>
 
@@ -176,11 +196,16 @@
 			</div>
 
 		<!-- Controller -->
+
 			<div id="footer">
 				<<  Play  >>
+				
+				
 				<div class="nowplaying">
 					Now playing: <strong>Busy Doin' Nothin' - Ace Wilder</strong>
 				</div>
+				
+
 			</div>
 
 
