@@ -24,6 +24,12 @@
 		<script type="application/javascript" src="lib/knockout-2.2.0.js"></script>
 		-->
 
+		<!-- jQuery Slider -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  		<link rel="stylesheet" href="/resources/demos/style.css">
+
 		<!-- knockout + backbone = knockback -->
 		<script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script> 
 
@@ -52,6 +58,23 @@
 							<span class="byline">Robin Tordly</span>
 						</div>
 
+
+						<div style="width: 100%; overflow: hidden;">
+							<div style="width: 60px; float: left;">
+								<img src="images/previous.png" height="20px" width="20px"/>
+								<img src="images/play.png" height="20px" width="20px"/>
+								<img src="images/next.png" height="20px" width="20px"/>
+							</div>
+
+							<div id="slider" style="width: 100px; float: left;">
+							</div>
+
+							<div style="width : 40px; float: right;">
+								<img src="images/shuffle.png" height="20px" width="20px"/>
+								<img src="images/repeat.png" height="20px" width="20px"/>
+							</div>
+						</div>
+
 					<!-- Nav -->
 						<nav id="nav">
 							<!--
@@ -67,6 +90,7 @@
 								   <li><a href="http://foobar.tld"><span class="fa fa-whatever-icon-you-want">Foobar</span></a></li>
 							
 							-->
+
 							<ul>
 								<li><a href="#queue" id="queue-link" class="skel-panels-ignoreHref"><span class="fa fa-home">Queue</span></a></li>
 								<li><a href="#playlist" id="playlist-link" class="skel-panels-ignoreHref"><span class="fa fa-th">Playlists</span></a></li>
@@ -123,10 +147,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>testa</th>
-										<th>testb</th>
-										<th>testc</th>
-										<th>testd</th>
+										<th>
+											<img src="images/track.png" height="15px" width="15px"/>
+											How Does It Feel (feat. LidoLido) - Radio Edit
+										</th>
+										<th>Proviant Audio</th>
+										<th>3:31</th>
+										<th>How Does It Feel (feat. LidoLido)</th>
 									</tr>
 							</TABLE>
 						</div>
@@ -143,9 +170,10 @@
 							
 							 	<tbody data-bind="foreach: people">
 								
-									<!--<span data-bind="text: $index"> </span>:-->
+									<!--<span data-bind="text: $index"> </span>-->
 									<tr>
-									<th data-bind="text: name"> </th>
+									<th><img src="images/playlist.png" height="15px" width="15px"/></th>
+									<th data-bind="text: name"></th>
 									</tr>
 								</tbody>
 							
@@ -195,22 +223,17 @@
 			
 			</div>
 
-		<!-- Controller -->
-
+			<!--
 			<div id="footer">
-				<<  Play  >>
-				
-				
 				<div class="nowplaying">
 					Now playing: <strong>Busy Doin' Nothin' - Ace Wilder</strong>
 				</div>
-				
-
 			</div>
-
+			-->
 
 		<!-- Add the javascript -->
 		<script type="application/javascript" src="js/tabledata.js"></script>
 		<script type="application/javascript" src="js/utils.js"></script>
+		<script type="application/javascript" src="js/music_controls.js"></script>
 	</body>
 </html>
