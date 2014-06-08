@@ -55,8 +55,10 @@
 	
 		#logo .image
 		{
-			position: relative;
+			position: absolute;
 			margin: 0 0 0.5em 0;
+			left : 0;
+			top: 0;
 		}
 
 	#nav
