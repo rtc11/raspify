@@ -51,7 +51,9 @@ function fetchFromMopidy() {
 function processGetPlaylists(playlists){
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
-        addPlaylist(playlists[i].name);
-         
+
+        var playlist = playlists[i];
+        playlist.duration = "2h 32m 3s";
+        addPlaylist(playlists[i]);
     };
 }

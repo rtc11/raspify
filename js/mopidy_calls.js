@@ -1,4 +1,5 @@
 function processGetPlaylists(playlists){
+function processGetPlaylists(playlists){
     if ((!playlists) || (playlists == '')) {return;}
     for (var i = 0; i < playlists.length; i++) {
          insertPlaylist("error-menu", playlists[i].name, i);

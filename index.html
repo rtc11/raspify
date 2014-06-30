@@ -167,11 +167,21 @@
 							
 					<h2>Playlists</h2>
 					<table class="default">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Playlist</th>
+                                <th>Tracks</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
 					    <tbody data-bind="foreach: people">
 						    <!--<span data-bind="text: $index"> </span>-->
 							<tr>
 								<th><img src="images/playlist.png" height="15px" width="15px"/></th>
 								<th data-bind="text: name"></th>
+                                <th data-bind="text: tracks"></th>
+                                <th data-bind="text: duration"></th>
 							</tr>
 						</tbody>
 					</table>
