@@ -53,7 +53,30 @@ function processGetPlaylists(playlists){
     for (var i = 0; i < playlists.length; i++) {
 
         var playlist = playlists[i];
-        playlist.duration = "2h 32m 3s";
+
+        var duration = 0;
+
+        for(var j = 0; j<playlist.tracks.length; j++){
+            duration += playlist.tracks[j].length;
+        }
+
+        playlist.duration = msToTime(duration);
         addPlaylist(playlists[i]);
     };
+}
+
+function msToTime(s) {
+  var ms = s % 1000;
+  s = (s - ms) / 1000;
+  var secs = s % 60;
+  s = (s - secs) / 60;
+  var mins = s % 60;
+  var hrs = (s - mins) / 60;
+
+  if(hrs > 0){
+    return hrs + 'h ' + mins + 'm ' + secs + 's';
+  }
+
+  return mins + 'm ' + secs + 's';
+
 }
