@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2a5fd9d-7eb5-4e44-a53c-93d3ea254961" name="Default" comment="Improved the playlist table &amp; extended the knockout usage.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/mopidy_calls.js" afterPath="$PROJECT_DIR$/js/mopidy_calls.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tabledata.js" afterPath="$PROJECT_DIR$/js/tabledata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/utils.js" afterPath="$PROJECT_DIR$/js/utils.js" />
+    <list default="true" id="a2a5fd9d-7eb5-4e44-a53c-93d3ea254961" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="raspify.iws" />
@@ -340,7 +336,11 @@
       <created>1402230107065</created>
       <updated>1402230107065</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Improved the playlist table &amp; extended the knockout usage.">
+      <created>1404129361540</created>
+      <updated>1404129361540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
