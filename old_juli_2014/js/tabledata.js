@@ -1,5 +1,9 @@
 /** Create the Backbone model */
-var model = new Backbone.Model({name: "Planet", duration: "1h 12m 34s", tracks: 34});
+var model = new Backbone.Model({
+    name: "Planet",
+    duration: "1h 12m 34s",
+    size: 34
+});
 
 /** Add a list of playlists */
 var people = ko.observableArray([]);
@@ -9,7 +13,7 @@ function addPlaylist(playlist){
 	self.people.push({
 	    name: playlist.name,
 	    duration: playlist.duration,
-	    tracks: playlist.tracks.length
+	    size: playlist.tracks.length
 	});
 }
 
@@ -17,7 +21,7 @@ function addPlaylist(playlist){
 var ViewModel = function(model) {
   this.name = kb.observable(model, 'name');
   this.duration = kb.observable(model, 'duration');
-  this.tracks = kb.observable(model, 'tracks');
+  this.tracks = kb.observable(model, 'size');
 };
 
 /** Create the View Model with the Backbone model */
