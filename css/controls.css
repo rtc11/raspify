@@ -1,0 +1,39 @@
+.previous
+{
+    content: url('../img/previous.png');
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.play_pause
+{
+    content: url('../img/play.png');
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.next
+{
+    content: url('../img/next.png');
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.shuffle
+{
+    content: url('../img/shuffle.png');
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.repeat
+{
+    content: url('../img/repeat.png');
+    width: 25px;
+    height: 25px;
+    float: left;
+}

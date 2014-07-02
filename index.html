@@ -4,28 +4,113 @@
     <meta charset="UTF-8">
     <title>Raspify</title>
 
-    <!-- Knockback -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/tables.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/controls.css"/>
+
+    <!--jQuery-->
+    <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
+
+    <!--Knockback-->
     <script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script>
-    <!-- jQuery -->
-    <script src="js/jquery-2.1.0.min.js.js"></script>
-    <!-- Mopidy -->
+
+    <!--Mopidy-->
     <script type="application/javascript" src="/mopidy/mopidy.min.js"></script>
 </head>
 <body>
 
-    <!-- Controls -->
-    <section>
+<!-- CONTAINER -->
+<div>
 
-    </section>
+    <!-- HEADLINER -->
+    <div class="div_headliner">
+        <div class="headliner_logo"></div>
+        <div class="headliner_text"><h1>Raspify</h1></div>
+    </div>
 
-    <!-- Menu -->
-    <section>
+    <!-- CONTROLS -->
+    <div class="div_controls">
+        <div class="previous"></div>
+        <div class="play_pause"></div>
+        <div class="next"></div>
+        <div class="shuffle"></div>
+        <div class="repeat"></div>
+    </div>
 
-    </section>
 
-    <!-- Content -->
-    <section>
+    <!-- SEARCH -->
+    <div class="div_search">
+        <input type="text" id="pub_url" name="pub_url" placeholder="search">
+    </div>
 
-    </section>
+    <div class="div_tables">
+
+        <!-- PLAYLISTS -->
+        <div class="div_playlists">
+
+            <table class="playlists" id="table_playlists">
+
+                <thead>
+                <tr>
+                    <th><!-- playlist logo --></th>
+                    <th>Playlist</th>
+                    <th>Tracks</th>
+                    <th>Duration</th>
+                </tr>
+                </thead>
+
+                <tbody data-bind="foreach: playlists">
+                <tr data-bind="click: test">
+                    <th><img class="img_playlist"/></th>
+                    <th data-bind="text: name"></th>
+                    <th data-bind="text: size"></th>
+                    <th data-bind="text: duration"></th>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- TRACKS -->
+        <div class="div_tracks">
+
+            <table class="tracks" id="table_tracks">
+
+                <thead>
+                <tr>
+                    <th><!-- track logo --></th>
+                    <th>Track</th>
+                    <th>Artist</th>
+                    <th>Time</th>
+                    <th>Album</th>
+                </tr>
+                </thead>
+
+                <tbody data-bind="foreach: tracks">
+                <tr>
+                    <th><img class="img_track"/></th>
+                    <th data-bind="text: track"></th>
+                    <th data-bind="text: artist"></th>
+                    <th data-bind="text: time"></th>
+                    <th data-bind="text: album"></th>
+                </tr>
+                </tbody>
+                <!--<tfoot>-->
+                <!--<td>huhu</td>-->
+                <!--</tfoot>-->
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- JS -->
+<script type="application/javascript" src="js/tracks.js"></script>
+<script type="application/javascript" src="js/playlists.js"></script>
+<script type="application/javascript" src="js/mopidy.js"></script>
 </body>
 </html>

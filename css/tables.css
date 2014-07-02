@@ -1,0 +1,123 @@
+table
+{
+    background: #181818;
+    border-collapse: collapse;
+    margin-right: 3px;
+
+    white-space:normal;
+    overflow: hidden;
+}
+
+    /**********************************
+    *   PLAYLISTS
+    **********************************/
+    table.playlists
+    {
+        text-align: left;
+    }
+
+        /** Table Head */
+        table.playlists thead
+        {
+            background: #303030;
+            font-weight:bold;
+            font-size: medium;
+        }
+
+        /** Table Body */
+        table.playlists tbody
+        {
+            font-size: small;
+        }
+
+        /** Table Data */
+        table.playlists th
+        {
+            padding: 0.2em 0.5em 0.2em 0.5em;
+            max-width: 20em;
+        }
+
+        table.playlists thead th
+        {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+        }
+
+        /** Table Header */
+        table.playlists tr
+        {
+            text-align: left;
+            padding: 0em 0em 0em 0em;
+            color: #888;
+            background-color:rgba(38,38,38,0.5);
+            opacity:0.6;
+        }
+
+        table.playlists tbody tr:hover
+        {
+            background-color: #181818;
+            color: #81b71a;
+        }
+
+        /** Table Foot */
+        table.playlists tfoot
+        {
+            background: #eee;
+        }
+
+    /**********************************
+    *   TRACKS
+    **********************************/
+    table.tracks
+    {
+        text-align: left;
+    }
+
+        /** Table Head */
+        table.tracks thead
+        {
+            background: #303030;
+            font-weight:bold;
+            font-size: medium;
+        }
+
+        /** Table Body */
+        table.tracks tbody
+        {
+            font-size: small;
+        }
+
+        /** Table Data */
+        table.tracks th
+        {
+            padding: 0.2em 0.5em 0.2em 0.5em;
+            max-width: 15em;
+        }
+
+        /** Table Head - table data */
+        table.tracks thead th
+        {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+        }
+
+        /** Table Row */
+        table.tracks tr
+        {
+            text-align: left;
+            padding: 0em 0em 0em 0em;
+            color: #888;
+            background-color:rgba(38,38,38,0.5);
+            opacity:0.6;
+        }
+
+        /** Table Body - table row: hover */
+        table.tracks tbody tr:hover
+        {
+            background-color: #181818;
+            color: #81b71a;
+        }
+
+        /** Table Foot */
+        table.tracks tfoot
+        {
+            background: #eee;
+        }
