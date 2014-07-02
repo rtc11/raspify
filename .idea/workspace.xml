@@ -2,229 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2a5fd9d-7eb5-4e44-a53c-93d3ea254961" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spotify_appkey.key" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/controls.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/file" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jquery-2.1.0.min.js.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/knockback-full-stack-0.18.4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/mopidy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/playlists.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/search.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/tables.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/tracks.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/old_juli_2014/js/utils.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Release.key" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/utils.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/PIE.htc" afterPath="$PROJECT_DIR$/old_juli_2014/css/PIE.htc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/font/FontAwesome.otf" afterPath="$PROJECT_DIR$/old_juli_2014/css/font/FontAwesome.otf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/font/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/old_juli_2014/css/font/fontawesome-webfont.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/font/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/old_juli_2014/css/font/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/font/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/old_juli_2014/css/font/fontawesome-webfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/font/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/old_juli_2014/css/font/fontawesome-webfont.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/ie8.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/ie8.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/ie9.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/ie9.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/images/ie9/button.svg" afterPath="$PROJECT_DIR$/old_juli_2014/css/images/ie9/button.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/images/overlay.png" afterPath="$PROJECT_DIR$/old_juli_2014/css/images/overlay.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/images/toggle.svg" afterPath="$PROJECT_DIR$/old_juli_2014/css/images/toggle.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/seekbar.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/seekbar.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/skel-noscript.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/skel-noscript.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style-mobile.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style-mobile.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style-narrow.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style-narrow.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style-narrower.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style-narrower.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style-normal.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style-normal.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style-wide.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style-wide.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/old_juli_2014/css/style.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/font/Prociono-Regular-webfont.ttf" afterPath="$PROJECT_DIR$/old_juli_2014/font/Prociono-Regular-webfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/next.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/next.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/pause.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/pause.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/play.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/play.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/playlist.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/playlist.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/previous.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/previous.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/repeat.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/repeat.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/shuffle.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/shuffle.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/spotify_logo.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/spotify_logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/track.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/track.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/140x140.gif" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/140x140.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/170x170.gif" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/170x170.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/background.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/bg-snes-closeup-x500.jpg" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/bg-snes-closeup-x500.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/bg-snes-closeup.jpg" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/bg-snes-closeup.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/black-Linen.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/black-Linen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/blue-paper.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/blue-paper.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/extra_clean_paper.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/extra_clean_paper.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/furley_bg.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/furley_bg.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/glyphicons-halflings-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/glyphicons-halflings.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/img1.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/img1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/img2.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/img2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/img3.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/img3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-next.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-next.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-pause.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-pause.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-play.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-play.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-previous.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-previous.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-repeat-on.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-repeat-on.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-repeat.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-repeat.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-shuffle-on.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-shuffle-on.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/player-shuffle.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/player-shuffle.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/unused/subtle_surface.png" afterPath="$PROJECT_DIR$/old_juli_2014/images/unused/subtle_surface.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/old_juli_2014/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/html5shiv.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/html5shiv.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/init.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/init.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/jquery-2.1.0.min.js.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/jquery-2.1.0.min.js.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/mopidy_calls.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/mopidy_calls.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/music_controls.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/music_controls.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/skel-panels.min.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/skel-panels.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/skel.min.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/skel.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/tabledata.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/tabledata.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/controls.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/controls.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/functions.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/functions.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/mopidy_calls.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/mopidy_calls.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/sign-in.html" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/sign-in.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/typeaheadcontent.json" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/typeaheadcontent.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/utils.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/utils.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/unused/volume.js" afterPath="$PROJECT_DIR$/old_juli_2014/js/unused/volume.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/backbone-1.0.0.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/backbone-1.0.0.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/jquery-1.9.1.min.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/jquery-1.9.1.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/knockback-0.18.4.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/knockback-0.18.4.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/knockback-full-stack-0.18.4.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/knockback-full-stack-0.18.4.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/knockout-2.2.0.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/knockout-2.2.0.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/underscore-1.5.0.js" afterPath="$PROJECT_DIR$/old_juli_2014/lib/underscore-1.5.0.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/ChangeLog" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/ChangeLog" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/LICENSE" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/README" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/README" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/include/libspotify/api.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/include/libspotify/api.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so.12" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so.12" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so.12.1.51" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/lib/libspotify.so.12.1.51" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/lib/pkgconfig/libspotify.pc" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/lib/pkgconfig/libspotify.pc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/licenses.xhtml" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/licenses.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/English.lproj/InfoPlist.strings" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/English.lproj/InfoPlist.strings" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/English.lproj/MainMenu.xib" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/English.lproj/MainMenu.xib" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify-Info.plist" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify-Info.plist" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify.xcodeproj/project.pbxproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/RandomifyAppDelegate.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/RandomifyAppDelegate.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/RandomifyAppDelegate.m" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/RandomifyAppDelegate.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify_Prefix.pch" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/Randomify_Prefix.pch" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyPlaylist.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyPlaylist.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyPlaylist.m" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyPlaylist.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifySession.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifySession.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifySession.m" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifySession.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyTrack.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyTrack.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyTrack.m" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/SpotifyTrack.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/main.m" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/Randomify/main.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/appkey.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/appkey.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/cacerts.pem" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/cacerts.pem" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/common.mk" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/common.mk" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/alsa-audio.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/alsa-audio.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/audio.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/audio.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/audio.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/audio.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/dummy-audio.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/dummy-audio.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/jukebox.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/jukebox.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/openal-audio.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/openal-audio.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/osx-audio.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/osx-audio.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/osx/jukebox.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/osx/jukebox.xcodeproj/project.pbxproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/playtrack.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/playtrack.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/queue.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/jukebox/queue.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/main.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/main.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/main.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/localfiles/main.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/browse.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/browse.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/cmd.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/cmd.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/cmd.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/cmd.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/inbox.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/inbox.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/osx/spshell.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/osx/spshell.xcodeproj/project.pbxproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/playlist.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/playlist.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/scrobbling.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/scrobbling.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/search.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/search.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell_posix.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell_posix.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell_win32.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/spshell_win32.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/star.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/star.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/test.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/test.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/toplist.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/toplist.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcproj" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcxproj" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcxproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcxproj.filters" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/spshell/win32/spshell.vcxproj.filters" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/Makefile" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/main.c" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/main.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/main.h" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/examples/stub/main.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/annotated.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/annotated.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/api_8h.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/api_8h.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/bc_s.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/bc_s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/browse_8c-example.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/browse_8c-example.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/classes.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/classes.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/closed.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/closed.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/doxygen.css" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/doxygen.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/doxygen.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/doxygen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/examples.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/examples.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/files.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/files.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/functions.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/functions.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/functions_vars.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/functions_vars.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x69.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x69.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x73.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x73.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x74.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_0x74.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_defs.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_defs.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_enum.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_enum.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_eval.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_eval.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_func.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_func.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_type.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/globals_type.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__album.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__album.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__albumbrowse.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__albumbrowse.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__artist.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__artist.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__artistbrowse.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__artistbrowse.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__error.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__error.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__image.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__image.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__inbox.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__inbox.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__link.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__link.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__playlist.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__playlist.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__search.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__search.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__session.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__session.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__toplist.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__toplist.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__track.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__track.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__types.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__types.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__user.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/group__user.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/index.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/jukebox_8c-example.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/jukebox_8c-example.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/modules.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/modules.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/nav_f.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/nav_f.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/nav_h.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/nav_h.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/open.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/open.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/search_8c-example.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/search_8c-example.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__audio__buffer__stats.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__audio__buffer__stats.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__audioformat.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__audioformat.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__offline__sync__status.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__offline__sync__status.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__playlist__callbacks.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__playlist__callbacks.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__playlistcontainer__callbacks.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__playlistcontainer__callbacks.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__session__callbacks.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__session__callbacks.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__session__config.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__session__config.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__subscribers.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/structsp__subscribers.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_a.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_a.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_b.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_b.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_h.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_h.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_s.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tab_s.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tabs.css" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/tabs.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/toplist_8c-example.html" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/html/toplist_8c-example.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/images/spotify-core-logo-128x128.png" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/images/spotify-core-logo-128x128.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/images/spotify-core.txt" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/doc/libspotify/images/spotify-core.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/album.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/album.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/albumbrowse.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/albumbrowse.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/api.h.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/api.h.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/artist.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/artist.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/artistbrowse.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/artistbrowse.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/error.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/error.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/image.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/image.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/inbox.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/inbox.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/link.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/link.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/playlist.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/playlist.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/search.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/search.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/session.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/session.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_audio_buffer_stats.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_audio_buffer_stats.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_audioformat.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_audioformat.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_offline_sync_status.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_offline_sync_status.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_playlist_callbacks.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_playlist_callbacks.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_playlistcontainer_callbacks.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_playlistcontainer_callbacks.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_session_callbacks.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_session_callbacks.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_session_config.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_session_config.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_subscribers.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/sp_subscribers.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/toplist.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/toplist.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/track.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/track.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/types.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/types.3spotify" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libspotify-12.1.51-Linux-x86_64-release/share/man3/user.3spotify" afterPath="$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/share/man3/user.3spotify" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -258,71 +50,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/old_juli_2014/index.html">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="55.333332" vertical-offset="2106" max-vertical-offset="4644">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="83" />
+            <state vertical-scroll-proportion="1.1284404" vertical-offset="399" max-vertical-offset="2196">
+              <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controls.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/controls.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+              <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="playlists.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/playlists.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tracks.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/tracks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mopidy.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/mopidy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="1152">
+              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/old_juli_2014/css/style.css">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6842" max-vertical-offset="21240">
-              <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1764">
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="search.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/search.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="648">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/colors.css">
+      <file leaf-file-name="tables.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/tables.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="279">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="seekbar.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/old_juli_2014/css/seekbar.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1278">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tabledata.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/old_juli_2014/js/tabledata.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/old_juli_2014/js/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1134">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1722" max-vertical-offset="2322">
+              <caret line="115" column="26" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -344,10 +146,21 @@
       <list>
         <option value="$PROJECT_DIR$/js/mopidy_calls.js" />
         <option value="$PROJECT_DIR$/js/utils.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/tabledata.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/colors.css" />
+        <option value="$PROJECT_DIR$/old_juli_2014/css/style.css" />
+        <option value="$PROJECT_DIR$/old_juli_2014/index.html" />
+        <option value="$PROJECT_DIR$/js/search.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/file" />
+        <option value="$PROJECT_DIR$/js/mopidy.js" />
+        <option value="$PROJECT_DIR$/js/playlists.js" />
+        <option value="$PROJECT_DIR$/js/tracks.js" />
+        <option value="$PROJECT_DIR$/css/search.css" />
+        <option value="$PROJECT_DIR$/css/tables.css" />
+        <option value="$PROJECT_DIR$/css/controls.css" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -357,6 +170,58 @@
     <option name="width" value="1368" />
     <option name="height" value="743" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Assignment issues</id>
+          </State>
+          <State>
+            <id>Assignment issuesGroovy</id>
+          </State>
+          <State>
+            <id>Control flow issues</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>Probable bugsGroovy</id>
+          </State>
+          <State>
+            <id>Spelling</id>
+          </State>
+          <State>
+            <id>Threading issues</id>
+          </State>
+          <State>
+            <id>Threading issuesGroovy</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SpellCheckingInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -364,7 +229,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -383,8 +248,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -427,12 +290,92 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="old_juli_2014" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="old" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="old" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raspify" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,15 +385,22 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/old_juli_2014" />
     </key>
@@ -617,14 +567,22 @@
       <created>1404131718706</created>
       <updated>1404131718706</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Moving project to old due to new design">
+      <created>1404210814110</created>
+      <updated>1404210814110</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added images">
+      <created>1404300377967</created>
+      <updated>1404300377967</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1368" height="743" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5135135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.7400319" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -637,8 +595,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28389156" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24924472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29909366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -647,6 +604,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -667,7 +625,9 @@
     <MESSAGE value="Added icons for playlists and tracks, and added template for seek bar" />
     <MESSAGE value="Improved the playlist table &amp; extended the knockout usage." />
     <MESSAGE value="Improved the playlist table: showing correct duration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the playlist table: showing correct duration" />
+    <MESSAGE value="Moving project to old due to new design" />
+    <MESSAGE value="Added images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -677,11 +637,74 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1746">
+          <caret line="71" column="49" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/playlists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="648">
+          <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tracks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="792">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/mopidy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="1152">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old/app/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2438" max-vertical-offset="9306">
+          <caret line="145" column="10" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old/app/mopidy_calls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1404">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="534" max-vertical-offset="2664">
+          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="2970">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/old_juli_2014/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4626">
           <caret line="167" column="42" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -689,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7734" max-vertical-offset="21240">
           <caret line="447" column="38" selection-start-line="447" selection-start-column="38" selection-end-line="447" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1278">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -705,7 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="648">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -713,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1134">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4104">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="918">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4104">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="918">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,19 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_juli_2014/js/mopidy_calls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3611557" vertical-offset="45" max-vertical-offset="1422">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/old_juli_2014/js/music_controls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05778491" vertical-offset="0" max-vertical-offset="918">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20224719" vertical-offset="0" max-vertical-offset="1260">
           <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.862295" vertical-offset="1136" max-vertical-offset="2502">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51522845" vertical-offset="1057" max-vertical-offset="1476">
           <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,15 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1392858" vertical-offset="5268" max-vertical-offset="9306">
           <caret line="195" column="27" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_juli_2014/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1134">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,7 +824,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18" vertical-offset="0" max-vertical-offset="600">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/knockback-full-stack-0.18.4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38230088" vertical-offset="0" max-vertical-offset="184212">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -838,46 +838,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1278">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery-2.1.0.min.js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="587">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/old_juli_2014/js/tabledata.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.18" vertical-offset="0" max-vertical-offset="648">
+          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06" vertical-offset="0" max-vertical-offset="1134">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/images/unused/background.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/js/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5076">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/js/mopidy_calls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.48329622" vertical-offset="487" max-vertical-offset="1422">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/libspotify-12.1.51-Linux-x86_64-release/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1117" max-vertical-offset="1998">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.95599" vertical-offset="7668" max-vertical-offset="21240">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old_juli_2014/css/images/overlay.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33" vertical-offset="0" max-vertical-offset="600">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2970">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/old_juli_2014/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="55.333332" vertical-offset="2106" max-vertical-offset="4644">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.35357141" vertical-offset="0" max-vertical-offset="4644">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old/app/mopidy_calls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75" vertical-offset="54" max-vertical-offset="1404">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_juli_2014/css/style.css">
+    <entry file="file://$PROJECT_DIR$/old/app/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6842" max-vertical-offset="21240">
-          <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.23168655" vertical-offset="2438" max-vertical-offset="9306">
+          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tracks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/playlists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/mopidy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="1152">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/tables.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1722" max-vertical-offset="2322">
+          <caret line="115" column="26" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/controls.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1764">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="648">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/colors.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="279">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.1284404" vertical-offset="399" max-vertical-offset="2196">
+          <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
           <folding />
         </state>
       </provider>
