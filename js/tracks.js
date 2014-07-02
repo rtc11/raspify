@@ -6,9 +6,10 @@ var model_tracks = new Backbone.Model({
     album: "album"
 });
 
-/** Add a list of playlists */
+/** Add a list of tracks */
 var tracks = ko.observableArray([]);
 
+/** Populate the tracklist with a playlist's tracks */
 function addTracks(tracks){
     self.tracks([]);
     for(var i = 0; i<tracks.length; i++){
@@ -21,7 +22,7 @@ function addTracks(tracks){
     }
 }
 
-/** Add playlist to the model */
+/** Add track to the model */
 function addTrack(track){
 	self.tracks.push({
 	    track: track.name,

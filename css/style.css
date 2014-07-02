@@ -5,88 +5,33 @@
 ************************************************************************/
 
 
-/************************************************************************
-*   BODY
-************************************************************************/
-body
-{
+
+/**********************************
+*   Body
+**********************************/
+body{
     background: #111111;
     color: #888;
 }
 
-/* HEADLINER */
-.div_headliner
-{
-    border: 1px solid #81b71a;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-    .headliner_text
-    {
-        float: right;
-    }
-   .headliner_logo
-    {
-        content: url('../img/spotify_logo.png');
-        float: left;
-        display: block;
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-    }
-
-/* INPUT: looks of the placeholder in input forms */
-::-webkit-input-placeholder
-{
+/**********************************
+*   INPUT's (see search.css)
+**********************************/
+::-webkit-input-placeholder{
     color: #444;
     font-weight: normal;
 }
 
-/* IMG: icon for playlists */
-.img_playlist
-{
+/**********************************
+*   IMG's
+**********************************/
+.img_playlist{
     content: url('../img/playlist.png');
     width: 15px;
     height: 15px;
 }
-
-/* IMG: icon for tracks */
-.img_track
-{
+.img_track{
     content: url('../img/track.png');
     width: 15px;
     height: 15px;
-}
-
-/* DIV: for the playlists */
-.div_playlists
-{
-    margin-right: auto;
-    float: left;
-}
-
-/* DIV: for the tracks */
-.div_tracks
-{
-    margin-left: auto;
-    float: left;
-}
-
-/* DIV: for search box */
-.div_search
-{
-    margin: 0 auto;
-    float: relative;
-    /*border: 1px solid #81b71a;*/
-    width: 50%;
-}
-
-/* DIV: controls */
-.div_controls
-{
-    float: bottom;
-    position: fixed;
-    border: 1px strong #81b71a;
 }

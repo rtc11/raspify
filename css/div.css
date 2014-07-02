@@ -1,0 +1,51 @@
+/**********************************
+*   Headliner
+**********************************/
+.div_headliner{
+    border: 1px solid #81b71a;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+    .headliner_text{
+        float: right;
+    }
+   .headliner_logo{
+        content: url('../img/spotify_logo.png');
+        float: left;
+        display: block;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+    }
+
+/**********************************
+*   Tables
+**********************************/
+.div_playlists{
+    margin-right: auto;
+    float: left;
+}
+.div_tracks{
+    margin-left: auto;
+    float: left;
+}
+
+/**********************************
+*   Search
+**********************************/
+.div_search{
+    margin: 0 auto;
+    float: relative;
+    width: 50%;
+}
+
+/**********************************
+*   Controls
+**********************************/
+.div_controls{
+    float: bottom;
+    position: fixed;
+    border: 1px strong #81b71a;
+}

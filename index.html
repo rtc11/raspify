@@ -9,14 +9,11 @@
     <link rel="stylesheet" href="css/tables.css"/>
     <link rel="stylesheet" href="css/search.css"/>
     <link rel="stylesheet" href="css/controls.css"/>
+    <link rel="stylesheet" href="css/div.css"/>
 
-    <!--jQuery-->
+    <!-- Libraries -->
     <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
-
-    <!--Knockback-->
     <script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script>
-
-    <!--Mopidy-->
     <script type="application/javascript" src="/mopidy/mopidy.min.js"></script>
 </head>
 <body>
@@ -39,22 +36,20 @@
         <div class="repeat"></div>
     </div>
 
-
     <!-- SEARCH -->
     <div class="div_search">
         <input type="text" id="pub_url" name="pub_url" placeholder="search">
     </div>
 
+    <!-- TABLES -->
     <div class="div_tables">
 
         <!-- PLAYLISTS -->
         <div class="div_playlists">
-
             <table class="playlists" id="table_playlists">
-
                 <thead>
                 <tr>
-                    <th><!-- playlist logo --></th>
+                    <th></th>
                     <th>Playlist</th>
                     <th>Tracks</th>
                     <th>Duration</th>
@@ -69,19 +64,15 @@
                     <th data-bind="text: duration"></th>
                 </tr>
                 </tbody>
-
             </table>
-
         </div>
 
         <!-- TRACKS -->
         <div class="div_tracks">
-
             <table class="tracks" id="table_tracks">
-
                 <thead>
                 <tr>
-                    <th><!-- track logo --></th>
+                    <th></th>
                     <th>Track</th>
                     <th>Artist</th>
                     <th>Time</th>
@@ -98,16 +89,11 @@
                     <th data-bind="text: album"></th>
                 </tr>
                 </tbody>
-                <!--<tfoot>-->
-                <!--<td>huhu</td>-->
-                <!--</tfoot>-->
             </table>
-
         </div>
-
     </div>
-
 </div>
+
 <!-- JS -->
 <script type="application/javascript" src="js/tracks.js"></script>
 <script type="application/javascript" src="js/playlists.js"></script>
