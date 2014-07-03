@@ -1,0 +1,42 @@
+
+/** Seekbar **/
+.seekbar
+{
+    overflow: auto;
+    height: 25px;
+    left: 24px;
+    margin: 0 auto;
+    vertical-align: middle;
+    /*
+    height:15px;
+    position: relative;
+    */
+
+    border: 1px solid #81b71a;
+    background: url('../img/seekbar-empty.png') no-repeat left top;
+}
+
+/** Seekbar overlay **/
+.seekbar .ui-slider-range-min
+{
+    /*
+    position: relative;
+    height:15px;
+    */
+    background: url('../img/seekbar-full.png') no-repeat left top;
+}
+
+/** Seekbar knob **/
+.seekbar .ui-slider-handle
+{
+    /*
+    position: absolute;
+    height:15px;
+    */
+    width: 15px;
+    margin-left: -15px;
+    margin-top: -8px;
+    background: url('../img/seekbar-knob.png') no-repeat left top;
+    cursor: pointer;
+    outline: none;
+}

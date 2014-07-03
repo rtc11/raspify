@@ -1,4 +1,4 @@
-var mopidyConsole = true;
+var mopidyConsole = false;
 var self = this;
 var mopidy;
 

@@ -2,7 +2,6 @@ table
 {
     background: #181818;
     border-collapse: collapse;
-    margin-right: 3px;
 
     white-space:normal;
     overflow: hidden;
@@ -14,6 +13,7 @@ table
     table.playlists
     {
         text-align: left;
+        margin-right: 3px;
     }
 
         /** Table Head */
@@ -52,6 +52,7 @@ table
             opacity:0.6;
         }
 
+        /** Table Body - tr:hover */
         table.playlists tbody tr:hover
         {
             background-color: #181818;
@@ -90,7 +91,7 @@ table
         table.tracks th
         {
             padding: 0.2em 0.5em 0.2em 0.5em;
-            max-width: 15em;
+            max-width: 18em;
         }
 
         /** Table Head - table data */

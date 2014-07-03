@@ -10,35 +10,52 @@
     <link rel="stylesheet" href="css/search.css"/>
     <link rel="stylesheet" href="css/controls.css"/>
     <link rel="stylesheet" href="css/div.css"/>
+    <link rel="stylesheet" href="css/seekbar.css"/>
 
     <!-- Libraries -->
     <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
+    <script type="application/javascript" src="lib/jquery-ui-git.js"></script> <!-- seekbar -->
     <script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script>
     <script type="application/javascript" src="/mopidy/mopidy.min.js"></script>
 </head>
 <body>
 
 <!-- CONTAINER -->
-<div>
 
-    <!-- HEADLINER -->
-    <div class="div_headliner">
-        <div class="headliner_logo"></div>
-        <div class="headliner_text"><h1>Raspify</h1></div>
-    </div>
+    <!-- HEADER -->
+    <div class="header">
 
-    <!-- CONTROLS -->
-    <div class="div_controls">
-        <div class="previous"></div>
-        <div class="play_pause"></div>
-        <div class="next"></div>
-        <div class="shuffle"></div>
-        <div class="repeat"></div>
-    </div>
+        <!-- HEADLINER -->
+        <div class="div_headliner">
 
-    <!-- SEARCH -->
-    <div class="div_search">
-        <input type="text" id="pub_url" name="pub_url" placeholder="search">
+            <div class="headliner_logo"></div>
+            <div class="headliner_text"><h1>Raspify</h1></div>
+
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="div_controls">
+
+            <div class="left_side_controls">
+                <div class="previous"></div>
+                <div class="play_pause"></div>
+                <div class="next"></div>
+            </div>
+
+            <div class="right_side_controls">
+                <div class="shuffle"></div>
+                <div class="repeat"></div>
+            </div>
+            <div class="seekbar"></div>
+
+
+        </div>
+
+        <!-- SEARCH -->
+        <div class="div_search">
+            <input type="text" id="pub_url" name="pub_url" placeholder="search">
+        </div>
+
     </div>
 
     <!-- TABLES -->
@@ -55,7 +72,6 @@
                     <th>Duration</th>
                 </tr>
                 </thead>
-
                 <tbody data-bind="foreach: playlists">
                 <tr data-bind="click: test">
                     <th><img class="img_playlist"/></th>
@@ -70,6 +86,7 @@
         <!-- TRACKS -->
         <div class="div_tracks">
             <table class="tracks" id="table_tracks">
+                <!-- ko if: tracks().length -->
                 <thead>
                 <tr>
                     <th></th>
@@ -79,7 +96,7 @@
                     <th>Album</th>
                 </tr>
                 </thead>
-
+                <!-- /ko -->
                 <tbody data-bind="foreach: tracks">
                 <tr>
                     <th><img class="img_track"/></th>
@@ -92,11 +109,11 @@
             </table>
         </div>
     </div>
-</div>
 
 <!-- JS -->
 <script type="application/javascript" src="js/tracks.js"></script>
 <script type="application/javascript" src="js/playlists.js"></script>
 <script type="application/javascript" src="js/mopidy.js"></script>
+<script type="application/javascript" src="js/seekbar.js"></script>
 </body>
 </html>

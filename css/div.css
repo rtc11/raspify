@@ -1,51 +1,93 @@
 /**********************************
-*   Headliner
+*   HEADER
 **********************************/
-.div_headliner{
-    border: 1px solid #81b71a;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-    .headliner_text{
-        float: right;
-    }
-   .headliner_logo{
-        content: url('../img/spotify_logo.png');
-        float: left;
-        display: block;
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-    }
-
-/**********************************
-*   Tables
-**********************************/
-.div_playlists{
-    margin-right: auto;
-    float: left;
-}
-.div_tracks{
-    margin-left: auto;
-    float: left;
-}
-
-/**********************************
-*   Search
-**********************************/
-.div_search{
-    margin: 0 auto;
-    float: relative;
-    width: 50%;
-}
-
-/**********************************
-*   Controls
-**********************************/
-.div_controls{
-    float: bottom;
+.header
+{
+    width: 100%;
     position: fixed;
-    border: 1px strong #81b71a;
+    z-index: 10;
+    background: #111111;
 }
+
+    /**********************************
+    *   Headliner
+    **********************************/
+    .div_headliner
+    {
+        width: 100px;
+        height: 80px;
+        margin-top: 5px;
+        float: left;
+        /*
+        margin-left: auto;
+        margin-right: auto;
+        */
+    }
+
+        /** Headline text div **/
+        .headliner_text
+        {
+            width: 100px;
+            height: 25px;
+        }
+
+        /** Headline h1 **/
+        .headliner_text h1
+        {
+            margin: 0 auto;
+        }
+
+        /** Headline logo */
+        .headliner_logo
+        {
+            width: 40px;
+            height: 40px;
+            content: url('../img/spotify_logo.png');
+            margin: 0 auto;
+        }
+
+    /**********************************
+    *   Controls
+    **********************************/
+    .div_controls
+    {
+        width: 50%;
+        height: 25px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    /**********************************
+    *   Search
+    **********************************/
+    .div_search
+    {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+/**********************************
+*   TABLES
+**********************************/
+.div_tables
+{
+    width: 100% - 3px; /* -3px is for the margin-left: 3px; compensation */
+    position: absolute;
+    margin-top: 87px;
+}
+
+    /**********************************
+    *   Playlists
+    **********************************/
+    .div_playlists
+    {
+        float: left;
+    }
+
+    /**********************************
+    *   Tracks
+    **********************************/
+    .div_tracks
+    {
+        float: left;
+    }
