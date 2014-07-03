@@ -14,6 +14,14 @@ var selectPlaylist = function(playlist){
     addTracks(playlist.tracks);
 }
 
+var startPlaylist = function(playlist){
+
+    mopidy.playback.stop(true);
+    mopidy.tracklist.clear();
+    mopidy.tracklist.add(playlist.tracks);
+    mopidy.playback.play();
+}
+
 /** Add playlist to the model */
 function addPlaylist(playlist){
 	self.playlists.push({
