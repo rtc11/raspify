@@ -9,6 +9,7 @@ input
 	margin-top: 10px;
 
 	border: 0px solid #262626;
+    outline: none;
 
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;

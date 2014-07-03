@@ -28,7 +28,7 @@
         .headliner_text
         {
             width: 100px;
-            height: 25px;
+            height: 26px;
         }
 
         /** Headline h1 **/
@@ -52,7 +52,7 @@
     .div_controls
     {
         width: 50%;
-        height: 25px;
+        height: 26px;
         margin: 0 auto;
         margin-top: 10px;
     }

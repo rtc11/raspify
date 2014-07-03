@@ -1,42 +1,69 @@
+.player
+{
+    overflow: hidden;
+    height: 26px;
+    margin: 0 auto;
+    position: relative;
+    background: url('..img/seekbar-background.png') no-repeat left top;
+}
 
 /** Seekbar **/
 .seekbar
 {
-    overflow: auto;
-    height: 25px;
-    left: 24px;
-    margin: 0 auto;
-    vertical-align: middle;
-    /*
-    height:15px;
-    position: relative;
-    */
+    /* seekbar graphic */
+    background: #181818;
+    moz-border-radius: 15px;
+    border-radius: 15px;
 
-    border: 1px solid #81b71a;
-    background: url('../img/seekbar-empty.png') no-repeat left top;
+    /* Shadow */
+    webkit-box-shadow:inset 0 0 6px #000;
+    -moz-box-shadow:inset 0 0 6px #000;
+    box-shadow:inset 0 0 6px #000;
+
+    /* seekbar position and size  */
+    top: 8px;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    margin: 0 auto;
+    height: 8px;
+    width: 100% - 10px;
+    background-size:100% - 10px;
 }
 
 /** Seekbar overlay **/
 .seekbar .ui-slider-range-min
 {
-    /*
-    position: relative;
-    height:15px;
-    */
-    background: url('../img/seekbar-full.png') no-repeat left top;
+    /* Seekbar filled graphic */
+    background: #81b71a;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+
+    /* Seekbar filled shadow */
+    webkit-box-shadow:inset 0 0 6px #000;
+    -moz-box-shadow:inset 0 0 6px #000;
+    box-shadow:inset 0 0 6px #000;
+
+    /* seekbar filled position and size */
+    position: absolute;
+    height: 8px;
+
+    width: 100% - 10px;
+    background-size: 100% - 10px;
 }
 
 /** Seekbar knob **/
 .seekbar .ui-slider-handle
 {
-    /*
+    background: #303030;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+
     position: absolute;
-    height:15px;
-    */
-    width: 15px;
-    margin-left: -15px;
-    margin-top: -8px;
-    background: url('../img/seekbar-knob.png') no-repeat left top;
+    margin-left: -8px;
+    right: 8px;
+    margin-top: -4px;
     cursor: pointer;
     outline: none;
 }

@@ -1,55 +1,85 @@
 .left_side_controls
 {
-    width: 75px;
+    width: 120px;
     margin-right: 5px;
     float: left;
-    border: 1px solid #81b71a;
 }
 
 .right_side_controls
 {
     margin-left: 5px;
-    width: 50px;
+    width: 97px;
     float: right;
-    border: 1px solid #81b71a;
 }
+
+/* DIV: showing current time of track */
+.currentTime
+{
+    float: left;
+    width: 35px;
+    height: 26px;
+    margin-left: 5px;
+}
+
+    .currentTime p
+    {
+        margin: 0 auto;
+        font-size: small;
+        color: #606060;
+    }
+
+/* DIV: showing total time of track */
+.totalTime
+{
+    float: left;
+    width: 35px;
+    height: 26px;
+    margin-right: 5px;
+}
+
+    .totalTime p
+    {
+        margin: 0 auto;
+        font-size: small;
+        color: #606060;
+    }
 
 .previous
 {
     content: url('../img/previous.png');
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     float: left;
 }
 
 .play_pause
 {
     content: url('../img/play.png');
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     float: left;
 }
 
 .next
 {
     content: url('../img/next.png');
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     float: left;
 }
 
 .shuffle
 {
     content: url('../img/shuffle.png');
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     float: left;
 }
 
 .repeat
 {
     content: url('../img/repeat.png');
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     float: left;
 }
