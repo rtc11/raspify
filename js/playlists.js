@@ -10,7 +10,7 @@ var model_playlists = new Backbone.Model({
 var playlists = ko.observableArray([]);
 
 /** Populate the tracklist with all of the playlist-tracks */
-var test = function(playlist){
+var selectPlaylist = function(playlist){
     addTracks(playlist.tracks);
 }
 

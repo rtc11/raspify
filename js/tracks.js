@@ -1,13 +1,27 @@
 /** Create the Backbone model */
 var model_tracks = new Backbone.Model({
     track: "track",
+    uri: "uri",
     artist: "artist",
     time: "1h 12m 34s",
+    ms: "23423424",
     album: "album"
 });
 
 /** Add a list of tracks */
 var tracks = ko.observableArray([]);
+
+var selectTrack = function(track){
+    console.log("Track: " + track.track + ", ms: " + track.ms);
+
+    //TODO: organize this better
+    setTotalTime(track.ms);
+    $("#totalTime").text(msToTime(track.ms));
+    startTimer();
+    mopidy.tracklist.clear();
+    mopidy.tracklist.add(null, null, track.uri);
+    mopidy.playback.play();
+}
 
 /** Populate the tracklist with a playlist's tracks */
 function addTracks(tracks){
@@ -15,8 +29,10 @@ function addTracks(tracks){
     for(var i = 0; i<tracks.length; i++){
         self.tracks.push({
             track: tracks[i].name,
+            uri: tracks[i].uri,
             artist: tracks[i].album.artists[0].name,
             time: msToTime(tracks[i].length),
+            ms: tracks[i].length,
             album: tracks[i].album.name
         });
     }
@@ -26,8 +42,10 @@ function addTracks(tracks){
 function addTrack(track){
 	self.tracks.push({
 	    track: track.name,
+	    uri: track.uri,
 	    artist: track.album.artists[0].name,
 	    time: msToTime(track.length),
+	    ms: track.length,
 	    album: track.album.name
 	});
 }

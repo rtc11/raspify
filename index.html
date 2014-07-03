@@ -40,11 +40,11 @@
                 <div class="previous"></div>
                 <div class="play_pause"></div>
                 <div class="next"></div>
-                <div class="currentTime"><p>55:23</p></div>
+                <div class="currentTime"><p id="currentTime">55:23</p></div>
             </div>
 
             <div class="right_side_controls">
-                <div class="totalTime"><p>59:42</p></div>
+                <div class="totalTime"><p id="totalTime">59:42</p></div>
                 <div class="shuffle"></div>
                 <div class="repeat"></div>
             </div>
@@ -78,7 +78,7 @@
                 </tr>
                 </thead>
                 <tbody data-bind="foreach: playlists">
-                <tr data-bind="click: test">
+                <tr data-bind="click: selectPlaylist">
                     <th><img class="img_playlist"/></th>
                     <th data-bind="text: name"></th>
                     <th data-bind="text: size"></th>
@@ -103,7 +103,7 @@
                 </thead>
                 <!-- /ko -->
                 <tbody data-bind="foreach: tracks">
-                <tr>
+                <tr data-bind="click: selectTrack">
                     <th><img class="img_track"/></th>
                     <th data-bind="text: track"></th>
                     <th data-bind="text: artist"></th>
@@ -120,5 +120,7 @@
 <script type="application/javascript" src="js/playlists.js"></script>
 <script type="application/javascript" src="js/mopidy.js"></script>
 <script type="application/javascript" src="js/seekbar.js"></script>
+<script type="application/javascript" src="js/controls.js"></script>
+
 </body>
 </html>

@@ -22,6 +22,8 @@ function fetchFromMopidy() {
     var consoleError = console.error.bind(console);
     mopidy.playlists.getPlaylists()
     .then(processGetPlaylists, consoleError);
+
+    //TODO: get current time pos
 }
 
 /** Get playlists from Mopidy */

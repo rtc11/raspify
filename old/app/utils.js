@@ -146,7 +146,7 @@ function fetchFromMopidy() {
     .then(setCurrentTracklist, consoleError);
 
     //Get time position to current track
-    mopidy.playback.getTimePosition()
+    mopidy.playback.getprocessCurrentTimePosition()
     .then(processCurrentTimePosition, consoleError);
 
     //Get current volume from mopidy
