@@ -1,47 +1,56 @@
+var seekbarTimer;
+
 $(document).ready(function(){
-
-    var playing = true;
-
     $(function(){
-        $(".play_pause").click("click", function (event) {
+        $("#play_pause").click("click", function (event) {
 
-            if(playing){
-                playing = false;
-                stopTimer();
-                $(".play_pause").css('content', 'url(../img/pause.png)');
-                mopidy.playback.pause();
+            if(currentState == "playing"){
+                currentState = pause();                                     //currentState: mopidy.js
             }
-            else{
-                playing = true;
-                startTimer();
-                $(".play_pause").css('content', 'url(../img/play.png)');
-                mopidy.playback.resume();
+            else if(currentState == "paused"){
+                currentState = resume();                                    //currentState: mopidy.js
             }
-
+            else if(playing == "stopped"){
+//                playing = play(); //nothing to play
+            }
         });
     });
 });
 
-var myVar;
-
-function stopTimer(){
-    window.clearInterval(myVar)
+function play(){
+    mopidy.playback.play();
+    return playing();
+}
+function pause(){
+    mopidy.playback.pause();
+    return pausing();
+}
+function resume(){
+    mopidy.playback.resume();
+    return playing();
 }
 
-function startTimer(){
-    myVar = setInterval(function(){
-        myTimer()
-    },1000);
+function playing(){
+    $("#play_pause").toggleClass('playing');
+    return startSeekbarTimer();
 }
 
-function myTimer() {
-    var consoleError = console.error.bind(console);
-    mopidy.playback.getTimePosition()
-    .then(processCurrentTimePosition, consoleError);
+function pausing(){
+    $("#play_pause").toggleClass('paused');
+    console.log("button should be play-button");
+    return stopSeekbarTimer();
 }
 
-function processCurrentTimePosition(ms){
-    setPosition(ms);
-    $("#currentTime").text(msToTime(ms));
-//    msToTime(ms);
+function stopped(){
+    $("#play_pause").toggleClass('paused');
+}
+
+function stopSeekbarTimer(){
+    window.clearInterval(seekbarTimer)
+    return "paused";
+}
+
+function startSeekbarTimer(){
+    seekbarTimer = setInterval(function(){getTimePosition()}, 1000);        //mopidy.js
+    return "playing";
 }

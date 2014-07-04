@@ -1,9 +1,3 @@
-//Make sure the document has loaded and that jQuery is ready
-$(document).ready(function() {
-//    self.slider(120);
-//    self.setPosition(40);
-});
-
 var totalSecond;
 var self = this;
 
@@ -13,6 +7,9 @@ function slider(total){
 
 function setTotalTime(time){
     $(".seekbar").slider('option', 'max', time);
+
+    // set text total time to track length
+    $("#totalTime").text(msToTime(time));                                   //utils.js
 }
 
 function setPosition(time){

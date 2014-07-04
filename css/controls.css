@@ -52,13 +52,27 @@
     float: left;
 }
 
-.play_pause
+.playing
 {
-    content: url('../img/play.png');
     width: 26px;
     height: 26px;
     float: left;
+    content: url('../img/pause.png');
 }
+
+.paused
+{
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 26px solid #303030;
+    border-bottom: 13px solid transparent;
+    float: left;
+}
+    .paused:hover
+    {
+        border-left: 26px solid #81b71a;
+    }
 
 .next
 {

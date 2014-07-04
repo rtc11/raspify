@@ -1,9 +1,13 @@
 var mopidyConsole = false;
 var self = this;
 var mopidy;
+var consoleError;
+var currentState = "stopped";
+
+var currentTrack;
 
 /** Initialize with jQuery */
-(function init() {
+$(document).ready(function() {
     mopidy = new Mopidy();
 
     self.mopidy.on("state:online", fetchFromMopidy);
@@ -15,15 +19,25 @@ var mopidy;
     if(mopidyConsole){
         mopidy.on(console.log.bind(console));
     }
-})();
+});
 
 /** Fetch data from Mopidy */
 function fetchFromMopidy() {
-    var consoleError = console.error.bind(console);
+    consoleError = console.error.bind(console);
+
+    // get playlists
     mopidy.playlists.getPlaylists()
     .then(processGetPlaylists, consoleError);
 
-    //TODO: get current time pos
+    $("#play_pause").addClass('paused playing');
+
+    // get current track if there is one
+    mopidy.playback.getCurrentTrack()
+    .then(processCurrentTrack, consoleError);
+
+    // get play state
+    mopidy.playback.getState()
+    .then(processPlayState, consoleError);
 }
 
 /** Get playlists from Mopidy */
@@ -36,26 +50,48 @@ function processGetPlaylists(playlists){
 
         for(var j = 0; j<playlist.tracks.length; j++){
             duration += playlist.tracks[j].length;
-//            addTrack(playlist.tracks[j]);
         }
 
-        playlist.duration = msToTime(duration);
-        addPlaylist(playlists[i]);
+        playlist.duration = msToTime(duration);                             //utils.js
+        addPlaylist(playlists[i]);                                          //playlists.js
     };
 }
 
-/** Convert milliseconds to time */
-function msToTime(s) {
-  var ms = s % 1000;
-  s = (s - ms) / 1000;
-  var secs = s % 60;
-  s = (s - secs) / 60;
-  var mins = s % 60;
-  var hrs = (s - mins) / 60;
-
-  if(hrs > 0){
-    return hrs + 'h ' + mins + 'm ' + secs + 's';
-  }
-
-  return mins + 'm ' + secs + 's';
+/* Get the play state */
+function processPlayState(state){
+    currentState = state;
+    console.log(currentState);
+    if(state == "playing"){
+        playing();                                                          //controls.js
+        setTotalTime(currentTrack.length);                                  //seekbar.js
+        startSeekbarTimer();                                                //controls.js
+    }
+    if(state == "paused"){
+        pausing();                                                          //controls.js
+        setTotalTime(currentTrack.length);                                  //seekbar.js
+        getTimePosition();
+    }
+    if(state == "stopped"){
+        stopped();                                                          //controls.js
+    }
 }
+
+/* Get the time position on the playing track */
+function getTimePosition() {
+    mopidy.playback.getTimePosition()
+    .then(processCurrentTimePosition, consoleError);
+}
+
+/* Update the current time position for seekbar and the text field */
+function processCurrentTimePosition(ms){
+    setPosition(ms);                                                        //seekbar.js
+    $("#currentTime").text(msToTime(ms));                                   //utils.js
+}
+
+function processCurrentTrack(track) {
+    if (track) {
+        currentTrack = track;
+    } else {
+        // no current track
+    }
+};

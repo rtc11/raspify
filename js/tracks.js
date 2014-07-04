@@ -14,13 +14,17 @@ var tracks = ko.observableArray([]);
 var selectTrack = function(track){
     console.log("Track: " + track.track + ", ms: " + track.ms);
 
-    //TODO: organize this better
-    setTotalTime(track.ms);
-    $("#totalTime").text(msToTime(track.ms));
-    startTimer();
+    // set slider total time to track length
+    setTotalTime(track.ms);                                                 //seektime.js
+
+    // start the seekbar timer
+    startSeekbarTimer();                                                    //controls.js
+
     mopidy.tracklist.clear();
     mopidy.tracklist.add(null, null, track.uri);
-    mopidy.playback.play();
+
+    // start the song and update the gui / logic
+    play();                                                                 //controls.js
 }
 
 /** Populate the tracklist with a playlist's tracks */

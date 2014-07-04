@@ -12,87 +12,83 @@
     <link rel="stylesheet" href="css/div.css"/>
     <link rel="stylesheet" href="css/seekbar.css"/>
 
-    <!-- Libraries -->
+    <!-- Dependencies -->
     <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
-    <script type="application/javascript" src="lib/jquery-ui-git.js"></script> <!-- seekbar -->
+    <script type="application/javascript" src="lib/jquery-ui-git.js"></script><!-- seekbar GUI -->
     <script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script>
     <script type="application/javascript" src="/mopidy/mopidy.min.js"></script>
 </head>
 <body>
 
-<!-- CONTAINER -->
+<!-- HEADER -->
+<div class="header">
 
-    <!-- HEADER -->
-    <div class="header">
-
-        <!-- HEADLINER -->
-        <div class="div_headliner">
-
-            <div class="headliner_logo"></div>
-            <div class="headliner_text"><h1>Raspify</h1></div>
-
-        </div>
-
-        <!-- CONTROLS -->
-        <div class="div_controls">
-
-            <div class="left_side_controls">
-                <div class="previous"></div>
-                <div class="play_pause"></div>
-                <div class="next"></div>
-                <div class="currentTime"><p id="currentTime">55:23</p></div>
-            </div>
-
-            <div class="right_side_controls">
-                <div class="totalTime"><p id="totalTime">59:42</p></div>
-                <div class="shuffle"></div>
-                <div class="repeat"></div>
-            </div>
-
-            <div class="player">
-                <div class="seekbar"></div>
-            </div>
-
-
-        </div>
-
-        <!-- SEARCH -->
-        <div class="div_search">
-            <input type="text" id="pub_url" name="pub_url" placeholder="search">
-        </div>
-
+    <!-- HEADLINER -->
+    <div class="div_headliner">
+        <div class="headliner_logo"></div>
+        <div class="headliner_text"><h1>Raspify</h1></div>
     </div>
 
-    <!-- TABLES -->
-    <div class="div_tables">
+    <!-- CONTROLS -->
+    <div class="div_controls">
 
-        <!-- PLAYLISTS -->
-        <div class="div_playlists">
-            <table class="playlists" id="table_playlists">
-                <thead>
+        <div class="left_side_controls">
+            <div class="previous"></div>
+            <div class="paused" id="play_pause"></div>
+            <div class="next"></div>
+            <div class="currentTime"><p id="currentTime">55:23</p></div>
+        </div>
+
+        <div class="right_side_controls">
+            <div class="totalTime"><p id="totalTime">59:42</p></div>
+            <div class="shuffle"></div>
+            <div class="repeat"></div>
+        </div>
+
+        <div class="player">
+            <div class="seekbar"></div>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="div_search">
+        <input type="text" id="pub_url" name="pub_url" placeholder="search">
+    </div>
+
+</div>
+
+<!-- TABLES -->
+<div class="div_tables">
+
+    <!-- PLAYLISTS -->
+    <div class="div_playlists">
+        <table class="playlists" id="table_playlists">
+            <!-- ko if: playlists().length -->
+            <thead>
                 <tr>
                     <th></th>
                     <th>Playlist</th>
                     <th>Tracks</th>
                     <th>Duration</th>
                 </tr>
-                </thead>
-                <tbody data-bind="foreach: playlists">
+            </thead>
+            <!-- /ko -->
+            <tbody data-bind="foreach: playlists">
                 <tr data-bind="click: selectPlaylist">
                     <th data-bind="click: startPlaylist"><img class="img_playlist"/></th>
                     <th data-bind="text: name"></th>
                     <th data-bind="text: size"></th>
                     <th data-bind="text: duration"></th>
                 </tr>
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
+    </div>
 
-        <!-- TRACKS -->
-        <div class="div_tracks">
-            <table class="tracks" id="table_tracks">
-                <!-- ko if: tracks().length -->
-                <thead>
+    <!-- TRACKS -->
+    <div class="div_tracks">
+        <table class="tracks" id="table_tracks">
+            <!-- ko if: tracks().length -->
+            <thead>
                 <tr>
                     <th></th>
                     <th>Track</th>
@@ -100,9 +96,9 @@
                     <th>Time</th>
                     <th>Album</th>
                 </tr>
-                </thead>
-                <!-- /ko -->
-                <tbody data-bind="foreach: tracks">
+            </thead>
+            <!-- /ko -->
+            <tbody data-bind="foreach: tracks">
                 <tr data-bind="click: selectTrack">
                     <th><img class="img_track"/></th>
                     <th data-bind="text: track"></th>
@@ -110,15 +106,16 @@
                     <th data-bind="text: time"></th>
                     <th data-bind="text: album"></th>
                 </tr>
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
+</div>
 
-<!-- JS -->
+<!-- JavaScript -->
+<script type="application/javascript" src="js/utils.js"></script>
 <script type="application/javascript" src="js/tracks.js"></script>
 <script type="application/javascript" src="js/playlists.js"></script>
-<script type="application/javascript" src="js/mopidy.js"></script>
+<script type="application/javascript" src="js/mopidy.js"></script>  <!-- This is where jQuery is loaded -->
 <script type="application/javascript" src="js/seekbar.js"></script>
 <script type="application/javascript" src="js/controls.js"></script>
 
