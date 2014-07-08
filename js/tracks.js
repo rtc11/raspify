@@ -41,6 +41,20 @@ function addTracks(tracks){
         });
     }
 }
+/** Populate the tracklist with a TlTracks from mopidy tracklist (queue)*/
+function addTlTracks(tracks){
+    self.tracks([]);
+    for(var i = 0; i<tracks.length; i++){
+        self.tracks.push({
+            track: tracks[i].track.name,
+            uri: tracks[i].track.uri,
+            artist: tracks[i].track.album.artists[0].name,
+            time: msToTime(tracks[i].track.length),
+            ms: tracks[i].track.length,
+            album: tracks[i].track.album.name
+        });
+    }
+}
 
 /** Add track to the model */
 function addTrack(track){
