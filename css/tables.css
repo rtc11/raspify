@@ -7,50 +7,64 @@ table
     overflow: hidden;
 }
 
-    /**********************************
-    *   PLAYLISTS
-    **********************************/
-    table.playlists
+/**********************************
+*   PLAYLISTS
+**********************************/
+table.playlists
+{
+text-align: center;
+margin-right: 5px;
+}
+
+    /** Table Head */
+    table.playlists thead
     {
-        text-align: left;
-        margin-right: 3px;
+        background: #181818;
+        font-weight:bold;
+        font-size: medium;
     }
 
-        /** Table Head */
-        table.playlists thead
+         table.playlists thead tr
         {
-            background: #303030;
-            font-weight:bold;
-            font-size: medium;
+            height: 1em;
         }
 
-        /** Table Body */
-        table.playlists tbody
-        {
-            font-size: small;
-        }
+    /** Table Body */
+    table.playlists tbody
+    {
+        font-size: small;
+        overflow: auto;
+    }
 
-        /** Table Data */
-        table.playlists th
-        {
-            padding: 0.2em 0.5em 0.2em 0.5em;
-            max-width: 20em;
-        }
+    /** Make the table scrollable */
+    table.playlists thead > table.playlists tr, table.playlists tbody
+    {
+        display:block;
+    }
+
+    /** Table Data */
+    table.playlists th
+    {
+        padding: 0.2em 0.5em 0.2em 0.5em;
+        max-width: 20em;
+    }
 
         table.playlists thead th
         {
             padding: 0.5em 0.5em 0.5em 0.5em;
+            text-align: center;
         }
 
-        /** Table Header */
-        table.playlists tr
-        {
-            text-align: left;
-            padding: 0em 0em 0em 0em;
-            color: #888;
-            background-color:rgba(38,38,38,0.5);
-            opacity:0.6;
-        }
+    /** Table Header */
+    table.playlists tr
+    {
+        text-align: left;
+        padding: 0em 0em 0em 0em;
+        height: 4em;
+        color: #888;
+        background-color:rgba(38,38,38,0.5);
+        opacity:0.6;
+    }
 
         /** Table Body - tr:hover */
         table.playlists tbody tr:hover
@@ -59,40 +73,40 @@ table
             color: #81b71a;
         }
 
-        /** Table Foot */
-        table.playlists tfoot
-        {
-            background: #eee;
-        }
-
-    /**********************************
-    *   TRACKS
-    **********************************/
-    table.tracks
+    /** Table Foot */
+    table.playlists tfoot
     {
-        text-align: left;
+        background: #eee;
     }
 
-        /** Table Head */
-        table.tracks thead
-        {
-            background: #303030;
-            font-weight:bold;
-            font-size: medium;
-        }
+/**********************************
+*   TRACKS
+**********************************/
+table.tracks
+{
+    text-align: left;
+}
 
-        /** Table Body */
-        table.tracks tbody
-        {
-            font-size: small;
-        }
+    /** Table Head */
+    table.tracks thead
+    {
+        background: #181818;
+        font-weight:bold;
+        font-size: medium;
+    }
 
-        /** Table Data */
-        table.tracks th
-        {
-            padding: 0.2em 0.5em 0.2em 0.5em;
-            max-width: 18em;
-        }
+    /** Table Body */
+    table.tracks tbody
+    {
+        font-size: small;
+    }
+
+    /** Table Data */
+    table.tracks th
+    {
+        padding: 0.2em 0.5em 0.2em 0.5em;
+        max-width: 18em;
+    }
 
         /** Table Head - table data */
         table.tracks thead th
@@ -100,15 +114,15 @@ table
             padding: 0.5em 0.5em 0.5em 0.5em;
         }
 
-        /** Table Row */
-        table.tracks tr
-        {
-            text-align: left;
-            padding: 0em 0em 0em 0em;
-            color: #888;
-            background-color:rgba(38,38,38,0.5);
-            opacity:0.6;
-        }
+    /** Table Row */
+    table.tracks tr
+    {
+        text-align: left;
+        padding: 0em 0em 0em 0em;
+        color: #888;
+        background-color:rgba(38,38,38,0.5);
+        opacity:0.6;
+    }
 
         /** Table Body - table row: hover */
         table.tracks tbody tr:hover
@@ -117,8 +131,21 @@ table
             color: #81b71a;
         }
 
-        /** Table Foot */
-        table.tracks tfoot
-        {
-            background: #eee;
-        }
+    /** Table Foot */
+    table.tracks tfoot
+    {
+        background: #eee;
+    }
+
+    #tracks_song
+    {
+        margin: 0 auto;
+    }
+
+    #tracks_time
+    {
+        width: 25px;
+        height: 25px;
+        margin: 0 auto;
+        content: url("../img/time.png") no-repeat;
+    }
