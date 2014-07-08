@@ -11,7 +11,7 @@ $(document).ready(function() {
     mopidy = new Mopidy();
 
     self.mopidy.on("state:online", fetchFromMopidy);
-    //self.mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
+    self.mopidy.on("event:trackPlaybackStarted", trackplaybackstarted);
     //self.mopidy.on("event:trackPlaybackPaused", trackplaybackpaused);
     //self.mopidy.on("event:volumeChanged", volumeChanged);
 
@@ -95,3 +95,18 @@ function processCurrentTrack(track) {
         // no current track
     }
 };
+
+/** EVENT: mopidy sends event on track changed **/
+function trackplaybackstarted(){
+    printNowPlaying();
+}
+
+function printNowPlaying(){
+    mopidy.playback.getCurrentTrack()
+    .then(processNowPlaying, consoleError);
+}
+
+function processNowPlaying(track){
+    var nowPlaying = track.name + " - " + track.artists[0].name;
+    console.log(nowPlaying);
+}
