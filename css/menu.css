@@ -1,0 +1,102 @@
+/* Menu Container */
+.menu
+{
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Playlist Container */
+.menu_item_playlists
+{
+    float: top;
+    color: #606060;
+    height: 53px;
+    width: 50px;
+}
+    /* Icon */
+    .menu_item_playlists_img
+    {
+        content: url("../img/menu/playlists.png") no-repeat;
+        float: top;
+        margin: 0 auto;
+        height: 40 px;
+        width: 40px;
+    }
+
+    /* Text */
+    .menu_item_playlists h2
+    {
+        font-size: x-small;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Hover effect */
+    .menu_item_playlists:hover
+    {
+        background-color:           rgba(38,38,38,0.5);
+        color:                      #81b71a;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius:    5px;
+        border-bottom-left-radius:  5px;
+        border-top-left-radius:     5px;
+
+        webkit-box-shadow:  inset 0 0 1px #111111;
+        -moz-box-shadow:    inset 0 0 1px #111111;
+        box-shadow:         inset 0 0 1px #111111;
+    }
+
+    .menu_item_playlists:hover .menu_item_playlists_img
+    {
+        content: url("../img/menu/playlists_hover.png") no-repeat;
+        width: 40px;
+        height: 40px;
+    }
+
+/* Queue Container */
+.menu_item_queue
+{
+    margin-top: 5px;
+    width: 50px;
+    height: 53px;
+    color: #606060;
+}
+
+    /* Icon */
+    .menu_item_queue_img
+    {
+        content: url("../img/menu/queue.png") no-repeat;
+        float: top;
+        margin: 0 auto;
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Text */
+    .menu_item_queue h2
+    {
+        font-size: x-small;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Hover effect */
+    .menu_item_queue:hover
+    {
+        background-color:           rgba(38,38,38,0.5);
+        color:                      #81b71a;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius:    5px;
+        border-bottom-left-radius:  5px;
+        border-top-left-radius:     5px;
+
+        webkit-box-shadow:  inset 0 0 1px #111111;
+        -moz-box-shadow:    inset 0 0 1px #111111;
+        box-shadow:         inset 0 0 1px #111111;
+
+    }
+    .menu_item_queue:hover .menu_item_queue_img
+    {
+        content: url("../img/menu/queue_hover.png") no-repeat;
+    }
