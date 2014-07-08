@@ -3,7 +3,6 @@ var seekbarTimer;
 $(document).ready(function(){
     $(function(){
         $("#play_pause").click("click", function (event) {
-
             if(currentState == "playing"){
                 currentState = pause();                                     //currentState: mopidy.js
             }
@@ -14,8 +13,26 @@ $(document).ready(function(){
 //                playing = play(); //nothing to play
             }
         });
+        $(".next").click("click", function (event) {
+            if(currentState == "playing"){
+                next();
+            }
+        });
+        $(".previous").click("click", function (event) {
+            if(currentState == "playing"){
+                previous();
+            }
+        });
     });
 });
+
+function previous(){
+    mopidy.playback.previous();
+}
+
+function next(){
+    mopidy.playback.next();
+}
 
 function play(){
     mopidy.playback.play();
@@ -31,18 +48,17 @@ function resume(){
 }
 
 function playing(){
-    $("#play_pause").toggleClass('playing');
+    $("#play_pause").toggleClass('paused');
     return startSeekbarTimer();
 }
 
 function pausing(){
-    $("#play_pause").toggleClass('paused');
-    console.log("button should be play-button");
+    $("#play_pause").toggleClass('playing');
     return stopSeekbarTimer();
 }
 
 function stopped(){
-    $("#play_pause").toggleClass('paused');
+    $("#play_pause").toggleClass('playing');
 }
 
 function stopSeekbarTimer(){
