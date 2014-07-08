@@ -14,12 +14,18 @@ var selectPlaylist = function(playlist){
     addTracks(playlist.tracks);
 }
 
+/** Starts the playlist with shuffled order */
 var startPlaylist = function(playlist){
-
     mopidy.playback.stop(true);
     mopidy.tracklist.clear();
     mopidy.tracklist.add(playlist.tracks);
+    mopidy.tracklist.shuffle(0, playlist.length -1);
     mopidy.playback.play();
+}
+
+function toggleTable(table_id) {
+    var lTable = document.getElementById(table_id);
+    lTable.style.display = (lTable.style.display == "none") ? "table" : "none";
 }
 
 /** Add playlist to the model */
