@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/controls.css"/>
     <link rel="stylesheet" href="css/div.css"/>
     <link rel="stylesheet" href="css/seekbar.css"/>
+    <link rel="stylesheet" href="css/menu.css"/>
 
     <!-- Dependencies -->
     <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
@@ -57,28 +58,37 @@
 
 </div>
 
-<!-- TABLES -->
+
+<!-- CONTENT -->
 <div class="div_tables">
+
+    <!-- MENU -->
+    <div class="menu">
+
+        <!-- Playlists -->
+        <div class="menu_item_playlists">
+            <div class="menu_item_playlists_img"></div>
+            <h2>Playlists</h2>
+        </div>
+        <!-- Queue -->
+        <div class="menu_item_queue">
+            <div class="menu_item_queue_img"></div>
+            <h2>Queue</h2>
+        </div>
+    </div>
 
     <!-- PLAYLISTS -->
     <div class="div_playlists">
         <table class="playlists" id="table_playlists">
-            <!-- ko if: playlists().length -->
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Playlist</th>
-                    <th>Tracks</th>
-                    <th>Duration</th>
+                    <th colspan = "2">Playlists</th>
                 </tr>
             </thead>
-            <!-- /ko -->
             <tbody data-bind="foreach: playlists">
                 <tr data-bind="click: selectPlaylist">
                     <th data-bind="click: startPlaylist"><img class="img_playlist"/></th>
                     <th data-bind="text: name"></th>
-                    <th data-bind="text: size"></th>
-                    <th data-bind="text: duration"></th>
                 </tr>
             </tbody>
         </table>
@@ -91,10 +101,10 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Track</th>
-                    <th>Artist</th>
-                    <th>Time</th>
-                    <th>Album</th>
+                    <th id="tracks_song">SONG</th>
+                    <th id="tracks_artist">ARTIST</th>
+                    <th id="tracks_time"></th>
+                    <th id="tacks_album">ALBUM</th>
                 </tr>
             </thead>
             <!-- /ko -->
@@ -118,6 +128,7 @@
 <script type="application/javascript" src="js/mopidy.js"></script>  <!-- This is where jQuery is loaded -->
 <script type="application/javascript" src="js/seekbar.js"></script>
 <script type="application/javascript" src="js/controls.js"></script>
+<script type="application/javascript" src="js/menu.js"></script>
 
 </body>
 </html>
