@@ -4,7 +4,7 @@
     height: 26px;
     margin: 0 auto;
     position: relative;
-    background: url('..img/seekbar-background.png') no-repeat left top;
+    /*background: url('..img/seekbar-background.png') no-repeat left top; TODO: delete seekbar-background.ong from folder*/
 }
 
 /** Seekbar **/
