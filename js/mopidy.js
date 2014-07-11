@@ -91,6 +91,10 @@ function processCurrentTimePosition(ms){
 function processCurrentTrack(track) {
     if (track) {
         currentTrack = track;
+
+        getCover(track, "#img_album_art", "src", "large");                  //lastfm.js
+//        getCover(track, '.div_tables', 'background', 'mega');                //lastfm.js
+
     } else {
         // no current track
     }
@@ -108,5 +112,9 @@ function printNowPlaying(){
 
 function processNowPlaying(track){
     var nowPlaying = track.name + " - " + track.artists[0].name;
+
+    getCover(track, "#img_album_art", "src", "large");                      //lastfm.js
+//    getCover(track, '.div_tables', 'background', 'mega');                   //lastfm.js
+
     console.log(nowPlaying);
 }

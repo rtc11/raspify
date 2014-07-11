@@ -30,6 +30,9 @@ function toggleTable(table_id) {
 
 /** Add playlist to the model */
 function addPlaylist(playlist){
+
+//    var imgPath = getCover(playlist.tracks[0], '#test_img', 'src', 'small');
+
 	self.playlists.push({
 	    name: playlist.name,
 	    duration: playlist.duration,

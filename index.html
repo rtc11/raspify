@@ -5,119 +5,142 @@
     <title>Raspify</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/tables.css"/>
-    <link rel="stylesheet" href="css/search.css"/>
     <link rel="stylesheet" href="css/controls.css"/>
-    <link rel="stylesheet" href="css/div.css"/>
-    <link rel="stylesheet" href="css/seekbar.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/main_divs.css"/>
     <link rel="stylesheet" href="css/menu.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/seekbar.css"/>
+    <link rel="stylesheet" href="css/table_playlists.css"/>
+    <link rel="stylesheet" href="css/table_tracks.css"/>
 
     <!-- Dependencies -->
     <script type="application/javascript" src="lib/jquery-2.1.0.min.js.js"></script>
     <script type="application/javascript" src="lib/jquery-ui-git.js"></script><!-- seekbar GUI -->
     <script type="application/javascript" src="lib/knockback-full-stack-0.18.4.js"></script>
     <script type="application/javascript" src="/mopidy/mopidy.min.js"></script>
+    <script type="application/javascript" src="lib/lastfm.api.cache.js"></script>
+    <script type="application/javascript" src="lib/lastfm.api.js"></script>
+    <script type="application/javascript" src="lib/lastfm.api.md5.js"></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
+<!-- 0 CONTAINER -->
+<div class="container">
 
-    <!-- HEADLINER -->
-    <div class="div_headliner">
-        <div class="headliner_logo"></div>
-        <div class="headliner_text"><h1>Raspify</h1></div>
-    </div>
+    <!-- 1 HEADER -->
+    <div class="header">
 
-    <!-- CONTROLS -->
-    <div class="div_controls">
-
-        <div class="left_side_controls">
-            <div class="previous"></div>
-            <div class="paused" id="play_pause"></div>
-            <div class="next"></div>
-            <div class="currentTime"><p id="currentTime">55:23</p></div>
+        <!-- 1.1 HEADLINER -->
+        <div class="div_headliner">
+            <div class="headliner_logo"></div>
+            <div class="headliner_text"><h1>Raspify</h1></div>
         </div>
 
-        <div class="right_side_controls">
-            <div class="totalTime"><p id="totalTime">59:42</p></div>
-            <div class="shuffle"></div>
-            <div class="repeat"></div>
+        <!-- 1.2 ALBUM ART -->
+        <div class="album_art">
+            <img id="img_album_art">
         </div>
 
-        <div class="player">
-            <div class="seekbar"></div>
+        <!-- 1.3 CONTROLS -->
+        <div class="div_controls">
+
+            <!-- 1.3.1 Left sided controls -->
+            <div class="left_side_controls">
+                <div class="previous"></div>
+                <div class="paused" id="play_pause"></div>
+                <div class="next"></div>
+                <div class="currentTime"><p id="currentTime">0m 0s</p></div>
+            </div>
+
+            <!-- 1.3.2 Right sided controls -->
+            <div class="right_side_controls">
+                <div class="totalTime"><p id="totalTime">0m 0s</p></div>
+                <div class="shuffle"></div>
+                <div class="repeat"></div>
+            </div>
+
+            <!-- 1.3.3 Seekbar container -->
+            <div class="player">
+                <div class="seekbar"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- SEARCH -->
-    <div class="div_search">
-        <input type="text" id="pub_url" name="pub_url" placeholder="search">
-    </div>
-
-</div>
-
-
-<!-- CONTENT -->
-<div class="div_tables">
-
-    <!-- MENU -->
-    <div class="menu">
-
-        <!-- Playlists -->
-        <div class="menu_item_playlists">
-            <div class="menu_item_playlists_img"></div>
-            <h2>Playlists</h2>
-        </div>
-        <!-- Queue -->
-        <div class="menu_item_queue">
-            <div class="menu_item_queue_img"></div>
-            <h2>Queue</h2>
+        <!-- 1.4 SEARCH -->
+        <div class="div_search">
+            <input type="text" id="pub_url" name="pub_url" placeholder="search" onkeypress="return parseSpotifyURI(event)">
         </div>
     </div>
 
-    <!-- PLAYLISTS -->
-    <div class="div_playlists">
-        <table class="playlists" id="table_playlists">
-            <thead>
-                <tr>
-                    <th colspan = "2">Playlists</th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: playlists">
-                <tr data-bind="click: selectPlaylist">
-                    <th data-bind="click: startPlaylist"><img class="img_playlist"/></th>
-                    <th data-bind="text: name"></th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
-    <!-- TRACKS -->
-    <div class="div_tracks">
-        <table class="tracks" id="table_tracks">
-            <!-- ko if: tracks().length -->
-            <thead>
-                <tr>
-                    <th></th>
-                    <th id="tracks_song">SONG</th>
-                    <th id="tracks_artist">ARTIST</th>
-                    <th id="tracks_time"></th>
-                    <th id="tacks_album">ALBUM</th>
-                </tr>
-            </thead>
-            <!-- /ko -->
-            <tbody data-bind="foreach: tracks">
-                <tr data-bind="click: selectTrack">
-                    <th><img class="img_track"/></th>
-                    <th data-bind="text: track"></th>
-                    <th data-bind="text: artist"></th>
-                    <th data-bind="text: time"></th>
-                    <th data-bind="text: album"></th>
-                </tr>
-            </tbody>
-        </table>
+
+    <!-- 2 CONTENT -->
+    <div class="body">
+
+        <!-- 2.1 MENU -->
+        <div class="menu">
+
+            <!-- 2.1.1 Playlists -->
+            <div class="menu_item_playlists">
+                <div class="menu_item_playlists_img"></div>
+                <h2>Playlists</h2>
+            </div>
+
+            <!-- 2.1.2 Queue -->
+            <div class="menu_item_queue">
+                <div class="menu_item_queue_img"></div>
+                <h2>Queue</h2>
+            </div>
+        </div>
+
+        <!-- 2.2 TABLES -->
+        <div class="div_tables">
+
+            <!-- 2.2.1 Playlists -->
+            <div class="div_playlists">
+                <table class="playlists" id="table_playlists">
+                    <thead>
+                        <tr>
+                            <th colspan = "2">Playlists</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: playlists">
+                        <tr data-bind="click: selectPlaylist">
+                            <th data-bind="click: startPlaylist">
+                                <img class="img_playlist"/>
+                            </th>
+                            <th data-bind="text: name"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 2.2.2 Tracks -->
+            <div class="div_tracks">
+                <table class="tracks" id="table_tracks">
+                    <!-- ko if: tracks().length -->
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th id="tracks_song">SONG</th>
+                            <th id="tracks_artist">ARTIST</th>
+                            <th id="tracks_time"></th>
+                            <th id="tacks_album">ALBUM</th>
+                        </tr>
+                    </thead>
+                    <!-- /ko -->
+                    <tbody data-bind="foreach: tracks">
+                        <tr data-bind="click: selectTrack">
+                            <th><img class="img_track"/></th>
+                            <th data-bind="text: song"></th>
+                            <th data-bind="text: artist"></th>
+                            <th id="lol" data-bind="text: time"></th>
+                            <th data-bind="text: album"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -129,6 +152,7 @@
 <script type="application/javascript" src="js/seekbar.js"></script>
 <script type="application/javascript" src="js/controls.js"></script>
 <script type="application/javascript" src="js/menu.js"></script>
+<script type="application/javascript" src="js/lastfm.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,72 @@
+@charset 'UTF-8';
+/**********************************
+*   Body
+**********************************/
+body
+{
+    color: #888;
+}
+
+/**********************************
+*   <div> CONTAINER (HEADER + BODY)
+**********************************/
+.container
+{
+    background: #111;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #DF0101; /* red */
+}
+
+/**********************************
+*   <div> HEADER
+**********************************/
+.header
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background: #111111;
+    border: 1px solid #81b71a; /* green */
+}
+
+/**********************************
+*   <div> BODY
+**********************************/
+.body
+{
+    top: 0;
+    bottom: 0;
+    border: 1px solid #0000FF; /* blue */
+    margin-top: 87px;
+}
+
+    /**********************************
+    *   <div> MENU
+    **********************************/
+    .menu
+    {
+        width: 60px;
+        background: #111111;
+        position: fixed;
+        border: 1px solid #F7FE2E; /* yellow */
+    }
+
+    /**********************************
+    *   <div> TABLES
+    **********************************/
+    .div_tables
+    {
+        right: 0;
+        bottom: 0;
+        top: 87px;
+        left: 60px;
+        float: left;
+        position: absolute;
+        border: 1px solid #FE2EF7; /* purple */
+    }

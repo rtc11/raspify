@@ -1,0 +1,86 @@
+/**********************************
+*   <div> PLAYLISTS
+**********************************/
+.div_playlists
+{
+    height: 100%;
+    float: left;
+}
+
+/**********************************
+*   <table> PLAYLISTS
+**********************************/
+table.playlists
+{
+    text-align: center;
+    float: left;
+    height: 100%;
+    max-width: 300px;
+    background: #181818;
+    border-collapse: collapse;
+}
+
+    /** HEAD */
+    table.playlists thead
+    {
+        background: #181818;
+        font-weight:bold;
+        font-size: medium;
+    }
+
+         table.playlists thead tr
+        {
+            height: 1em;
+        }
+
+    /** BODY */
+    table.playlists tbody
+    {
+        font-size: small;
+        display: block;
+        overflow: auto;
+        width: 300px;
+        height: 100%;
+    }
+
+    /** Table Data */
+    table.playlists th
+    {
+        padding: 0.2em 0.5em 0.2em 0.5em;
+        max-width: 300px;
+    }
+
+        /** Table Head - table data */
+        table.playlists thead th
+        {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+            text-align: center;
+        }
+
+    /** Table Row */
+    table.playlists tr
+    {
+        text-align: left;
+        padding: 0em 0em 0em 0em;
+        height: 4em;
+        color: #888;
+        background-color:rgba(38,38,38,0.5);
+        opacity:0.6;
+    }
+
+        /** Table Body - tr:hover */
+        table.playlists tbody tr:hover
+        {
+            background-color: #181818;
+            color: #81b71a;
+        }
+
+/**********************************
+*   <img> Playlists
+**********************************/
+.img_playlist
+{
+    content: url('../img/playlist.png');
+    width: 15px;
+    height: 15px;
+}

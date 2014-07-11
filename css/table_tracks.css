@@ -1,0 +1,101 @@
+/**********************************
+*   <div> TRACKS
+**********************************/
+.div_tracks
+{
+    height: 100%;
+    float: left;
+    left: 0;
+    right: 0;
+    margin-left: 10px;
+}
+
+/**********************************
+*   <table> TRACKS
+**********************************/
+table.tracks
+{
+    text-align: center;
+    float: left;
+    background: #181818;
+    border-collapse: collapse;
+
+}
+
+    /** HEAD */
+    table.tracks thead
+    {
+        background: #181818;
+        font-weight:bold;
+        font-size: medium;
+        display: table-header-group;
+    }
+
+         table.tracks thead tr
+        {
+            height: 1em;
+        }
+
+    /** BODY */
+    table.tracks tbody
+    {
+        position: absolute;
+        font-size: small;
+        overflow: auto;
+        top: 0;
+        bottom: 0;
+
+    }
+
+    /** Table Data */
+    table.tracks th
+    {
+        padding: 0.2em 0.5em 0.2em 0.5em;
+    }
+
+        /** Table Head - table data */
+        table.tracks thead th
+        {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+        }
+
+    /** Table Row */
+    table.tracks tr
+    {
+        text-align: left;
+        padding: 0em 0em 0em 0em;
+        height: 4em;
+        color: #888;
+        background-color:rgba(38,38,38,0.5);
+        opacity:0.6;
+    }
+
+        /** Table Body - tr:hover */
+        table.tracks tbody tr:hover
+        {
+            background-color: #181818;
+            color: #81b71a;
+        }
+
+    /** time icon */
+    #tracks_time
+    {
+        content: url('../img/time.png');
+        width: 15px;
+        height: 15px;
+    }
+
+    #lol
+    {
+        width: 5em;
+    }
+
+/**********************************
+*   <img> Tracks
+**********************************/
+.img_track
+{
+    content: url('../img/track.png');
+    width: 15px;
+    height: 15px;
+}
