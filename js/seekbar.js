@@ -38,6 +38,10 @@ function parseSpotifyURI(event){
         mopidy.tracklist.add(null, null, tb);
         mopidy.playback.play();
 
+        // Add tracks to queue list
+        mopidy.tracklist.getTlTracks()
+        .then(processGetTlTracks, consoleError);
+
         return false;
     }
 }

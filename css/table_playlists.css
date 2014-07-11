@@ -1,21 +1,12 @@
 /**********************************
-*   <div> PLAYLISTS
-**********************************/
-.div_playlists
-{
-    height: 100%;
-    float: left;
-}
-
-/**********************************
 *   <table> PLAYLISTS
 **********************************/
 table.playlists
 {
+    width: 100%;
+    height: 100%;
     text-align: center;
     float: left;
-    height: 100%;
-    max-width: 300px;
     background: #181818;
     border-collapse: collapse;
 }
@@ -37,9 +28,8 @@ table.playlists
     table.playlists tbody
     {
         font-size: small;
-        display: block;
         overflow: auto;
-        width: 300px;
+        width: 100%;
         height: 100%;
     }
 

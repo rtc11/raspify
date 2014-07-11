@@ -18,7 +18,7 @@ body
     bottom: 0;
     left: 0;
     right: 0;
-    border: 1px solid #DF0101; /* red */
+    border: 1px solid #0000FF; /* blue */
 }
 
 /**********************************
@@ -54,19 +54,32 @@ body
         width: 60px;
         background: #111111;
         position: fixed;
+        float: left;
         border: 1px solid #F7FE2E; /* yellow */
     }
 
     /**********************************
-    *   <div> TABLES
+    *   <div> PLAYLISTS
     **********************************/
-    .div_tables
+    .div_playlists
     {
-        right: 0;
+        width: 25%;
+        height: 100%;
+        top: 0;
         bottom: 0;
-        top: 87px;
-        left: 60px;
+        margin-left: 60px;
         float: left;
-        position: absolute;
-        border: 1px solid #FE2EF7; /* purple */
+        border: 1px solid #DF0101; /* red */
+    }
+
+    /**********************************
+    *   <div> TRACKS
+    **********************************/
+    .div_tracks
+    {
+        max-width: 60%;
+        height: 100%;
+        float: left;
+        margin-left: 10px;
+        border: 1px solid #DF0101; /* red */
     }

@@ -21,6 +21,10 @@ var startPlaylist = function(playlist){
     mopidy.tracklist.add(playlist.tracks);
     mopidy.tracklist.shuffle(0, playlist.length -1);
     mopidy.playback.play();
+
+    // Add tracks to queue list
+    mopidy.tracklist.getTlTracks()
+    .then(processGetTlTracks, consoleError);
 }
 
 function toggleTable(table_id) {

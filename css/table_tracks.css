@@ -1,25 +1,14 @@
 /**********************************
-*   <div> TRACKS
-**********************************/
-.div_tracks
-{
-    height: 100%;
-    float: left;
-    left: 0;
-    right: 0;
-    margin-left: 10px;
-}
-
-/**********************************
 *   <table> TRACKS
 **********************************/
 table.tracks
 {
+    width: 100%;
+    height: 100%;
     text-align: center;
     float: left;
     background: #181818;
     border-collapse: collapse;
-
 }
 
     /** HEAD */
@@ -28,7 +17,7 @@ table.tracks
         background: #181818;
         font-weight:bold;
         font-size: medium;
-        display: table-header-group;
+        /*display: table-header-group;*/
     }
 
          table.tracks thead tr
@@ -39,12 +28,10 @@ table.tracks
     /** BODY */
     table.tracks tbody
     {
-        position: absolute;
         font-size: small;
         overflow: auto;
-        top: 0;
-        bottom: 0;
-
+        width: 100%;
+        height: 100%;
     }
 
     /** Table Data */

@@ -38,6 +38,10 @@ function fetchFromMopidy() {
     // get play state
     mopidy.playback.getState()
     .then(processPlayState, consoleError);
+
+    // get the tracklist
+    mopidy.tracklist.getTlTracks()
+    .then(processGetTlTracks, consoleError);
 }
 
 /** Get playlists from Mopidy */

@@ -68,11 +68,19 @@
 
         <!-- 1.4 SEARCH -->
         <div class="div_search">
-            <input type="text" id="pub_url" name="pub_url" placeholder="search" onkeypress="return parseSpotifyURI(event)">
+            <input type="text"
+                   id="pub_url"
+                   name="pub_url"
+                   placeholder="search"
+                   onkeypress="return parseSpotifyURI(event)">
         </div>
     </div>
 
-
+    <div class="div_body">
+        <div class="div_menu"></div>
+        <div class="div_playlists"></div>
+        <div class="div_tracks"></div>
+    </div>
 
     <!-- 2 CONTENT -->
     <div class="body">
@@ -93,53 +101,49 @@
             </div>
         </div>
 
-        <!-- 2.2 TABLES -->
-        <div class="div_tables">
+        <!-- 2.2 Playlists -->
+        <div class="div_playlists">
+            <table class="playlists" id="table_playlists">
+                <thead>
+                    <tr>
+                        <th colspan = "2">Playlists</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: playlists">
+                    <tr data-bind="click: selectPlaylist">
+                        <th data-bind="click: startPlaylist">
+                            <img class="img_playlist"/>
+                        </th>
+                        <th data-bind="text: name"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <!-- 2.2.1 Playlists -->
-            <div class="div_playlists">
-                <table class="playlists" id="table_playlists">
-                    <thead>
-                        <tr>
-                            <th colspan = "2">Playlists</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: playlists">
-                        <tr data-bind="click: selectPlaylist">
-                            <th data-bind="click: startPlaylist">
-                                <img class="img_playlist"/>
-                            </th>
-                            <th data-bind="text: name"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- 2.2.2 Tracks -->
-            <div class="div_tracks">
-                <table class="tracks" id="table_tracks">
-                    <!-- ko if: tracks().length -->
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th id="tracks_song">SONG</th>
-                            <th id="tracks_artist">ARTIST</th>
-                            <th id="tracks_time"></th>
-                            <th id="tacks_album">ALBUM</th>
-                        </tr>
-                    </thead>
-                    <!-- /ko -->
-                    <tbody data-bind="foreach: tracks">
-                        <tr data-bind="click: selectTrack">
-                            <th><img class="img_track"/></th>
-                            <th data-bind="text: song"></th>
-                            <th data-bind="text: artist"></th>
-                            <th id="lol" data-bind="text: time"></th>
-                            <th data-bind="text: album"></th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- 2.3 Tracks -->
+        <div class="div_tracks">
+            <table class="tracks" id="table_tracks">
+                <!-- ko if: tracks().length -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th id="tracks_song">SONG</th>
+                        <th id="tracks_artist">ARTIST</th>
+                        <th id="tracks_time"></th>
+                        <th id="tacks_album">ALBUM</th>
+                    </tr>
+                </thead>
+                <!-- /ko -->
+                <tbody data-bind="foreach: tracks">
+                    <tr data-bind="click: selectTrack">
+                        <th><img class="img_track"/></th>
+                        <th data-bind="text: song"></th>
+                        <th data-bind="text: artist"></th>
+                        <th id="lol" data-bind="text: time"></th>
+                        <th data-bind="text: album"></th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
