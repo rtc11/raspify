@@ -29,7 +29,7 @@ $(".seekbar").slider({
 
 function parseSpotifyURI(event){
     // If key = 'enter'
-    if (e.which == 13 || e.keyCode == 13) {
+    if (event.which == 13 || event.keyCode == 13) {
 
         var tb = document.getElementById("pub_url").value;
 
