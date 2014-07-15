@@ -1,17 +1,23 @@
 Raspify
 =======
 
-/***********************************************************************************
-*   Table header:   Table bg:               Table hover:    Background:     Green:
-*   #303030         rgba(38,38,38,0.5);     #181818         #111111         #81b71a
-************************************************************************************/
+= NodeJS =
+Go to project root and run ''npm start''. This will perform the package.json preferences.
+http://nodejs.org/
 
-1. Mopidy
+== Node-Spotify ==
+The Spotify node module for searching.
+http://www.node-spotify.com/index.html
+
+= Mopidy =
+Mopidy for backend (runs on LINUX).
 http://docs.mopidy.com/en/latest/installation/
 
-2. Node.js
-http://nodejs.org/
-http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js
+== HTTP and MPD services ==
+Runs HTTP client and MPD clients
 
-3. Node-Spotify
-http://www.node-spotify.com/index.html
+= MISC =
+Colors:
+   Table header:   Table bg:               Table hover:    Background:     Green:
+   #303030         rgba(38,38,38,0.5);     #181818         #111111         #81b71a
+
