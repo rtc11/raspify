@@ -1,4 +1,4 @@
-![alt text](https://github.com/rtc11/raspify/blob/master/img/spotify_logo.png "Raspify")
+![alt text](https://raw.githubusercontent.com/rtc11/raspify/master/img/menu/playlists.png "Raspify")
 =======
 
 ## NodeJS
