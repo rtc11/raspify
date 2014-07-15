@@ -33,14 +33,21 @@ function parseSpotifyURI(event){
 
         var tb = document.getElementById("pub_url").value;
 
-        mopidy.playback.stop(true);
-        mopidy.tracklist.clear();
-        mopidy.tracklist.add(null, null, tb);
-        mopidy.playback.play();
+        if(tb.substring(0, 6) == "spotify"){
+            mopidy.playback.stop(true);
+            mopidy.tracklist.clear();
+            mopidy.tracklist.add(null, null, tb);
+            mopidy.playback.play();
 
-        // Add tracks to queue list
-        mopidy.tracklist.getTlTracks()
-        .then(processGetTlTracks, consoleError);
+            // Add tracks to queue list
+            mopidy.tracklist.getTlTracks()
+            .then(processGetTlTracks, consoleError);
+
+        }
+        else{
+            var spotify = require("../node_modules/spotify.js");
+            console.log(tb.tostring(0,6));
+        }
 
         return false;
     }

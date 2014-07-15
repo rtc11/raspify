@@ -3,12 +3,11 @@
 **********************************/
 table.tracks
 {
-    width: 100%;
-    height: 100%;
     text-align: center;
-    float: left;
-    background: #181818;
     border-collapse: collapse;
+    width: 100%;
+    float: left;
+    background: #111;
 }
 
     /** HEAD */
@@ -17,7 +16,6 @@ table.tracks
         background: #181818;
         font-weight:bold;
         font-size: medium;
-        /*display: table-header-group;*/
     }
 
          table.tracks thead tr
@@ -25,13 +23,20 @@ table.tracks
             height: 1em;
         }
 
+        table.tracks thead tr th:first-child
+        {
+            border-top-left-radius: 15px;
+        }
+        table.tracks thead tr th:nth-child(3)
+        {
+            border-top-right-radius: 15px;
+        }
+
     /** BODY */
     table.tracks tbody
     {
         font-size: small;
-        overflow: auto;
-        width: 100%;
-        height: 100%;
+        background: #111;
     }
 
     /** Table Data */
@@ -40,11 +45,11 @@ table.tracks
         padding: 0.2em 0.5em 0.2em 0.5em;
     }
 
-        /** Table Head - table data */
         table.tracks thead th
         {
             padding: 0.5em 0.5em 0.5em 0.5em;
         }
+
 
     /** Table Row */
     table.tracks tr
@@ -53,28 +58,37 @@ table.tracks
         padding: 0em 0em 0em 0em;
         height: 4em;
         color: #888;
-        background-color:rgba(38,38,38,0.5);
-        opacity:0.6;
     }
 
-        /** Table Body - tr:hover */
         table.tracks tbody tr:hover
         {
-            background-color: #181818;
+            background: #111;
             color: #81b71a;
+        }
+        /** Table Body - tr:hover */
+        table.tracks tbody tr:hover th:nth-child(3)
+        {
+            border-radius: 0 1em 1em 0;
+            color: #81b71a;
+        }
+        table.tracks tbody tr:hover th:nth-child(1)
+        {
+            border-radius: 1em 0 0 1em;
+            color: #81b71a;
+        }
+        table.tracks tbody tr:hover{
+            background: #111;
         }
 
     /** time icon */
     #tracks_time
     {
+        border: 1px solid #81b71a;
+        /*
         content: url('../img/time.png');
+        */
         width: 15px;
         height: 15px;
-    }
-
-    #lol
-    {
-        width: 5em;
     }
 
 /**********************************
