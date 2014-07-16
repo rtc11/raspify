@@ -1,0 +1,102 @@
+/**********************************
+*   <table> TRACKS
+**********************************/
+table.tracks
+{
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    float: left;
+    background: #111;
+}
+
+    /** HEAD */
+    table.tracks thead
+    {
+        background: #181818;
+        font-weight:bold;
+        font-size: medium;
+    }
+
+         table.tracks thead tr
+        {
+            height: 1em;
+        }
+
+        table.tracks thead tr th:first-child
+        {
+            border-top-left-radius: 15px;
+        }
+        table.tracks thead tr th:nth-child(3)
+        {
+            border-top-right-radius: 15px;
+        }
+
+    /** BODY */
+    table.tracks tbody
+    {
+        font-size: small;
+        background: #111;
+    }
+
+    /** Table Data */
+    table.tracks th
+    {
+        padding: 0.2em 0.5em 0.2em 0.5em;
+    }
+
+        table.tracks thead th
+        {
+            padding: 0.5em 0.5em 0.5em 0.5em;
+        }
+
+
+    /** Table Row */
+    table.tracks tr
+    {
+        text-align: left;
+        padding: 0em 0em 0em 0em;
+        height: 4em;
+        color: #888;
+    }
+
+        table.tracks tbody tr:hover
+        {
+            background: #111;
+            color: #81b71a;
+        }
+        /** Table Body - tr:hover */
+        table.tracks tbody tr:hover th:nth-child(3)
+        {
+            border-radius: 0 1em 1em 0;
+            color: #81b71a;
+        }
+        table.tracks tbody tr:hover th:nth-child(1)
+        {
+            border-radius: 1em 0 0 1em;
+            color: #81b71a;
+        }
+        table.tracks tbody tr:hover{
+            background: #111;
+        }
+
+    /** time icon */
+    #tracks_time
+    {
+        border: 1px solid #81b71a;
+        /*
+        content: url('../img/time.png');
+        */
+        width: 15px;
+        height: 15px;
+    }
+
+/**********************************
+*   <img> Tracks
+**********************************/
+.img_track
+{
+    content: url('../img/track.png');
+    width: 15px;
+    height: 15px;
+}
