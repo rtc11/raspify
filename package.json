@@ -1,1 +1,1 @@
-{ "scripts": { "start": "node js/main.js" } }
+{ "scripts": { "start": "node /home/tordly/projects/raspify/js/main.js" } }

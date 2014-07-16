@@ -45,8 +45,7 @@ function parseSpotifyURI(event){
 
         }
         else{
-            var spotify = require("../node_modules/spotify.js");
-            console.log(tb.tostring(0,6));
+            require('js/main.js').testPlaylistCount();
         }
 
         return false;
