@@ -11,6 +11,7 @@ Node Package Manager: https://www.npmjs.org/
 
 ### express
 Fast, unopinionated, minimalist web framework for node.
+Install the dependencies with **_sudo npm install_** then **_sudo npm start_**
 
 ### nodemon
 Module for monitoring changed in source and automatically restarts server.
