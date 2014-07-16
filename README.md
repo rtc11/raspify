@@ -37,9 +37,9 @@ https://developer.spotify.com/technologies/libspotify/
   _sudo apt-get install libasound2-dev_
 
 #### Compile
-We need to tell node-gyp which node module we want to make 'native'.
+We need to tell node-gyp which node module we want to 'interpret as a native'.
 Go to the root dir of the node-spotify module, e.g /usr/lib/node_modules/node-spotify and make sure that the
-_bingind.gyp_ file is present. Then perform: _sudo node-gyp configure_ and _sudo node-gyp build_.
+_binging.gyp_ file is present. Then perform: _sudo node-gyp configure_ and _sudo node-gyp build_.
 
 ### 1.1.3 nodemon
 Module for monitoring changed in source and automatically restarts server.
