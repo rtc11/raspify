@@ -5,7 +5,7 @@
 Go to project root and run **_npm start_** or **_nodemon_** for automatically serverrestart on changes in source. 
 _npm start_ will perform the package.json preferences.
 
-#### Link:
+#### Link
 http://nodejs.org/
 
 ## 1.1 Node modules
@@ -18,23 +18,28 @@ Package manager for nodejs
 ### 1.1.2 node-spotify
 Spotify module. 
 
-#### Links:
+#### Links
 http://www.node-spotify.com/index.html
 
 https://developer.spotify.com/technologies/libspotify/
 
-#### Requires:
+#### Requires
 1. Spotify Premium
 2. Libspotify (and appkey from devleoper.spotify.com
 3. Linux or OSX
 
-#### Dependencies:
+#### Dependencies
 **node-gyp** which is a native addon build tool:
   _sudo npm install -g node-gyp_ 
    
 
 **libasound2-dev** which is a required package for ALSA library (Advanced Linux Sound Architecture)   
   _sudo apt-get install libasound2-dev_
+
+#### Compile
+We need to tell node-gyp which node module we want to make 'native'.
+Go to the root dir of the node-spotify module, e.g /usr/lib/node_modules/node-spotify and make sure that the
+_bingind.gyp_ file is present. Then perform: _sudo node-gyp configure_ and _sudo node-gyp build_.
 
 ### 1.1.3 nodemon
 Module for monitoring changed in source and automatically restarts server.
