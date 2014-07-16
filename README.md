@@ -2,7 +2,10 @@
 =======
 
 # 1. NodeJS
-Go to project root and run ''npm start''. This will perform the package.json preferences.
+Go to project root and run **_npm start_** or **_nodemon_** for automatically serverrestart on changes in source. 
+_npm start_ will perform the package.json preferences.
+
+#### Link:
 http://nodejs.org/
 
 ## 1.1 Node modules
@@ -26,3 +29,4 @@ https://developer.spotify.com/technologies/libspotify/
 3. Linux or OSX
 
 ### 1.1.3 nodemon
+Module for monitoring changed in source and automatically restarts server.
