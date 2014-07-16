@@ -16,7 +16,7 @@ Node Package Module: https://www.npmjs.org/
 Package manager for nodejs
 
 ### 1.1.2 node-spotify
-Spotify module. 
+Wrapper for libspotify. It is native module mainly written in C++ and therefore requires _node-gyp_.
 
 #### Links
 http://www.node-spotify.com/index.html
@@ -29,7 +29,7 @@ https://developer.spotify.com/technologies/libspotify/
 3. Linux or OSX
 
 #### Dependencies
-**node-gyp** which is a native addon build tool:
+**node-gyp** and **libspotify** are required for building. You also need libasound2-dev.
   _sudo npm install -g node-gyp_ 
    
 
