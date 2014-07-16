@@ -34,7 +34,7 @@ https://developer.spotify.com/technologies/libspotify/
    
 
 **libasound2-dev** which is a required package for ALSA library (Advanced Linux Sound Architecture)   
-  _sudo apt-get install libasound2-dev
+  _sudo apt-get install libasound2-dev_
 
 ### 1.1.3 nodemon
 Module for monitoring changed in source and automatically restarts server.
