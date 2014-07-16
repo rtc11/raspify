@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/rtc11/raspify/master/img/menu/playlists.png "Raspify") Raspify
+![alt text](https://cdn1.iconfinder.com/data/icons/simply-8-bits-11/96/spotify.png "Raspify") Raspify
 =======
 
 # 1. NodeJS
@@ -27,6 +27,10 @@ https://developer.spotify.com/technologies/libspotify/
 1. Spotify Premium
 2. Libspotify (and appkey from devleoper.spotify.com
 3. Linux or OSX
+
+#### Dependencies:
+**node-gyp** which is a native addon build tool:
+   _sudo npm install -g node-gyp_ 
 
 ### 1.1.3 nodemon
 Module for monitoring changed in source and automatically restarts server.
