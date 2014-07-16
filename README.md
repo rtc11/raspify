@@ -1,24 +1,28 @@
 ![alt text](https://raw.githubusercontent.com/rtc11/raspify/master/img/menu/playlists.png "Raspify") Raspify
 =======
 
-## NodeJS
+# 1. NodeJS
 Go to project root and run ''npm start''. This will perform the package.json preferences.
 http://nodejs.org/
 
-### Node-Spotify
-The Spotify node module for searching.
+## 1.1 Node modules
+
+### 1.1.1 npm
+Node Package Module: https://www.npmjs.org/
+
+Package manager for nodejs
+
+### 1.1.2 node-spotify
+Spotify module. 
+
+#### Links:
 http://www.node-spotify.com/index.html
 
-## Mopidy
-Mopidy for backend (runs on LINUX).
-http://docs.mopidy.com/en/latest/installation/
+https://developer.spotify.com/technologies/libspotify/
 
-### HTTP and MPD services
-Runs HTTP client and MPD clients
+#### Requires:
+1. Spotify Premium
+2. Libspotify (and appkey from devleoper.spotify.com
+3. Linux or OSX
 
-## MISC
-------
-Colors:
-   Table header:   Table bg:               Table hover:    Background:     Green:
-   #303030         rgba(38,38,38,0.5);     #181818         #111111         #81b71a
-------
+### 1.1.3 nodemon
