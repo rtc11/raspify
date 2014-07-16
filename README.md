@@ -12,6 +12,9 @@ Node Package Manager: https://www.npmjs.org/
 ### express
 Fast, unopinionated, minimalist web framework for node.
 
+### nodemon
+Module for monitoring changed in source and automatically restarts server.
+
 ### node-spotify
 Wrapper for libspotify. It is native module mainly written in C++ and therefore requires _node-gyp_.
 http://www.node-spotify.com/index.html
@@ -28,10 +31,7 @@ http://www.node-spotify.com/index.html
 **libasound2-dev** which is a required package for ALSA library (Advanced Linux Sound Architecture)   
   _sudo apt-get install libasound2-dev_
 
-### nodemon
-Module for monitoring changed in source and automatically restarts server.
-
-# Compile
+## Compile
 We need to tell node-gyp which node module we want to 'interpret as a native'.
 Go to the root dir of the node-spotify module, e.g /usr/lib/node_modules/node-spotify and make sure that the
 _binging.gyp_ file is present. Then perform: _sudo node-gyp configure_ and _sudo node-gyp build_.
